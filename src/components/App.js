@@ -16,12 +16,26 @@ class App extends React.Component {
     this.state = {
       currentPage: 1,
       windowWidth: window.innerWidth,
+      trigger: false,
+      close: {transform: 'translateX(350px)'},
+      open: {transform: 'translateX(0)', visibility: 'visible'}
     };
     this._pageScroller = null;
   }
 
+  buttonHandler = () => {
+    const triggerer = this.state.trigger;
+    this.setState({
+      trigger: !triggerer
+    });
+  };
+
   pageOnChange = (number) => {
     this.setState({currentPage: number});
+  };
+
+  goToPage = (eventKey) => {
+    this._pageScroller.goToPage(eventKey);
   };
 
   breakPoint = () => {
@@ -39,14 +53,15 @@ class App extends React.Component {
 
 
   render() {
+    const {trigger, open, close} = this.state;
     if (this.state.windowWidth > 600) {
       return (
         <div className="app-content">
           <SEO title="Home"/>
-          <Menu/>
+          <Menu button={this.buttonHandler} goToPage={this.goToPage} style={trigger ? open : close}/>
           <ReactPageScroller ref={c => this._pageScroller = c} pageOnChange={this.pageOnChange} animationTimer={500}
                              containerWidth={this.breakPoint()} containerHeight={'800px'}>
-            <Home/>
+            <Home button={this.buttonHandler}/>
             <Portfolio/>
             <Contact/>
           </ReactPageScroller>

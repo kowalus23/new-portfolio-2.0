@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap&subset=latin-ext');
+
 html {
-  font-family: sans-serif;
+font-family: 'Roboto', sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
@@ -13,7 +15,6 @@ body {
   *, *::after, *::before {
     box-sizing: border-box;
   }
-
 }
 
 .app-content {
