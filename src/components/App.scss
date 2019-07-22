@@ -1,0 +1,54 @@
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+
+  *, *::after, *::before {
+    box-sizing: border-box;
+  }
+
+}
+
+.app-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+
+  .menu-desktop {
+    visibility: hidden;
+    transition: all 300ms ease-in-out;
+    height: 100vh;
+    width: 350px;
+    transform: translateX(350px);
+    background-color: #fdf4ec;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 10;
+    box-shadow: -10px 0 20px rgba(0, 0, 0, 0.25);
+  }
+
+  .home-container {
+    border: 1px solid red;
+    height: 100%;
+  }
+
+  .portfolio-container {
+    border: 1px solid blue;
+    height: 100%;
+  }
+
+  .contact-container {
+    border: 1px solid green;
+    height: 100%;
+  }
+}
