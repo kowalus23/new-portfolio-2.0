@@ -1,11 +1,11 @@
 import React from "react"
 import ReactPageScroller from "react-page-scroller";
 
-import Home from "../components/Home"
-import SEO from "../components/seo"
-import Menu from "../components/Menu";
-import Portfolio from "../components/Portfolio";
-import Contact from "../components/Contact";
+import Home from "./Home"
+import SEO from "./seo"
+import Menu from "./Menu";
+import Portfolio from "./Portfolio";
+import Contact from "./Contact";
 
 import "./App.scss"
 
@@ -16,7 +16,7 @@ class App extends React.Component {
     this.state = {
       currentPage: 1,
       windowWidth: window.innerWidth,
-      trigger: false,
+      toggle: false,
       close: {transform: 'translateX(350px)'},
       open: {transform: 'translateX(0)', visibility: 'visible'}
     };
@@ -24,9 +24,10 @@ class App extends React.Component {
   }
 
   buttonHandler = () => {
-    const triggerer = this.state.trigger;
+    const {toggle} = this.state;
+    const trigger = {toggle};
     this.setState({
-      trigger: !triggerer
+      toggle: !trigger
     });
   };
 
@@ -51,26 +52,25 @@ class App extends React.Component {
     }
   };
 
-
   render() {
-    const {trigger, open, close} = this.state;
-    if (this.state.windowWidth > 600) {
+    const {toggle, open, close, windowWidth, currentPage} = this.state;
+    if (windowWidth > 600) {
       return (
         <div className="app-content">
           <SEO title="Home"/>
-          <Menu button={this.buttonHandler} goToPage={this.goToPage} style={trigger ? open : close}/>
+          <Menu button={this.buttonHandler} goToPage={this.goToPage} style={toggle ? open : close}/>
           <ReactPageScroller ref={c => this._pageScroller = c} pageOnChange={this.pageOnChange} animationTimer={500}
-                             containerWidth={this.breakPoint()} containerHeight={'800px'}>
-            <Home button={this.buttonHandler}/>
-            <Portfolio/>
-            <Contact/>
+                             containerWidth={this.breakPoint()} containerHeight='800px'>
+            <Home currentPage={{currentPage}} button={this.buttonHandler}/>
+            <Portfolio currentPage={{currentPage}}/>
+            <Contact currentPage={{currentPage}}/>
           </ReactPageScroller>
         </div>
       );
     } else {
       return (
         <div className="mobile-app-content">
-          <h1>I'm mobile!</h1>
+          <h1>Im mobile!</h1>
         </div>
       )
     }
