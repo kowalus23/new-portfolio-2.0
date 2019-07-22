@@ -25,9 +25,8 @@ class App extends React.Component {
 
   buttonHandler = () => {
     const {toggle} = this.state;
-    const trigger = {toggle};
     this.setState({
-      toggle: !trigger
+      toggle: !toggle
     });
   };
 

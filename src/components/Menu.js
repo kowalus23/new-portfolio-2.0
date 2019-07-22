@@ -1,6 +1,5 @@
 import React from "react"
 import {Pager} from "react-bootstrap";
-import PropTypes from 'prop-types';
 
 class Menu extends React.Component {
   constructor(props) {
@@ -26,9 +25,9 @@ class Menu extends React.Component {
     return (
       <div className="menu-desktop" style={{...style}}>
         <h1>Menu</h1>
-        <div role="button" tabIndex="0" className="hamburger-menu"
+        <div role="button" tabIndex="-2" className="hamburger-menu"
              onKeyPress={keyHandler}
-             onClick={() => button}>
+             onClick={button}>
           Hamburger
         </div>
         <Pager>
@@ -38,19 +37,5 @@ class Menu extends React.Component {
     );
   }
 }
-
-Menu.propTypes = {
-  goToPage: PropTypes.func,
-  button: PropTypes.func,
-  style: PropTypes.objectOf(PropTypes.string),
-  keyHandler: PropTypes.func,
-};
-
-Menu.defaultProps = {
-  goToPage: PropTypes.func,
-  button: PropTypes.func,
-  style: PropTypes.objectOf(PropTypes.string),
-  keyHandler: PropTypes.func,
-};
 
 export default Menu
