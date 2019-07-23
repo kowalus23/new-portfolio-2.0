@@ -30,6 +30,39 @@ h1, h2, h3, p {
   margin: 0;
 }
 
+@mixin sideContent {
+  .side-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    .page-bar {
+      margin: 15px 0;
+      height: 300px;
+      width: 6px;
+      border: 1px solid $border-color;
+      background-color: $content-name-color;
+
+      &:before {
+        position: absolute;
+        content: '';
+        background-color: $text-color;
+        width: 4px;
+        height: 100px;
+      }
+    }
+
+    .icons {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+
 .app-content {
   display: flex;
   justify-content: center;
@@ -84,36 +117,7 @@ h1, h2, h3, p {
       top: -68px;
     }
 
-    .side-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      position: absolute;
-      left: 0;
-      bottom: 0;
-
-      .page-bar {
-        margin: 15px 0;
-        height: 300px;
-        width: 6px;
-        border: 1px solid $border-color;
-        background-color: $content-name-color;
-
-        &:before {
-          position: absolute;
-          content: '';
-          background-color: $text-color;
-          width: 4px;
-          height: 100px;
-        }
-      }
-
-      .icons {
-        margin-top: 20px;
-        display: flex;
-        flex-direction: column;
-      }
-    }
+    @include sideContent;
 
     .hero-content {
       max-width: 470px;
@@ -140,13 +144,65 @@ h1, h2, h3, p {
   }
 
   .portfolio-container {
-    background-color: $second-main-color;
+    background-color: $first-main-color;
     height: 100%;
+
+    .content--name {
+      color: $content-name-color;
+      font-size: 16em;
+      left: -16px;
+      top: -54px;
+    }
+
+    @include sideContent;
+
+    .col-100 {
+      width: 100%;
+      padding: 40px;
+      display: flex;
+      flex-wrap: wrap;
+
+      .portfolio-card {
+        width: calc(290px - 60px);
+        margin: 25px;
+        height: 300px;
+
+        &:hover {
+          .portfolio-card--inner {
+              transform: rotateY(180deg) scale(1.2);
+          }
+        }
+
+        .portfolio-card--inner {
+          position: relative;
+          background: linear-gradient(-45deg, $second-main-color 75%, $first-main-color 25%);
+          width: 100%;
+          height: 100%;
+          transition: transform 1s;
+          transform-style: preserve-3d;
+          box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
+
+          &--front {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+          }
+
+          &--back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
   }
 
   .contact-container {
-    background-color: $first-main-color;
+    background-color: $second-main-color;
     height: 100%;
+
+    @include sideContent;
   }
 }
 
@@ -299,7 +355,7 @@ h1, h2, h3, p {
       }
     }
 
-    &:hover {
+    &:hover, &:focus {
       .hamburger-menu--stripes {
         &:before {
           right: 12px;
@@ -335,7 +391,7 @@ h1, h2, h3, p {
       z-index: -1;
     }
 
-    &:hover {
+    &:hover, &:focus {
       &:before {
         width: 70px;
         height: 40px;
@@ -393,7 +449,7 @@ a {
     font-size: 1.5em;
   }
 
-  &:hover {
+  &:hover, &:focus {
     background-color: darken($third-main-color, 10%);
   }
 }
@@ -417,13 +473,13 @@ a {
 .helper-info + div > div:focus::after {
   position: absolute;
   content: '';
-  bottom: -50px;
+  top: -50px;
   right: -50px;
   width: 50px;
   height: 50px;
   border: 5px solid #fef4ec;
   border-left: none;
-  border-top: none;
+  border-bottom: none;
   opacity: 0.8;
 
   animation: mainFocusBottom infinite alternate 600ms;
@@ -431,11 +487,11 @@ a {
 
 @keyframes mainFocusBottom {
   from {
-    bottom: -50px;
+    top: -50px;
     right: -50px;
   }
   to {
-    bottom: -25px;
+    top: -25px;
     right: -25px;
   }
 }

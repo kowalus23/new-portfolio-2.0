@@ -45,7 +45,6 @@ const Home = ({ button, keyHandler, goToPage, currentPage }) => {
                   href="https://www.facebook.com/kowalus23"
                   target="_blank"
                 >
-                  {' '}
                   <FacebookLogo style={iconsStyle} />
                 </a>
                 <a
