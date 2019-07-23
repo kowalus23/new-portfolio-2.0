@@ -1,5 +1,6 @@
 import React from "react"
 import {Pager} from "react-bootstrap";
+import Home from "./Home"
 
 class Menu extends React.Component {
   constructor(props) {
