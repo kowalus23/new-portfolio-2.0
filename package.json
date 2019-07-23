@@ -44,7 +44,8 @@
     "stylelint-config-recommended": "^2.2.0",
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-processor-styled-components": "^1.6.0",
-    "stylelint-webpack-plugin": "^0.10.5"
+    "stylelint-webpack-plugin": "^0.10.5",
+    "svg-react-loader": "^0.4.6"
   },
   "keywords": [
     "gatsby"
