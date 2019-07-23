@@ -39,7 +39,7 @@ class App extends React.Component {
   };
 
   goToPage = eventKey => {
-    this._pageScroller.goToPage(eventKey);
+    return this._pageScroller.goToPage(eventKey);
   };
 
   breakPoint = () => {
@@ -80,7 +80,11 @@ class App extends React.Component {
               containerWidth={this.breakPoint()}
               containerHeight="800px"
             >
-              <Home currentPage={{ currentPage }} button={this.buttonHandler} />
+              <Home
+                goToPage={this.goToPage}
+                currentPage={{ currentPage }}
+                button={this.buttonHandler}
+              />
               <Portfolio currentPage={{ currentPage }} />
               <Contact currentPage={{ currentPage }} />
             </ReactPageScroller>

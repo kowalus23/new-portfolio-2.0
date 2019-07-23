@@ -5,3 +5,26 @@
  */
 
 // You can delete this file if you're not using it
+
+// exports.onCreateWebpackConfig = ({ actions, }) => {
+//   actions.setWebpackConfig({
+//     module: {
+//       loaders: [
+//         {
+//           test: /\.svg$/,
+//           exclude: /node_modules/,
+//           use: {
+//             loader: 'svg-react-loader',
+//             options: {
+//               tag: 'symbol',
+//               attrs: {
+//                 title: 'example',
+//               },
+//               name: 'MyIcon',
+//             },
+//           },
+//         }
+//       ]
+//     }
+//   })
+// };
