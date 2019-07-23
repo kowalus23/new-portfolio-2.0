@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap&subset=latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,400,700&display=swap&subset=latin-ext');
 
 html {
   font-family: 'Roboto', sans-serif;
@@ -21,6 +21,8 @@ $first-main-color: #EAF1FB;
 $second-main-color: #FDF4EC;
 $third-main-color: #BDCADA;
 $text-color: #2B2B29;
+$content-name-color: #FFFFFF;
+$button-name-color: $content-name-color;
 $border-color: #D9D9D9;
 
 h1, h2, h3, p {
@@ -55,14 +57,54 @@ h1, h2, h3, p {
 
     .helper-info {
       position: absolute;
-      top: -10%;
+      top: -20%;
       left: 0;
+
+      &--text {
+        color: $second-main-color;
+        font-weight: 100;
+        font-size: 2.8em
+      }
+
+      & + div {
+        transition: width 300ms ease-in-out;
+      }
     }
   }
 
   .home-container {
     background: linear-gradient(to right, $first-main-color 75%, $second-main-color 25%);
     height: 100%;
+
+    .content--name {
+      color: $content-name-color;
+      font-size: 20em;
+      left: -20px;
+      top: -68px;
+    }
+
+    .hero-content {
+      max-width: 470px;
+      position: relative;
+      top: 12%;
+      left: 5%;
+      z-index: 5;
+
+      h1 {
+        font-size: 3.2em;
+        color: $text-color;
+
+        span {
+          font-size: 1.3em;
+        }
+      }
+    }
+
+    .home-logo {
+      position: relative;
+      left: -10%;
+      z-index: 1;
+    }
   }
 
   .portfolio-container {
@@ -78,4 +120,191 @@ h1, h2, h3, p {
 
 .content {
   padding: 40px;
+  height: 100%;
+  position: relative;
+
+  &--name {
+    position: absolute;
+  }
+
+  .author {
+    position: absolute;
+    font-weight: 700;
+    font-size: 1.2em;
+    color: $text-color;
+  }
+
+  .hamburger-menu {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 20px;
+    width: 34px;
+    cursor: pointer;
+
+    &--stripes {
+      position: relative;
+      top: 0;
+      right: 0;
+      width: 34px;
+      height: 3px;
+      background-color: $text-color;
+
+      &:before {
+        position: absolute;
+        content: '';
+        right: 0;
+        top: 8px;
+        width: 22px;
+        height: 3px;
+        background-color: $text-color;
+      }
+
+      &:after {
+        position: absolute;
+        content: '';
+        right: 0;
+        top: 16px;
+        width: 14px;
+        height: 3px;
+        background-color: $text-color;
+      }
+    }
+
+    &:hover {
+      .hamburger-menu--stripes {
+        &:before, &:after {
+          left: 0;
+        }
+      }
+    }
+  }
+
+  .about {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+
+    text-decoration: none;
+    font-weight: 700;
+    color: $text-color;
+
+    &:before {
+      transition: all ease-in-out 300ms;
+      width: 60px;
+      height: 30px;
+      left: -25px;
+      cursor: default;
+      bottom: -12px;
+      content: '';
+      background-color: $first-main-color;
+      position: absolute;
+      z-index: -1;
+    }
+
+    &:hover {
+      &:before {
+        width: 70px;
+        height: 40px;
+        left: -10px;
+        bottom: -11px;
+      }
+    }
+  }
+
+  .row {
+    display: flex;
+    height: 100%;
+    position: relative;
+
+    .col-60 {
+      width: 60%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .col-40 {
+      width: 40%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+// buttons
+.btn {
+  background-color: $third-main-color;
+  border: none;
+  border-radius: 3px;
+  color: $button-name-color;
+  transition: background-color ease-in-out 200ms;
+  cursor: pointer;
+
+  &.button-portfolio {
+    margin-top: 1em;
+    padding: 0.6em 3.5em;
+    font-size: 1.5em;
+  }
+
+  &:hover {
+    background-color: darken($third-main-color, 10%);
+  }
+}
+
+// Animation for component focus
+.helper-info + div > div:focus::before {
+  position: absolute;
+  content: '';
+  top: -50px;
+  left: -50px;
+  width: 50px;
+  height: 50px;
+  border: 5px solid #fef4ec;
+  border-right: none;
+  border-bottom: none;
+  opacity: 0.8;
+
+  animation: mainFocusTop infinite alternate 600ms;
+}
+
+.helper-info + div > div:focus::after {
+  position: absolute;
+  content: '';
+  bottom: -50px;
+  right: -50px;
+  width: 50px;
+  height: 50px;
+  border: 5px solid #fef4ec;
+  border-left: none;
+  border-top: none;
+  opacity: 0.8;
+
+  animation: mainFocusBottom infinite alternate 600ms;
+}
+
+@keyframes mainFocusBottom {
+  from {
+    bottom: -50px;
+    right: -50px;
+  }
+  to {
+    bottom: -25px;
+    right: -25px;
+  }
+}
+
+@keyframes mainFocusTop {
+  from {
+    top: -50px;
+    left: -50px;
+  }
+  to {
+    top: -25px;
+    left: -25px;
+  }
 }
