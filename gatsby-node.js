@@ -20,7 +20,7 @@
 //               attrs: {
 //                 title: 'example',
 //               },
-//               name: 'MyIcon',
+//               name: 'Logo',
 //             },
 //           },
 //         }

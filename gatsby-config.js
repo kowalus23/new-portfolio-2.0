@@ -6,13 +6,28 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-styled-components`,
-    `gatsby-remark-copy-linked-files`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     `gatsby-plugin-sass`,
-    `gatsby-plugin-eslint`,
-    `gatsby-plugin-react-svg`,
+    {
+      resolve: 'gatsby-plugin-stylelint',
+      options: { files: ['**/*.js'] },
+    },
+    {
+      resolve: 'gatsby-plugin-eslint',
+      options: {
+        test: /\.js$/,
+        exclude: /(node_modules|cache|public)/,
+        options: {
+          emitWarning: true,
+          failOnError: false,
+        },
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-styled-components',
+      options: {
+        displayName: true,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -23,15 +38,11 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-react-svg',
       options: {
+        jsx: true,
         rule: {
           include: /assets/,
         },
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    // this (optional) plugin enables Progressive Web Home + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
   ],
 };

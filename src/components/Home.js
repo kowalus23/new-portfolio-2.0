@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import Logo from '../assets/logo.svg';
 
 const homeTexts = {
   author: 'Patryk Kowalski',
@@ -51,7 +52,9 @@ const Home = ({ button, keyHandler, goToPage, currentPage }) => {
             </div>
           </div>
           <div className="col-40">
-            <div className="home-logo">Logo</div>
+            <div className="home-logo">
+              <Logo />
+            </div>
           </div>
           <Link className="about" to="/about/">
             {about}
