@@ -35,7 +35,9 @@ class App extends React.Component {
   };
 
   pageOnChange = number => {
-    this.setState({ currentPage: number });
+    setTimeout(() => {
+      this.setState({ currentPage: number });
+    }, 500);
   };
 
   goToPage = eventKey => {
@@ -85,7 +87,10 @@ class App extends React.Component {
                 currentPage={{ currentPage }}
                 button={this.buttonHandler}
               />
-              <Portfolio currentPage={{ currentPage }} />
+              <Portfolio
+                button={this.buttonHandler}
+                currentPage={{ currentPage }}
+              />
               <Contact currentPage={{ currentPage }} />
             </ReactPageScroller>
           </div>

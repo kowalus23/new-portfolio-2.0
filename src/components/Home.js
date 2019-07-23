@@ -1,14 +1,23 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import Logo from '../assets/logo.svg';
+import FacebookLogo from '../assets/facebook.svg';
+import LinkedinLogo from '../assets/linkedin.svg';
+import GithubLogo from '../assets/github.svg';
 
-const homeTexts = {
+export const homeTexts = {
   author: 'Patryk Kowalski',
   component: 'Home',
   about: 'o mnie',
   welcome: 'Miło, że zawitałeś na moją strone',
   hi: 'Cześć!',
   buttonName: 'Portfolio',
+};
+
+export const iconsStyle = {
+  height: '25px',
+  width: '25px',
+  marginTop: '8px',
 };
 
 const Home = ({ button, keyHandler, goToPage, currentPage }) => {
@@ -31,9 +40,28 @@ const Home = ({ button, keyHandler, goToPage, currentPage }) => {
               <div className="page-bar" />
               <p className="counter">03</p>
               <div className="icons">
-                <p>F</p>
-                <p>Li</p>
-                <p>Git</p>
+                <a
+                  rel="noopener noreferrer"
+                  href="https://www.facebook.com/kowalus23"
+                  target="_blank"
+                >
+                  {' '}
+                  <FacebookLogo style={iconsStyle} />
+                </a>
+                <a
+                  rel="noopener noreferrer"
+                  href="https://www.linkedin.com/in/patryk-kowalski"
+                  target="_blank"
+                >
+                  <LinkedinLogo style={iconsStyle} />
+                </a>
+                <a
+                  rel="noopener noreferrer"
+                  href="https://github.com/kowalus23"
+                  target="_blank"
+                >
+                  <GithubLogo style={iconsStyle} />
+                </a>
               </div>
             </div>
             <div className="hero-content">

@@ -1,10 +1,21 @@
 import React from 'react';
 import { Pager } from 'react-bootstrap';
+import FacebookLogo from '../assets/facebook.svg';
+import LinkedinLogo from '../assets/linkedin.svg';
+import GithubLogo from '../assets/github.svg';
+import { iconsStyle } from './Home';
 
 const menuTexts = {
   home: 'Home',
   portfolio: 'Portfolio',
   contact: 'Kontakt',
+};
+
+const menuIconsStyle = {
+  ...iconsStyle,
+  marginTop: 0,
+  height: '50px',
+  width: '50px',
 };
 
 class Menu extends React.Component {
@@ -48,9 +59,27 @@ class Menu extends React.Component {
             <Pager>{pagesNumbers}</Pager>
           </div>
           <div className="menu-desktop--content__bottom">
-            <p>Facebook</p>
-            <p>Linkedin</p>
-            <p>Github</p>
+            <a
+              rel="noopener noreferrer"
+              href="https://www.facebook.com/kowalus23"
+              target="_blank"
+            >
+              <FacebookLogo style={menuIconsStyle} />
+            </a>
+            <a
+              rel="noopener noreferrer"
+              href="https://www.linkedin.com/in/patryk-kowalski"
+              target="_blank"
+            >
+              <LinkedinLogo style={menuIconsStyle} />
+            </a>
+            <a
+              rel="noopener noreferrer"
+              href="https://github.com/kowalus23"
+              target="_blank"
+            >
+              <GithubLogo style={menuIconsStyle} />
+            </a>
           </div>
         </div>
       </div>
