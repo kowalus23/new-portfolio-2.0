@@ -2,6 +2,7 @@ import React from 'react';
 import FacebookLogo from '../assets/facebook.svg';
 import LinkedinLogo from '../assets/linkedin.svg';
 import GithubLogo from '../assets/github.svg';
+import { projectsInfo } from './projects';
 
 export const portfolioTexts = {
   author: 'Patryk Kowalski',
@@ -17,6 +18,70 @@ export const iconsStyle = {
 const Portfolio = ({ button, currentPage, keyHandler }) => {
   const { author, component } = portfolioTexts;
   const componentName = component.toUpperCase();
+
+  const cards = projectsInfo.map(({ id, content }) => {
+    const technologies = content.technologies.map(technology => {
+      return (
+        <p
+          key={technology}
+          className="portfolio-card--inner__back-technologies"
+        >
+          {technology}
+        </p>
+      );
+    });
+    return (
+      <div className="portfolio-card" key={id}>
+        <div className="portfolio-card--inner">
+          <div className="portfolio-card--inner__front">
+            <h3 className="portfolio-card--inner__front-title">
+              {content.title}
+            </h3>
+            <div
+              style={{
+                width: '100%',
+                height: '100px',
+                backgroundColor: 'white',
+                margin: '10px 0',
+              }}
+            >
+              IMAGE
+            </div>
+            <p className="portfolio-card--inner__front-description">
+              {content.description}
+            </p>
+          </div>
+          <div className="portfolio-card--inner__back">
+            <h3 className="portfolio-card--inner__back-title">
+              {content.title}
+            </h3>
+            <div className="flex-helper">
+              <p className="portfolio-card--inner__back-description">
+                {content.description}
+              </p>
+              <div>{technologies}</div>
+              <div className="portfolio-buttons">
+                <a
+                  href={`${content.github}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  github
+                </a>
+                <a
+                  href={`${content.github}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  live view
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  });
 
   return (
     <div className="portfolio-container">
@@ -53,19 +118,7 @@ const Portfolio = ({ button, currentPage, keyHandler }) => {
                 </a>
               </div>
             </div>
-            <div className="portfolio-card">
-              <div className="portfolio-card--inner">
-                <div className="portfolio-card--inner__front">Front 1</div>
-                <div className="portfolio-card--inner__back">Back 1</div>
-              </div>
-            </div>
-            <div className="portfolio-card">2</div>
-            <div className="portfolio-card">3</div>
-            <div className="portfolio-card">4</div>
-            <div className="portfolio-card">5</div>
-            <div className="portfolio-card">6</div>
-            <div className="portfolio-card">7</div>
-            <div className="portfolio-card">8</div>
+            {cards}
           </div>
           <div
             role="button"
