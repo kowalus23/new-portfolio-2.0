@@ -1,30 +1,27 @@
 import React from 'react';
-import FacebookLogo from '../assets/facebook.svg';
-import LinkedinLogo from '../assets/linkedin.svg';
-import GithubLogo from '../assets/github.svg';
-import { projectsInfo } from './projects';
+import FacebookLogo from '../../assets/facebook.svg';
+import LinkedinLogo from '../../assets/linkedin.svg';
+import GithubLogo from '../../assets/github.svg';
+import HomeButton from '../../assets/home.svg';
+import { projectsInfo } from '../projects';
+import { iconLinks, iconsStyle, homeButton } from '../additional-variables';
+import { portfolioTexts } from '../component-texts';
 
-export const portfolioTexts = {
-  author: 'Patryk Kowalski',
-  component: 'Portfolio',
-};
-
-export const iconsStyle = {
-  height: '25px',
-  width: '25px',
-  marginTop: '8px',
-};
-
-const Portfolio = ({ button, currentPage, keyHandler }) => {
+const Portfolio = ({ button, currentPage, goToPage }) => {
   const { author, component } = portfolioTexts;
+  const { github, facebook, linkedin } = iconLinks;
   const componentName = component.toUpperCase();
+
+  const switchPage = (number = 0) => {
+    return goToPage(number);
+  };
 
   const cards = projectsInfo.map(({ id, content }) => {
     const technologies = content.technologies.map(technology => {
       return (
         <p
           key={technology}
-          className="portfolio-card--inner__back-technologies"
+          className="portfolio-card--inner__front-technologies"
         >
           {technology}
         </p>
@@ -32,24 +29,13 @@ const Portfolio = ({ button, currentPage, keyHandler }) => {
     });
     return (
       <div className="portfolio-card" key={id}>
-        <div className="portfolio-card--inner">
+        <div key={id} className="portfolio-card--inner">
           <div className="portfolio-card--inner__front">
             <h3 className="portfolio-card--inner__front-title">
               {content.title}
             </h3>
-            <div
-              style={{
-                width: '100%',
-                height: '100px',
-                backgroundColor: 'white',
-                margin: '10px 0',
-              }}
-            >
-              IMAGE
-            </div>
-            <p className="portfolio-card--inner__front-description">
-              {content.description}
-            </p>
+            <div className="portfolio-card--inner__front-image" />
+            <div>{technologies}</div>
           </div>
           <div className="portfolio-card--inner__back">
             <h3 className="portfolio-card--inner__back-title">
@@ -59,7 +45,6 @@ const Portfolio = ({ button, currentPage, keyHandler }) => {
               <p className="portfolio-card--inner__back-description">
                 {content.description}
               </p>
-              <div>{technologies}</div>
               <div className="portfolio-buttons">
                 <a
                   href={`${content.github}`}
@@ -95,39 +80,37 @@ const Portfolio = ({ button, currentPage, keyHandler }) => {
               <div className="page-bar" />
               <p className="counter">03</p>
               <div className="icons">
-                <a
-                  rel="noopener noreferrer"
-                  href="https://www.facebook.com/kowalus23"
-                  target="_blank"
-                >
+                <a rel="noopener noreferrer" href={facebook} target="_blank">
                   <FacebookLogo style={iconsStyle} />
                 </a>
-                <a
-                  rel="noopener noreferrer"
-                  href="https://www.linkedin.com/in/patryk-kowalski"
-                  target="_blank"
-                >
+                <a rel="noopener noreferrer" href={linkedin} target="_blank">
                   <LinkedinLogo style={iconsStyle} />
                 </a>
-                <a
-                  rel="noopener noreferrer"
-                  href="https://github.com/kowalus23"
-                  target="_blank"
-                >
+                <a rel="noopener noreferrer" href={github} target="_blank">
                   <GithubLogo style={iconsStyle} />
                 </a>
               </div>
             </div>
             {cards}
+            <div className="circle" />
           </div>
           <div
             role="button"
             tabIndex="0"
             className="hamburger-menu"
-            onKeyPress={keyHandler}
+            onKeyPress={button}
             onClick={button}
           >
             <div className="hamburger-menu--stripes" />
+          </div>
+          <div
+            onClick={() => switchPage(0)}
+            onKeyPress={switchPage}
+            className="home-button"
+            role="button"
+            tabIndex="0"
+          >
+            <HomeButton style={homeButton} />
           </div>
         </div>
       </div>

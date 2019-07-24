@@ -1,21 +1,14 @@
 import React from 'react';
 import { Pager } from 'react-bootstrap';
-import FacebookLogo from '../assets/facebook.svg';
-import LinkedinLogo from '../assets/linkedin.svg';
-import GithubLogo from '../assets/github.svg';
-import { iconsStyle } from './Home';
+import FacebookLogo from '../../assets/facebook.svg';
+import LinkedinLogo from '../../assets/linkedin.svg';
+import GithubLogo from '../../assets/github.svg';
+import { iconLinks, menuIconsStyle } from '../additional-variables';
 
 const menuTexts = {
   home: 'Home',
   portfolio: 'Portfolio',
   contact: 'Kontakt',
-};
-
-const menuIconsStyle = {
-  ...iconsStyle,
-  marginTop: 0,
-  height: '50px',
-  width: '50px',
 };
 
 class Menu extends React.Component {
@@ -29,15 +22,16 @@ class Menu extends React.Component {
     const pageNumbers = [];
     for (let i = 1; i <= 3; i++) {
       pageNumbers.push(
-        <Pager.Item key={i} eventKey={i - 1} onSelect={goToPage}>
+        <Pager.Item key={i} tabIndex="-1" eventKey={i - 1} onSelect={goToPage}>
           {i === 1 ? home : i === 2 ? portfolio : i === 3 ? contact : null}
-        </Pager.Item>
+        </Pager.Item>,
       );
     }
     return [...pageNumbers];
   };
 
   render() {
+    const {github, linkedin, facebook} = iconLinks;
     const { style, button, keyHandler } = this.props;
     let pagesNumbers = this.getPagesNumbers();
     return (
@@ -52,7 +46,7 @@ class Menu extends React.Component {
               onKeyPress={keyHandler}
               onClick={button}
             >
-              <div className="hamburger-menu--cross" />
+              <div className="hamburger-menu--cross"/>
             </div>
           </div>
           <div className="menu-desktop--content__middle">
@@ -61,24 +55,24 @@ class Menu extends React.Component {
           <div className="menu-desktop--content__bottom">
             <a
               rel="noopener noreferrer"
-              href="https://www.facebook.com/kowalus23"
+              href={facebook}
               target="_blank"
             >
-              <FacebookLogo style={menuIconsStyle} />
+              <FacebookLogo style={menuIconsStyle}/>
             </a>
             <a
               rel="noopener noreferrer"
-              href="https://www.linkedin.com/in/patryk-kowalski"
+              href={linkedin}
               target="_blank"
             >
-              <LinkedinLogo style={menuIconsStyle} />
+              <LinkedinLogo style={menuIconsStyle}/>
             </a>
             <a
               rel="noopener noreferrer"
-              href="https://github.com/kowalus23"
+              href={github}
               target="_blank"
             >
-              <GithubLogo style={menuIconsStyle} />
+              <GithubLogo style={menuIconsStyle}/>
             </a>
           </div>
         </div>

@@ -1,11 +1,10 @@
 import React from 'react';
 import ReactPageScroller from 'react-page-scroller';
 
-import Home from './Home';
-import SEO from './seo';
-import Menu from './Menu';
-import Portfolio from './Portfolio';
-import Contact from './Contact';
+import Home from './Desktop/Home';
+import Menu from './Desktop/Menu';
+import Portfolio from './Desktop/Portfolio';
+import Contact from './Desktop/Contact';
 
 import './App.scss';
 
@@ -21,10 +20,21 @@ class App extends React.Component {
       open: { transform: 'translateX(0)', visibility: 'visible' },
     };
     this._pageScroller = null;
+    this._isMounted = false;
   }
 
   componentDidMount() {
-    window.onresize = () => this.setState({ windowWidth: window.innerWidth });
+    this._isMounted = true;
+
+    window.onresize = () => {
+      if (this._isMounted) {
+        this.setState({ windowWidth: window.innerWidth });
+      }
+    };
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
   }
 
   buttonHandler = () => {
@@ -62,7 +72,6 @@ class App extends React.Component {
     if (windowWidth > 600) {
       return (
         <div className="app-content">
-          <SEO title="Home" />
           <Menu
             button={this.buttonHandler}
             goToPage={this.goToPage}
@@ -78,7 +87,7 @@ class App extends React.Component {
             <ReactPageScroller
               ref={c => (this._pageScroller = c)}
               pageOnChange={this.pageOnChange}
-              animationTimer={500}
+              animationTimer={600}
               containerWidth={this.breakPoint()}
               containerHeight="800px"
             >
@@ -89,9 +98,14 @@ class App extends React.Component {
               />
               <Portfolio
                 button={this.buttonHandler}
+                goToPage={this.goToPage}
                 currentPage={{ currentPage }}
               />
-              <Contact currentPage={{ currentPage }} />
+              <Contact
+                button={this.buttonHandler}
+                goToPage={this.goToPage}
+                currentPage={{ currentPage }}
+              />
             </ReactPageScroller>
           </div>
         </div>
