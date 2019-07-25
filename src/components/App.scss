@@ -11,7 +11,8 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow: hidden;
+
+  background-color: $third-main-color;
 
   *, *::after, *::before {
     box-sizing: border-box;
@@ -56,12 +57,13 @@ h1, h2, h3, p {
 }
 
 .app-content {
+  overflow: hidden;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   flex-direction: column;
-  background-color: $third-main-color;
 
   .menu-desktop {
     visibility: hidden;
@@ -83,13 +85,17 @@ h1, h2, h3, p {
 
     .helper-info {
       position: absolute;
-      top: -20%;
+      top: -15%;
       left: 0;
 
       &--text {
         color: $second-main-color;
         font-weight: 100;
-        font-size: 2.8em
+        font-size: 2.8em;
+
+        @media(max-width: 900px) {
+          font-size: 2em;
+        }
       }
 
       & + div {
@@ -107,6 +113,12 @@ h1, h2, h3, p {
       font-size: 20em;
       left: -20px;
       top: -68px;
+
+      @media (max-width: 900px) {
+        font-size: 13em;
+        left: -11px;
+        top: -43px;
+      }
     }
 
     @include sideContent;
@@ -117,6 +129,10 @@ h1, h2, h3, p {
       top: 12%;
       left: 5%;
       z-index: 5;
+
+      @media (max-width: 900px) {
+        left: 20%;
+      }
 
       h1 {
         font-size: 3.2em;
@@ -132,6 +148,10 @@ h1, h2, h3, p {
       position: relative;
       left: -10%;
       z-index: 1;
+
+      @media (max-width: 900px) {
+        left: -32%;
+      }
     }
   }
 
@@ -144,6 +164,13 @@ h1, h2, h3, p {
       font-size: 16em;
       left: -16px;
       top: -54px;
+      cursor: default;
+
+      @media (max-width: 900px) {
+        font-size: 7em;
+        left: -6px;
+        top: -22px;
+      }
     }
 
     @include sideContent;
@@ -307,6 +334,13 @@ h1, h2, h3, p {
       font-size: 16em;
       left: -16px;
       top: -54px;
+      cursor: default;
+
+      @media (max-width: 900px) {
+        font-size: 8em;
+        left: -6px;
+        top: -29px;
+      }
     }
 
     .page-bar {
@@ -341,6 +375,14 @@ h1, h2, h3, p {
           left: -70px;
           bottom: -70px;
           z-index: 0;
+
+          @media (max-width: 900px) {
+            width: 60px;
+            height: 60px;
+            right: -30px;
+            left: unset;
+            bottom: -30px;
+          }
         }
       }
 
@@ -355,6 +397,10 @@ h1, h2, h3, p {
         align-items: center;
         border-radius: 3px;
         z-index: 5;
+
+        @media (max-width: 900px) {
+          width: 430px;
+        }
 
         &:before {
           transition: background-color ease-in-out 300ms;
@@ -386,7 +432,7 @@ h1, h2, h3, p {
           display: flex;
           flex-direction: column;
 
-           input, textarea {
+          input, textarea {
             display: block;
             width: 100%;
             border: 1px solid $border-color;
@@ -420,20 +466,19 @@ h1, h2, h3, p {
           }
 
           .form-button {
-            font-weight: 700;
             width: 200px;
             height: 46px;
             margin: auto;
-            background-color: $third-main-color;
+            background-color: $first-main-color;
             border-radius: 3px;
-            color: $content-name-color;
+            color: $text-color;
             font-size: 20px;
             border: 1px solid $border-color;
             transition: background-color 200ms ease-in-out;
             cursor: pointer;
 
             &:hover {
-              background-color: darken($third-main-color, 5%);
+              background-color: darken($first-main-color, 2%);
             }
           }
         }

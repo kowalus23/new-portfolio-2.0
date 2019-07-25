@@ -55,6 +55,9 @@ const About = () => (
             <a className="button" href="../assets/home.svg" download>
               Pobierz CV
             </a>
+            <Link className="home" to="/">
+              Home
+            </Link>
           </div>
           <div className="col-80">
             <div className="main-content">
@@ -111,9 +114,6 @@ const About = () => (
             </div>
           </div>
         </div>
-        <Link className="home" to="/">
-          Home
-        </Link>
       </div>
     </div>
   </>
