@@ -159,6 +159,34 @@ h1, h2, h3, p {
     background-color: $first-main-color;
     height: 100%;
 
+    .content {
+      @media (max-width: 1600px) {
+        padding: 40px 80px 40px 120px;
+      }
+
+      .author {
+        @media (max-width: 1600px) {
+          left: -80px;
+        }
+      }
+    }
+
+    .row {
+      display: block;
+
+      .home-button {
+        @media (max-width: 1600px) {
+          right: -40px;
+        }
+      }
+
+      .hamburger-menu {
+        @media (max-width: 1600px) {
+          right: -40px;
+        }
+      }
+    }
+
     .content--name {
       color: $content-name-color;
       font-size: 16em;
@@ -175,6 +203,12 @@ h1, h2, h3, p {
 
     @include sideContent;
 
+    .side-content {
+      @media (max-width: 1600px) {
+        left: -80px;
+      }
+    }
+
     .page-bar {
       &:before {
         top: 130px;
@@ -183,133 +217,189 @@ h1, h2, h3, p {
 
     .col-100 {
       width: 100%;
+      height: 100%;
       padding: 40px;
-      display: flex;
-      flex-wrap: wrap;
+      overflow: hidden;
 
-      .circle {
-        width: 100px;
-        height: 100px;
-        background-color: $second-main-color;
-        border: 1px solid $border-color;
-        border-radius: 50%;
-        margin: 25px;
+      .card-mover-left {
+        display: none;
+        position: absolute;
+        left: -40px;
+        top: 50%;
+        width: 30px;
+        height: 30px;
+        border-left: 4px solid $text-color;
+        border-bottom: 4px solid $text-color;
+        cursor: pointer;
+        animation: arrowPulse alternate 500ms infinite;
+        @media (max-width: 1600px) {
+          display: unset;
+        }
       }
 
-      .portfolio-card {
-        width: calc(290px - 60px);
-        margin: 25px;
-        height: 300px;
-        background-color: transparent;
+      .card-mover-right {
+        display: none;
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        border-right: 4px solid $text-color;
+        border-top: 4px solid $text-color;
+        right: -50px;
+        cursor: pointer;
+        top: 50%;
+        animation: arrowPulse alternate 500ms infinite;
+        @media (max-width: 1600px) {
+          display: unset;
+        }
+      }
 
-        &:hover {
-          .portfolio-card--inner {
-            transform: rotate3d(-1, 1, 0, 180deg);
+      @keyframes arrowPulse {
+        from {
+          transform: rotate(45deg) scale(1);
+        }
+        to {
+          transform: rotate(45deg) scale(1.2);
+        }
+      }
 
-            &__back {
-              visibility: visible;
-            }
-          }
+      @media (max-width: 1600px) {
+        padding: 40px 40px 40px 0;
+      }
+
+      .card-wrapper {
+        width: 1520px;
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+        transition: left 300ms ease-in-out;
+        @media (min-width: 1600px) {
+          left: 0;
         }
 
-        .portfolio-card--inner {
-          position: relative;
-          width: 100%;
-          height: 100%;
-          transition: transform ease 500ms;
-          transform-style: preserve-3d;
-          border-radius: 3px;
-          perspective: 1000px;
+        @media (max-width: 1200px) {
+          width: 1350px;
+        }
+        @media (max-width: 900px) {
+          width: 1160px;
+        }
 
+        .portfolio-card {
+          width: calc(290px - 60px);
+          margin: 25px;
+          height: 300px;
+          background-color: transparent;
 
-          @mixin __front__back {
-            position: absolute;
+          &:hover {
+            .portfolio-card--inner {
+              transform: rotate3d(-1, 1, 0, 180deg);
+
+              &__back {
+                visibility: visible;
+              }
+            }
+          }
+
+          .portfolio-card--inner {
+            position: relative;
             width: 100%;
             height: 100%;
-            backface-visibility: hidden;
+            transition: transform ease 500ms;
+            transform-style: preserve-3d;
             border-radius: 3px;
-          }
+            perspective: 1000px;
 
-          &__front {
-            @include __front__back;
-            background: linear-gradient(0deg, $second-main-color 60%, $first-main-color 50%, $first-main-color 60%);
-            padding: 20px;
-            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
 
-            &-title {
-              font-size: 20px;
-              text-align: center;
-            }
-
-            &-image {
+            @mixin __front__back {
+              position: absolute;
               width: 100%;
-              height: 100px;
-              background-color: white;
-              margin: 10px 0;
+              height: 100%;
+              backface-visibility: hidden;
+              border-radius: 3px;
+              color: $text-color;
             }
 
-            &--technologies {
-              font-size: 16px;
-            }
-          }
+            &__front {
+              @include __front__back;
+              background: linear-gradient(0deg, $second-main-color 60%, $first-main-color 50%, $first-main-color 60%);
+              padding: 20px;
+              box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
 
-          &__back {
-            @include __front__back;
+              &-title {
+                font-size: 20px;
+                text-align: center;
+              }
 
-            background-color: $second-main-color;
-            transform: rotate3d(-1, 1, 0, 180deg);
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-            transition: visibility 500ms ease-in-out;
-            visibility: hidden;
-
-            &-title {
-              padding: 15px;
-              font-size: 16px;
-            }
-
-            &-description {
-              padding: 0 15px;
-              font-size: 14px;
-            }
-
-            &-technologies {
-              padding: 0 15px;
-              font-size: 12px;
-            }
-
-            .flex-helper {
-              height: calc(100% - (48px));
-              display: flex;
-              flex-direction: column;
-              justify-content: space-between;
-
-              .portfolio-buttons {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
+              &-image {
                 width: 100%;
-                height: 30px;
-                color: $text-color;
-                background-color: $first-main-color;
-                border-bottom-left-radius: 3px;
-                border-bottom-right-radius: 3px;
+                height: 100px;
+                background-color: white;
+                margin: 10px 0;
+              }
 
-                a {
-                  text-align: center;
-                  text-decoration: none;
-                  color: inherit;
-                  padding: 5px 15px;
-                  width: 50%;
-                  transition: background-color 200ms ease-in-out;
+              &--technologies {
+                font-size: 16px;
+              }
+            }
 
-                  &:hover {
-                    background-color: darken($first-main-color, 10%);
+            &__back {
+              @include __front__back;
+
+              background-color: $second-main-color;
+              transform: rotate3d(-1, 1, 0, 180deg);
+              box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+              transition: visibility 500ms ease-in-out;
+              visibility: hidden;
+
+              &-title {
+                padding: 15px;
+                font-size: 16px;
+              }
+
+              &-description {
+                padding: 0 15px;
+                font-size: 14px;
+              }
+
+              &-technologies {
+                padding: 0 15px;
+                font-size: 12px;
+              }
+
+              .flex-helper {
+                height: calc(100% - (48px));
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                .portfolio-buttons {
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  width: 100%;
+                  height: 30px;
+                  color: $text-color;
+                  background-color: $first-main-color;
+                  border-bottom-left-radius: 3px;
+                  border-bottom-right-radius: 3px;
+
+                  a {
+                    text-align: center;
+                    text-decoration: none;
+                    color: inherit;
+                    padding: 5px 15px;
+                    width: 50%;
+                    transition: background-color 200ms ease-in-out;
+
+                    &:hover {
+                      background-color: darken($first-main-color, 10%);
+                    }
                   }
                 }
               }
             }
           }
         }
+
       }
     }
   }

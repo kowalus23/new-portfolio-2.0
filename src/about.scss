@@ -59,7 +59,7 @@
 
             .touched {
               padding: 20px;
-              border-bottom: 1px solid $border-color;
+              border-bottom: 1px solid $border-color
             }
 
             .planned {
@@ -75,7 +75,6 @@
 
         .main-content {
           padding: 20px 20px 20px 60px;
-          border-left: 1px solid $border-color;
 
           &--text {
             font-size: 20px;

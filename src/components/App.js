@@ -57,13 +57,13 @@ class App extends React.Component {
   breakPoint = () => {
     const { windowWidth } = this.state;
     if (windowWidth >= 1600) {
-      return '1600px';
+      return 1600;
     } else if (windowWidth >= 1200 && windowWidth < 1600) {
-      return '1200px';
+      return 1200;
     } else if (windowWidth >= 900 && windowWidth < 1200) {
-      return '900px';
+      return 900;
     } else if (windowWidth >= 600 && windowWidth < 900) {
-      return '600px';
+      return 600;
     }
   };
 
@@ -88,7 +88,7 @@ class App extends React.Component {
               ref={c => (this._pageScroller = c)}
               pageOnChange={this.pageOnChange}
               animationTimer={600}
-              containerWidth={this.breakPoint()}
+              containerWidth={`${this.breakPoint()}px`}
               containerHeight="800px"
             >
               <Home
@@ -97,6 +97,7 @@ class App extends React.Component {
                 button={this.buttonHandler}
               />
               <Portfolio
+                breakPoint={this.breakPoint}
                 button={this.buttonHandler}
                 goToPage={this.goToPage}
                 currentPage={{ currentPage }}

@@ -1,15 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 import HomeButton from '../../assets/home.svg';
 import { projectsInfo } from '../projects';
 import { homeButton, socialIcons } from '../additional-variables';
 import { portfolioTexts } from '../component-texts';
 
-const Portfolio = ({ button, currentPage, goToPage }) => {
+const Portfolio = ({ button, currentPage, goToPage, breakPoint }) => {
+  const [position, setPosition] = useState(0);
+
   const { author, component } = portfolioTexts;
   const componentName = component.toUpperCase();
 
   const switchPage = (number = 0) => {
     return goToPage(number);
+  };
+
+  const breakpoint = breakPoint();
+  const moveRight = () => {
+    const move = position - 250;
+    if (position <= 0 && position >= -400 && breakpoint <= 1600) {
+      return setPosition(move * 0.9);
+    } else if (position <= 0 && position >= -700 && breakpoint <= 600) {
+      return setPosition(move * 0.9);
+    } else {
+      return setPosition(0);
+    }
+  };
+
+  const moveLeft = () => {
+    const breakpoint = breakPoint();
+    if (position <= 0 && breakpoint <= 1600) {
+      const move = position + 250;
+      if (move > 100) {
+        return setPosition(0);
+      }
+      return setPosition(move * 0.9);
+    } else {
+      return setPosition(0);
+    }
   };
 
   const cards = projectsInfo.map(({ id, content }) => {
@@ -71,14 +98,32 @@ const Portfolio = ({ button, currentPage, goToPage }) => {
         <div className="row">
           <p className="author">{author}</p>
           <div className="col-100">
+            <div
+              className="card-mover-left"
+              tabIndex="0"
+              onKeyPress={moveLeft}
+              role="button"
+              onClick={moveLeft}
+            />
+            <div
+              className="card-mover-right"
+              tabIndex="0"
+              onKeyPress={moveRight}
+              role="button"
+              onClick={moveRight}
+            />
             <div className="side-content">
               <p className="counter">{`0${currentPage.currentPage}`}</p>
               <div className="page-bar" />
               <p className="counter">03</p>
               <div className="icons">{socialIcons()}</div>
             </div>
-            {cards}
-            <div className="circle" />
+            <div
+              className="card-wrapper"
+              style={breakpoint >= 1600 ? { left: 0 } : { left: position }}
+            >
+              {cards}
+            </div>
           </div>
           <div
             role="button"
