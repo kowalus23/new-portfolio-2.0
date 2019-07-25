@@ -74,11 +74,11 @@ h1, h2, h3, p {
     right: 0;
     top: 0;
     z-index: 10;
-    box-shadow: -10px 0 20px rgba(0, 0, 0, 0.25);
+    box-shadow: -6px 0 20px rgba(0, 0, 0, 0.25);
   }
 
   .component-wrapper-shadow {
-    box-shadow: 0 0 80px rgba(97, 97, 97, 0.65);
+    box-shadow: 0 0 40px rgba(97, 97, 97, 0.5);
     position: relative;
 
     .helper-info {
@@ -205,7 +205,7 @@ h1, h2, h3, p {
 
           &__front {
             @include __front__back;
-            background: linear-gradient(0deg, $second-main-color 30%, $first-main-color 90%, $first-main-color 50%);
+            background: linear-gradient(0deg, $second-main-color 60%, $first-main-color 50%, $first-main-color 60%);
             padding: 20px;
             box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
 
@@ -288,10 +288,19 @@ h1, h2, h3, p {
   }
 
   .contact-container {
-    background-color: $second-main-color;
+    position: relative;
+    padding-bottom: 40px;
+    background: linear-gradient(to bottom, $second-main-color 95%, $first-main-color 25%);
     height: 100%;
 
     @include sideContent;
+
+    .copyrights {
+      position: absolute;
+      bottom: 10px;
+      left: 40px;
+      opacity: 0.5;
+    }
 
     .content--name {
       color: $content-name-color;
@@ -318,16 +327,49 @@ h1, h2, h3, p {
       align-items: center;
       flex-direction: column;
 
+      .form-before-element {
+        position: absolute;
+
+        &:after {
+          content: '';
+          width: 140px;
+          height: 140px;
+          border-radius: 50%;
+          box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.15);
+          background-color: $first-main-color;
+          position: absolute;
+          left: -70px;
+          bottom: -70px;
+          z-index: 0;
+        }
+      }
+
       .form-wrapper {
-        background-color: $first-main-color;
+        background: linear-gradient(42deg, $second-main-color 50%, $first-main-color 50%, $first-main-color 61%);
         position: relative;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
-        height: 350px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        height: 450px;
         width: 500px;
         display: flex;
         justify-content: center;
         align-items: center;
         border-radius: 3px;
+        z-index: 5;
+
+        &:before {
+          transition: background-color ease-in-out 300ms;
+
+          content: '';
+          width: 120px;
+          height: 120px;
+          border-radius: 50%;
+          box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.25);
+          background-color: $second-main-color;
+          position: absolute;
+          right: -50px;
+          top: -50px;
+          z-index: 0;
+        }
 
         &--text {
           position: absolute;
@@ -344,17 +386,33 @@ h1, h2, h3, p {
           display: flex;
           flex-direction: column;
 
-          label, input, textarea {
+           input, textarea {
             display: block;
             width: 100%;
+            border: 1px solid $border-color;
             border-radius: 3px;
+
+            &::placeholder {
+              font-size: 16px;
+              opacity: 0.5;
+            }
           }
+
           input {
             height: 40px;
             border-color: $border-color;
+            padding: 12px;
+            font-size: 16px;
+            color: $text-color
           }
+
           textarea {
             border-color: $border-color;
+            resize: none;
+            height: 145px;
+            padding: 12px;
+            font-size: 14px;
+            color: $text-color
           }
 
           label {
@@ -364,13 +422,19 @@ h1, h2, h3, p {
           .form-button {
             font-weight: 700;
             width: 200px;
-            height: 40px;
+            height: 46px;
             margin: auto;
             background-color: $third-main-color;
             border-radius: 3px;
             color: $content-name-color;
             font-size: 20px;
-            border: 1px solid $border-color
+            border: 1px solid $border-color;
+            transition: background-color 200ms ease-in-out;
+            cursor: pointer;
+
+            &:hover {
+              background-color: darken($third-main-color, 5%);
+            }
           }
         }
       }

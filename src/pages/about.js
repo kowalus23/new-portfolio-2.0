@@ -52,9 +52,9 @@ const About = () => (
                 </div>
               </div>
             </div>
-            <button className="button" type="button">
+            <a className="button" href="../assets/home.svg" download>
               Pobierz CV
-            </button>
+            </a>
           </div>
           <div className="col-80">
             <div className="main-content">

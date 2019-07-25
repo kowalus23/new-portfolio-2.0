@@ -1,15 +1,11 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import Logo from '../../assets/logo.svg';
-import FacebookLogo from '../../assets/facebook.svg';
-import LinkedinLogo from '../../assets/linkedin.svg';
-import GithubLogo from '../../assets/github.svg';
-import {iconLinks, iconsStyle} from '../additional-variables'
+import { socialIcons } from '../additional-variables';
 import { homeTexts } from '../component-texts';
 
 const Home = ({ button, goToPage, currentPage }) => {
   const { author, component, about, welcome, hi, buttonName } = homeTexts;
-  const {github, facebook, linkedin} = iconLinks;
   const componentName = component.toUpperCase();
 
   const switchPage = (number = 1) => {
@@ -27,17 +23,7 @@ const Home = ({ button, goToPage, currentPage }) => {
               <p className="counter">{`0${currentPage.currentPage}`}</p>
               <div className="page-bar" />
               <p className="counter">03</p>
-              <div className="icons">
-                <a rel="noopener noreferrer" href={facebook} target="_blank">
-                  <FacebookLogo style={iconsStyle} />
-                </a>
-                <a rel="noopener noreferrer" href={linkedin} target="_blank">
-                  <LinkedinLogo style={iconsStyle} />
-                </a>
-                <a rel="noopener noreferrer" href={github} target="_blank">
-                  <GithubLogo style={iconsStyle} />
-                </a>
-              </div>
+              <div className="icons">{socialIcons()}</div>
             </div>
             <div className="hero-content">
               <h1>
@@ -45,7 +31,9 @@ const Home = ({ button, goToPage, currentPage }) => {
                 <br />
                 {welcome}
               </h1>
-              <button className="btn button-portfolio" type="button"
+              <button
+                className="btn button-portfolio"
+                type="button"
                 onClick={() => switchPage(1)}
               >
                 {buttonName}

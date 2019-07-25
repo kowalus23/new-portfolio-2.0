@@ -136,7 +136,11 @@ ul {
 }
 
 .button {
-  display: inline-block;
+  text-decoration: none;
+  color: $text-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 265px;
   height: 60px;
   margin: 0 0 40px;

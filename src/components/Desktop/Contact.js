@@ -1,14 +1,10 @@
 import React from 'react';
-import FacebookLogo from '../../assets/facebook.svg';
-import LinkedinLogo from '../../assets/linkedin.svg';
-import GithubLogo from '../../assets/github.svg';
 import HomeButton from '../../assets/home.svg';
-import { iconLinks, iconsStyle, homeButton } from '../additional-variables';
+import { homeButton, socialIcons } from '../additional-variables';
 import { contactTexts } from '../component-texts';
 
 const Contact = ({ button, currentPage, goToPage }) => {
   const { author, component } = contactTexts;
-  const { github, facebook, linkedin } = iconLinks;
   const componentName = component.toUpperCase();
 
   const switchPage = (number = 0) => {
@@ -30,48 +26,49 @@ const Contact = ({ button, currentPage, goToPage }) => {
               <p className="counter">{`0${currentPage.currentPage}`}</p>
               <div className="page-bar" />
               <p className="counter">03</p>
-              <div className="icons">
-                <a rel="noopener noreferrer" href={facebook} target="_blank">
-                  <FacebookLogo style={iconsStyle} />
-                </a>
-                <a rel="noopener noreferrer" href={linkedin} target="_blank">
-                  <LinkedinLogo style={iconsStyle} />
-                </a>
-                <a rel="noopener noreferrer" href={github} target="_blank">
-                  <GithubLogo style={iconsStyle} />
-                </a>
-              </div>
+              <div className="icons">{socialIcons()}</div>
             </div>
-            <div className="form-wrapper">
-              <h1 className="form-wrapper--text">Zadaj pytanie!?</h1>
-              <form className="custom-form">
-                <label htmlFor="email">
-                  Email
-                  <input
-                    name="email"
-                    id="email"
-                    type="email"
-                    placeholder="yourmail@gmail.com"
-                  />
-                </label>
-                <label htmlFor="content">
-                  Tresc
-                  <textarea
-                    id="content"
-                    name="content"
-                    cols="30"
-                    rows="10"
-                    placeholder="Ask whatever you want..."
-                  />
-                </label>
-                <button
-                  onClick={buttonHandler}
-                  className="form-button"
-                  type="submit"
-                >
-                  Wyślij
-                </button>
-              </form>
+            <div className="form-before-element">
+              <div className="form-wrapper">
+                <h1 className="form-wrapper--text">Zadaj pytanie!?</h1>
+                <form className="custom-form" autoComplete="new-password">
+                  <label htmlFor="name">
+                    Imię/Nazwisko
+                    <input
+                      name="name"
+                      id="name"
+                      type="text"
+                      placeholder="John Doe"
+                      autoComplete="off"
+                    />
+                  </label>
+                  <label htmlFor="email">
+                    Email
+                    <input
+                      name="email"
+                      id="email"
+                      type="email"
+                      placeholder="yourmail@gmail.com"
+                      autoComplete="off"
+                    />
+                  </label>
+                  <label htmlFor="content">
+                    Treść
+                    <textarea
+                      id="content"
+                      name="content"
+                      placeholder="Zapytaj o cokolwiek chcesz..."
+                    />
+                  </label>
+                  <button
+                    onClick={buttonHandler}
+                    className="form-button"
+                    type="submit"
+                  >
+                    Wyślij
+                  </button>
+                </form>
+              </div>
             </div>
             <div>icons</div>
           </div>
@@ -95,6 +92,7 @@ const Contact = ({ button, currentPage, goToPage }) => {
           </div>
         </div>
       </div>
+      <p className="copyrights">{`Copyright © 2019 ${author}`}</p>
     </div>
   );
 };

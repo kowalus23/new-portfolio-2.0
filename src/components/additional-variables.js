@@ -1,3 +1,8 @@
+import React from 'react';
+import FacebookLogo from '../assets/facebook.svg';
+import LinkedinLogo from '../assets/linkedin.svg';
+import GithubLogo from '../assets/github.svg';
+
 export const iconLinks = {
   github: 'https://github.com/kowalus23',
   facebook: 'https://www.facebook.com/kowalus23',
@@ -20,4 +25,21 @@ export const menuIconsStyle = {
 export const homeButton = {
   height: '20px',
   width: '20px',
+};
+
+const { facebook, linkedin, github } = iconLinks;
+export const socialIcons = () => {
+  return (
+    <>
+      <a rel="noopener noreferrer" href={facebook} target="_blank">
+        <FacebookLogo style={iconsStyle} />
+      </a>
+      <a rel="noopener noreferrer" href={linkedin} target="_blank">
+        <LinkedinLogo style={iconsStyle} />
+      </a>
+      <a rel="noopener noreferrer" href={github} target="_blank">
+        <GithubLogo style={iconsStyle} />
+      </a>
+    </>
+  );
 };
