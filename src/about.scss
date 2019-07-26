@@ -1,5 +1,10 @@
 @import './components/_variables.scss';
 
+@mixin flexWrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .about-page {
   display: flex;
   justify-content: center;
@@ -41,29 +46,25 @@
         justify-content: space-between;
 
         .content-knowledge {
-          max-height: 100%;
+          height: 100%;
           width: 100%;
           display: flex;
+          flex-direction: column;
+          text-align: center;
+          padding: 20px 40px 0 0;
 
           .content-knowledge-known {
-            padding: 20px;
-            width: 40%;
-            text-align: right;
+            width: 100%;
+            margin-bottom: 30px;
           }
 
           .content-knowledge-future {
-            width: 60%;
+            width: 100%;
             display: flex;
             flex-direction: column;
-            border-left: 1px solid $border-color;
 
             .touched {
-              padding: 20px;
-              border-bottom: 1px solid $border-color
-            }
-
-            .planned {
-              padding: 20px;
+              margin-bottom: 30px;
             }
           }
         }
@@ -127,10 +128,13 @@ ul {
   list-style: none;
   padding: 0;
   margin: 0;
+  @include flexWrap;
+
 
   li {
+    width: 50%;
     margin: 0;
-    padding: 2px 0;
+    padding: 5px;
   }
 }
 
@@ -206,6 +210,10 @@ ul {
           width: 25%;
 
           .content-knowledge {
+            padding: 20px 30px 0 0;
+          }
+
+          .content-knowledge {
             h3 {
               font-size: 16px;
             }
@@ -235,7 +243,6 @@ ul {
           }
         }
       }
-
     }
   }
 }
@@ -244,8 +251,8 @@ ul {
   .about-page {
     .about-container {
       width: 600px;
-      height: 1200px;
-      background: linear-gradient(to bottom, $first-main-color 74.3%, $second-main-color 25%);
+      height: 1240px;
+      background: linear-gradient(to bottom, $first-main-color 72%, $second-main-color 25%);
 
       .content--name {
         top: -36px;
@@ -260,10 +267,15 @@ ul {
           width: 100%;
 
           .content-knowledge {
+            padding: 0;
+            flex-direction: row;
+            text-align: center;
+
             .content-knowledge-known {
               width: 33.33%;
               text-align: left;
               padding: 0;
+              margin: 0;
             }
 
             .content-knowledge-future {
@@ -275,11 +287,25 @@ ul {
                 width: 50%;
                 padding: 0;
                 border: none;
+                margin: 0;
               }
 
               .planned {
                 width: 50%;
                 padding: 0;
+              }
+            }
+
+            h3 {
+              text-align: center;
+            }
+
+            ul {
+              text-align: center;
+              display: unset;
+
+              li {
+                width: 100%;
               }
             }
           }
@@ -400,9 +426,18 @@ ul {
                 width: 100%;
               }
             }
+
+            ul {
+              display: flex;
+              flex-wrap: wrap;
+
+              li {
+                width: 33.33%;
+                padding: 5px;
+              }
+            }
           }
         }
-
         .col-80 {
           .main-content {
             &--text {
@@ -411,16 +446,6 @@ ul {
           }
         }
       }
-    }
-  }
-
-  ul {
-    display: flex;
-    flex-wrap: wrap;
-
-    li {
-      width: 33.33%;
-      padding: 5px;
     }
   }
 }

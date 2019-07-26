@@ -92,7 +92,8 @@ const Contact = ({ button, currentPage, goToPage }) => {
           </div>
         </div>
       </div>
-      <p className="copyrights">{`Copyright © 2019 ${author}`}</p>
+      <p className="copyrights">{`Copyright © ${new Date().getFullYear()} ${author}`}</p>
+      <p className="my-email">kowalus23@gmail.com</p>
     </div>
   );
 };

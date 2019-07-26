@@ -1,0 +1,250 @@
+@import '_variables.scss';
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 50px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  background-color: $second-main-color;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+  z-index: 5;
+  transition: min-height 100ms ease;
+
+  h3 {
+    padding: 0;
+    color: $text-color;
+  }
+}
+
+@mixin contentName {
+  color: $content-name-color;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+@mixin mobile-section-content {
+  min-height: 800px;
+  max-height: 850px;
+  background-color: $first-main-color;
+  position: relative;
+}
+
+.mobile-container {
+  padding-top: 50px;
+  overflow: hidden;
+  position: relative;
+
+  .mobile-home-content {
+    @include mobile-section-content;
+
+    .content-name {
+      @include contentName;
+
+      font-size: 8em;
+      top: -20px;
+      left: -8px;
+      font-weight: 700;
+
+      @media (max-width: 370px) {
+        font-size: 7em;
+      }
+    }
+
+    .hero-content {
+      padding-top: 120px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      h1 {
+        max-width: 400px;
+        padding: 0 20px;
+        font-size: 2.5em;
+        color: $text-color;
+
+        span {
+          font-size: 1.5em;
+        }
+      }
+
+      svg {
+        width: 360px;
+        position: relative;
+
+        @media (max-width: 360px) {
+          width: 100vw;
+        }
+      }
+    }
+  }
+
+  .mobile-about-content {
+    @include mobile-section-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .content-name {
+      @include contentName;
+
+      font-size: 7em;
+      top: -26px;
+      left: -4px;
+      font-weight: 700;
+
+      @media (max-width: 370px) {
+        font-size: 29vw;
+      }
+    }
+
+    &--wrapper {
+      padding: 120px 0 40px;
+      display: flex;
+      flex-direction: column;
+
+      &__text {
+        padding: 20px;
+      }
+    }
+
+    .about {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      font-size: 1.5em;
+      width: 80%;
+      height: 50px;
+      color: $text-color;
+      background-color: $second-main-color;
+      border-radius: 3px;
+      border: 1px solid $border-color;
+    }
+  }
+
+  .mobile-portfolio-content {
+    @include mobile-section-content;
+
+    .content-name {
+      @include contentName;
+
+      font-size: 4.5em;
+      top: -26px;
+      left: -6px;
+      font-weight: 700;
+
+      @media (max-width: 370px) {
+        font-size: 19vw;
+      }
+    }
+
+    &--wrapper {
+      padding-top: 110px;
+    }
+  }
+
+  .mobile-contact-content {
+    @include mobile-section-content;
+    min-height: unset;
+    max-height: unset;
+    height: 100vh;
+
+    .content-name {
+      @include contentName;
+
+      font-size: 4.5em;
+      top: 40px;
+      left: -6px;
+      font-weight: 700;
+
+      @media (max-width: 330px) {
+        font-size: 22vw;
+      }
+    }
+
+    &--wrapper {
+      padding-top: 110px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+
+      .form-wrapper {
+        width: 90%;
+        margin: auto;
+        border-radius: 3px;
+        background-color: $second-main-color;
+        box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.16);
+
+        form {
+          display: flex;
+          flex-direction: column;
+          padding: 20px;
+          width: 100%;
+          height: 100%;
+
+          input {
+            width: 100%;
+            margin: 10px 0;
+            height: 40px;
+            border: 1px solid $border-color;
+            border-radius: 3px;
+            padding: 10px;
+          }
+
+          textarea {
+            width: 100%;
+            margin: 10px 0;
+            height: 120px;
+            resize: none;
+            border: 1px solid $border-color;
+            border-radius: 3px;
+            padding: 10px;
+          }
+
+          .form-button {
+            width: 100%;
+            height: 46px;
+            margin: auto;
+            background-color: $first-main-color;
+            border-radius: 3px;
+            color: $text-color;
+            font-size: 20px;
+            border: 1px solid $border-color;
+            transition: background-color 200ms ease-in-out;
+            cursor: pointer;
+          }
+        }
+      }
+
+      .copyright {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        background-color: $third-main-color;
+
+        &--text {
+          color: $text-color;
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+}
+
+.content-name {
+  &:after {
+    background-color: $content-name-color;
+    position: absolute;
+    content: '';
+    top: 10%;
+    left: 99%;
+    width: 100%;
+    height: 80%;
+  }
+}

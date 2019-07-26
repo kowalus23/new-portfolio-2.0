@@ -7,6 +7,7 @@ import Portfolio from './Desktop/Portfolio';
 import Contact from './Desktop/Contact';
 
 import './App.scss';
+import MobileHome from './Mobile/MobileHome';
 
 class App extends React.Component {
   constructor(props) {
@@ -112,11 +113,7 @@ class App extends React.Component {
         </div>
       );
     } else {
-      return (
-        <div className="mobile-app-content">
-          <h1>Im mobile!</h1>
-        </div>
-      );
+      return <MobileHome />;
     }
   }
 }

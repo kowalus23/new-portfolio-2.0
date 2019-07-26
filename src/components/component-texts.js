@@ -16,3 +16,7 @@ export const contactTexts = {
   author: 'Patryk Kowalski',
   component: 'Kontakt',
 };
+
+export const aboutTexts = {
+  component: 'O mnie',
+};
