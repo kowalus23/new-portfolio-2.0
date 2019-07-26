@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import HomeButton from '../../assets/home.svg';
-import { projectsInfo } from '../projects';
-import { homeButton, socialIcons } from '../additional-variables';
-import { portfolioTexts } from '../component-texts';
+import HomeButton from '../../../assets/home.svg';
+import { projectsInfo } from '../../projects';
+import { homeButton, socialIcons } from '../../additional-variables';
+import { portfolioTexts } from '../../component-texts';
 
 const Portfolio = ({ button, currentPage, goToPage, breakPoint }) => {
   const [position, setPosition] = useState(0);
@@ -16,11 +16,11 @@ const Portfolio = ({ button, currentPage, goToPage, breakPoint }) => {
 
   const breakpoint = breakPoint();
   const moveRight = () => {
-    const move = position - 250;
+    const move = position - 320;
     if (position <= 0 && position >= -400 && breakpoint <= 1600) {
       return setPosition(move * 0.9);
     } else if (position <= 0 && position >= -700 && breakpoint <= 600) {
-      return setPosition(move * 0.9);
+      return setPosition((move) * 0.85);
     } else {
       return setPosition(0);
     }

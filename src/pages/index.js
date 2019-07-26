@@ -1,11 +1,10 @@
-import React from "react"
-
-import App from "../components/App";
+import React from 'react';
+import App from '../js/components/App';
 
 const IndexPage = () => (
   <React.Fragment>
-    <App/>
+    <App />
   </React.Fragment>
 );
 
-export default IndexPage
+export default IndexPage;

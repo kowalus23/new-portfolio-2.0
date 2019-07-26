@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import '../about.scss';
+import '../css/about.scss';
 
 const About = () => (
   <>

@@ -1,4 +1,4 @@
-@import './components/_variables.scss';
+@import './variables';
 
 @mixin flexWrap {
   display: flex;
@@ -95,6 +95,7 @@
       position: absolute;
       left: calc(40px - 4px);
       bottom: calc(40px - 4px);
+      outline: none;
 
       &:after {
         content: '';
@@ -108,7 +109,7 @@
         transition: all ease-in-out 200ms;
       }
 
-      &:hover {
+      &:hover, &:focus {
         &:after {
           width: 65px;
           height: 35px;
@@ -151,11 +152,13 @@ ul {
   background-color: $first-main-color;
   border: 1px solid $border-color;
   border-radius: 3px;
-  transition: background-color 200ms ease-in-out;
+  transition: background-color 100ms ease-in-out;
   cursor: pointer;
+  outline: none;
 
-  &:hover {
-    background-color: darken($first-main-color, 5%);
+  &:hover, &:focus {
+    background-color: lighten($first-main-color, 5%);
+    box-shadow: 1px 1px 4px rgba(0,0,0, 0.15);
   }
 }
 
@@ -376,15 +379,15 @@ ul {
             border: 1px solid $border-color;
             text-align: center;
 
-            &:hover {
-              background-color: darken($first-main-color, 5%);
+            &:hover, &:focus {
+              background-color: lighten($first-main-color, 5%);
+              box-shadow: 1px 1px 4px rgba(0,0,0,0.15);
             }
 
             &:after {
               display: none;
             }
           }
-
         }
       }
     }

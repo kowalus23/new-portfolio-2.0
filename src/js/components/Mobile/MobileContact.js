@@ -1,17 +1,24 @@
 import React from 'react';
-import { contactTexts } from '../component-texts';
+import { contactTexts } from '../../component-texts';
 
-const MobileContact = () => {
+const MobileContact = ({ reference }) => {
   const { component } = contactTexts;
   const componentName = component.toUpperCase();
 
   return (
     <>
-      <div className="mobile-contact-content">
+      <div className="mobile-contact-content" ref={reference}>
         <h2 className="content-name">{componentName}</h2>
         <div className="mobile-contact-content--wrapper">
           <div className="form-wrapper">
-            <form>
+            <form
+              name="contact"
+              method="post"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+            >
+              <input type="hidden" name="bot-field"/>
+              <input type="hidden" name="form-name" value="contact"/>
               <label htmlFor="name">
                 Imię/Nazwisko
                 <input

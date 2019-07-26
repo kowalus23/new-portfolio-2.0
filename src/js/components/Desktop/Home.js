@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import Logo from '../../assets/logo.svg';
-import { socialIcons } from '../additional-variables';
-import { homeTexts } from '../component-texts';
+import Logo from '../../../assets/logo.svg';
+import { socialIcons } from '../../additional-variables';
+import { homeTexts } from '../../component-texts';
 
 const Home = ({ button, goToPage, currentPage }) => {
   const { author, component, about, welcome, hi, buttonName } = homeTexts;

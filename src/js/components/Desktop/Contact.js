@@ -1,7 +1,7 @@
 import React from 'react';
-import HomeButton from '../../assets/home.svg';
-import { homeButton, socialIcons } from '../additional-variables';
-import { contactTexts } from '../component-texts';
+import HomeButton from '../../../assets/home.svg';
+import { homeButton, socialIcons } from '../../additional-variables';
+import { contactTexts } from '../../component-texts';
 
 const Contact = ({ button, currentPage, goToPage }) => {
   const { author, component } = contactTexts;
@@ -9,10 +9,6 @@ const Contact = ({ button, currentPage, goToPage }) => {
 
   const switchPage = (number = 0) => {
     return goToPage(number);
-  };
-
-  const buttonHandler = event => {
-    event.preventDefault();
   };
 
   return (
@@ -24,14 +20,22 @@ const Contact = ({ button, currentPage, goToPage }) => {
           <div className="contact-content">
             <div className="side-content">
               <p className="counter">{`0${currentPage.currentPage}`}</p>
-              <div className="page-bar" />
+              <div className="page-bar"/>
               <p className="counter">03</p>
               <div className="icons">{socialIcons()}</div>
             </div>
             <div className="form-before-element">
               <div className="form-wrapper">
                 <h1 className="form-wrapper--text">Zadaj pytanie!?</h1>
-                <form className="custom-form" autoComplete="new-password">
+                <form
+                  name="contact"
+                  method="post"
+                  data-netlify="true"
+                  data-netlify-honeypot="bot-field"
+                  className="custom-form"
+                  autoComplete="new-password">
+                  <input type="hidden" name="bot-field"/>
+                  <input type="hidden" name="form-name" value="contact"/>
                   <label htmlFor="name">
                     Imię/Nazwisko
                     <input
@@ -61,7 +65,6 @@ const Contact = ({ button, currentPage, goToPage }) => {
                     />
                   </label>
                   <button
-                    onClick={buttonHandler}
                     className="form-button"
                     type="submit"
                   >
@@ -79,7 +82,7 @@ const Contact = ({ button, currentPage, goToPage }) => {
             onKeyPress={button}
             onClick={button}
           >
-            <div className="hamburger-menu--stripes" />
+            <div className="hamburger-menu--stripes"/>
           </div>
           <div
             onClick={() => switchPage(0)}
@@ -88,7 +91,7 @@ const Contact = ({ button, currentPage, goToPage }) => {
             role="button"
             tabIndex="0"
           >
-            <HomeButton style={homeButton} />
+            <HomeButton style={homeButton}/>
           </div>
         </div>
       </div>

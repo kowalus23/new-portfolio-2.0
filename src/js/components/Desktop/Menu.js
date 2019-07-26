@@ -1,15 +1,12 @@
 import React from 'react';
 import { Pager } from 'react-bootstrap';
-import FacebookLogo from '../../assets/facebook.svg';
-import LinkedinLogo from '../../assets/linkedin.svg';
-import GithubLogo from '../../assets/github.svg';
-import { iconLinks, menuIconsStyle } from '../additional-variables';
-import { menuTexts } from '../component-texts';
+import FacebookLogo from '../../../assets/facebook.svg';
+import LinkedinLogo from '../../../assets/linkedin.svg';
+import GithubLogo from '../../../assets/github.svg';
+import { iconLinks, menuIconsStyle } from '../../additional-variables';
+import { menuTexts } from '../../component-texts';
 
 class Menu extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   getPagesNumbers = () => {
     const { home, portfolio, contact } = menuTexts;

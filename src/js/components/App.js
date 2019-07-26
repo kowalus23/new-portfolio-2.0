@@ -6,7 +6,7 @@ import Menu from './Desktop/Menu';
 import Portfolio from './Desktop/Portfolio';
 import Contact from './Desktop/Contact';
 
-import './App.scss';
+import '../../css/components/App.scss';
 import MobileHome from './Mobile/MobileHome';
 
 class App extends React.Component {

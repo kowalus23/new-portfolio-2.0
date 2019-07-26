@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,400,700&display=swap&subset=latin-ext');
-@import '_variables.scss';
+@import '../variables';
 
 html {
   font-family: 'Roboto', sans-serif;
@@ -392,7 +392,7 @@ h1, h2, h3, p {
                     transition: background-color 200ms ease-in-out;
 
                     &:hover {
-                      background-color: darken($first-main-color, 10%);
+                      background-color: lighten($first-main-color, 10%);
                     }
                   }
                 }
@@ -547,7 +547,13 @@ h1, h2, h3, p {
             border-color: $border-color;
             padding: 12px;
             font-size: 16px;
-            color: $text-color
+            color: $text-color;
+            outline: none;
+
+            &:focus {
+              box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.15);
+              border: 1px solid darken($border-color, 20%)
+            }
           }
 
           textarea {
@@ -556,7 +562,13 @@ h1, h2, h3, p {
             height: 145px;
             padding: 12px;
             font-size: 14px;
-            color: $text-color
+            color: $text-color;
+            outline: none;
+
+            &:focus {
+              box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.15);
+              border: 1px solid darken($border-color, 20%)
+            }
           }
 
           label {
@@ -572,11 +584,13 @@ h1, h2, h3, p {
             color: $text-color;
             font-size: 20px;
             border: 1px solid $border-color;
-            transition: background-color 200ms ease-in-out;
+            transition: background-color 100ms ease-in-out;
             cursor: pointer;
+            outline: none;
 
-            &:hover {
-              background-color: darken($first-main-color, 2%);
+            &:hover, &:focus {
+              background-color: lighten($first-main-color, 3%);
+              box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
             }
           }
         }
@@ -705,6 +719,7 @@ h1, h2, h3, p {
     height: 20px;
     width: 34px;
     cursor: pointer;
+    outline: none;
 
     .hamburger-menu--stripes {
       position: relative;
@@ -759,6 +774,7 @@ h1, h2, h3, p {
     text-decoration: none;
     font-weight: 700;
     color: $text-color;
+    outline: none;
 
     &:before {
       transition: all ease-in-out 200ms;
@@ -818,11 +834,11 @@ a {
 
 // buttons
 .btn {
-  background-color: $third-main-color;
-  border: none;
+  background-color: $second-main-color;
+  border: 1px solid $border-color;
   border-radius: 3px;
-  color: $button-name-color;
-  transition: background-color ease-in-out 200ms;
+  color: $text-color;
+  transition: background-color ease-in-out 100ms;
   cursor: pointer;
 
   &.button-portfolio {
@@ -832,7 +848,8 @@ a {
   }
 
   &:hover, &:focus {
-    background-color: darken($third-main-color, 10%);
+    background-color: lighten($second-main-color, 5%);
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
   }
 }
 
@@ -850,6 +867,7 @@ a {
   right: 0;
   transition: all 200ms ease-in-out;
   cursor: pointer;
+  outline:none;
 
   &:hover, &:focus {
     border-radius: 0;

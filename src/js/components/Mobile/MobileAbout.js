@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import { aboutTexts } from '../component-texts';
+import { aboutTexts } from '../../component-texts';
 
-const MobileAbout = () => {
+const MobileAbout = ({reference}) => {
   const { component } = aboutTexts;
   const componentName = component.toUpperCase();
 
   return (
     <>
-      <div className="mobile-about-content">
+      <div className="mobile-about-content" ref={reference}>
         <h2 className="content-name">{componentName}</h2>
         <div className="mobile-about-content--wrapper">
           <p className="mobile-about-content--wrapper__text">

@@ -1,5 +1,8 @@
-@import '_variables.scss';
+@import '../variables';
 
+html {
+    scroll-behavior: smooth;
+}
 
 nav {
   display: flex;
@@ -87,7 +90,7 @@ nav {
       @include contentName;
 
       font-size: 8em;
-      top: -20px;
+      top: -15px;
       left: -8px;
       font-weight: 700;
 

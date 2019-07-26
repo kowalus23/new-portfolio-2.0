@@ -1,8 +1,8 @@
 import React from 'react';
-import { portfolioTexts } from '../component-texts';
-import { projectsInfo } from '../projects';
+import { portfolioTexts } from '../../component-texts';
+import { projectsInfo } from '../../projects';
 
-const MobilePortfolio = () => {
+const MobilePortfolio = ({reference}) => {
   const { component } = portfolioTexts;
   const componentName = component.toUpperCase();
 
@@ -37,7 +37,7 @@ const MobilePortfolio = () => {
 
   return (
     <>
-      <div className="mobile-portfolio-content">
+      <div className="mobile-portfolio-content" ref={reference}>
         <h2 className="content-name">{componentName}</h2>
         <div className="mobile-portfolio-content--wrapper">
           <div className="mobile-portfolio-content--wrapper__table">
