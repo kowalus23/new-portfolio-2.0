@@ -16,7 +16,6 @@ export const iconsStyle = {
 };
 
 export const menuIconsStyle = {
-  ...iconsStyle,
   marginTop: 0,
   height: '50px',
   width: '50px',
@@ -39,6 +38,28 @@ export const socialIcons = () => {
       </a>
       <a rel="noopener noreferrer" href={github} target="_blank">
         <GithubLogo style={iconsStyle} />
+      </a>
+    </>
+  );
+};
+
+export const mobileIconsStyle = {
+  height: '40px',
+  width: '40px',
+  margin: '10px 15px 15px',
+};
+
+export const mobileMenuIcons = () => {
+  return (
+    <>
+      <a rel="noopener noreferrer" href={facebook} target="_blank">
+        <FacebookLogo style={mobileIconsStyle} />
+      </a>
+      <a rel="noopener noreferrer" href={linkedin} target="_blank">
+        <LinkedinLogo style={mobileIconsStyle} />
+      </a>
+      <a rel="noopener noreferrer" href={github} target="_blank">
+        <GithubLogo style={mobileIconsStyle} />
       </a>
     </>
   );

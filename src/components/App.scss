@@ -851,7 +851,7 @@ a {
   transition: all 200ms ease-in-out;
   cursor: pointer;
 
-  &:hover {
+  &:hover, &:focus {
     border-radius: 0;
     transform: rotate(45deg);
   }

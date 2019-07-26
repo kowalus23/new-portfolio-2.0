@@ -20,3 +20,10 @@ export const contactTexts = {
 export const aboutTexts = {
   component: 'O mnie',
 };
+
+export const menuTexts = {
+  home: 'Home',
+  portfolio: 'Portfolio',
+  contact: 'Kontakt',
+  about: 'O mnie',
+};

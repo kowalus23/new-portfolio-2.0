@@ -4,12 +4,7 @@ import FacebookLogo from '../../assets/facebook.svg';
 import LinkedinLogo from '../../assets/linkedin.svg';
 import GithubLogo from '../../assets/github.svg';
 import { iconLinks, menuIconsStyle } from '../additional-variables';
-
-const menuTexts = {
-  home: 'Home',
-  portfolio: 'Portfolio',
-  contact: 'Kontakt',
-};
+import { menuTexts } from '../component-texts';
 
 class Menu extends React.Component {
   constructor(props) {
@@ -24,14 +19,14 @@ class Menu extends React.Component {
       pageNumbers.push(
         <Pager.Item key={i} tabIndex="-1" eventKey={i - 1} onSelect={goToPage}>
           {i === 1 ? home : i === 2 ? portfolio : i === 3 ? contact : null}
-        </Pager.Item>,
+        </Pager.Item>
       );
     }
     return [...pageNumbers];
   };
 
   render() {
-    const {github, linkedin, facebook} = iconLinks;
+    const { github, linkedin, facebook } = iconLinks;
     const { style, button, keyHandler } = this.props;
     let pagesNumbers = this.getPagesNumbers();
     return (
@@ -46,33 +41,21 @@ class Menu extends React.Component {
               onKeyPress={keyHandler}
               onClick={button}
             >
-              <div className="hamburger-menu--cross"/>
+              <div className="hamburger-menu--cross" />
             </div>
           </div>
           <div className="menu-desktop--content__middle">
             <Pager>{pagesNumbers}</Pager>
           </div>
           <div className="menu-desktop--content__bottom">
-            <a
-              rel="noopener noreferrer"
-              href={facebook}
-              target="_blank"
-            >
-              <FacebookLogo style={menuIconsStyle}/>
+            <a rel="noopener noreferrer" href={facebook} target="_blank">
+              <FacebookLogo style={menuIconsStyle} />
             </a>
-            <a
-              rel="noopener noreferrer"
-              href={linkedin}
-              target="_blank"
-            >
-              <LinkedinLogo style={menuIconsStyle}/>
+            <a rel="noopener noreferrer" href={linkedin} target="_blank">
+              <LinkedinLogo style={menuIconsStyle} />
             </a>
-            <a
-              rel="noopener noreferrer"
-              href={github}
-              target="_blank"
-            >
-              <GithubLogo style={menuIconsStyle}/>
+            <a rel="noopener noreferrer" href={github} target="_blank">
+              <GithubLogo style={menuIconsStyle} />
             </a>
           </div>
         </div>

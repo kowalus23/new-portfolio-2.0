@@ -1,21 +1,62 @@
 @import '_variables.scss';
 
+
 nav {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   min-height: 50px;
   width: 100%;
   position: fixed;
   top: 0;
   background-color: $second-main-color;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
   z-index: 5;
-  transition: min-height 100ms ease;
+  transition: all 200ms ease;
+
+  &.showShadow {
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+  }
+
+  &.hideShadow {
+    box-shadow: unset;
+    background-color: $first-main-color;
+    border-bottom: 1px solid $border-color;
+  }
 
   h3 {
-    padding: 0;
+    padding: 0 20px;
     color: $text-color;
+  }
+}
+
+.nav-menu {
+  width: 100%;
+  height: 390px;
+  background-color: $second-main-color;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  left: 0;
+  transition: all 400ms ease-in-out;
+  top: -380px;
+  z-index: 1;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.20);
+
+  &--item {
+    &:first-child {
+      margin-top: 15px;
+    }
+
+    text-align: center;
+    width: 100%;
+    padding: 20px;
+    font-size: 1.6em;
+
+    &:hover {
+      background-color: $first-main-color;
+    }
   }
 }
 
@@ -317,5 +358,21 @@ nav {
     left: 99%;
     width: 100%;
     height: 80%;
+  }
+}
+
+.burger {
+  margin: 0 30px;
+
+  .burger-lines {
+    background-color: $text-color;
+
+    &:after {
+      background-color: $text-color;
+    }
+
+    &:before {
+      background-color: $text-color;
+    }
   }
 }

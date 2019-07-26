@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from 'react';
+import Burger from '@animated-burgers/burger-squeeze';
+import '@animated-burgers/burger-squeeze/dist/styles.css';
 import Logo from '../../assets/logo.svg';
 import '../Mobile.scss';
 import MobileAbout from './MobileAbout';
 import MobilePortfolio from './MobilePortfolio';
 import MobileContact from './MobileContact';
-import { homeTexts } from '../component-texts';
+import { homeTexts, menuTexts } from '../component-texts';
+import { mobileMenuIcons } from '../additional-variables';
 
 const MobileHome = () => {
   const [move, setMove] = useState(60);
+  const [toggle, setToggle] = useState(false);
 
+  const { home, portfolio, contact, about } = menuTexts;
   const { component, author, welcome, hi } = homeTexts;
   const componentName = component.toUpperCase();
 
@@ -22,6 +27,10 @@ const MobileHome = () => {
     };
   });
 
+  const buttonHandler = () => {
+    setToggle(!toggle);
+  };
+
   const scrollHandler = () => {
     const scrollY = window.scrollY;
     if (scrollY > 10) {
@@ -32,10 +41,23 @@ const MobileHome = () => {
   return (
     <>
       <div className="mobile-container">
-        <nav style={{ minHeight: `${move}px` }}>
+        <nav
+          className={toggle ? 'hideShadow' : 'showShadow'}
+          style={{ minHeight: `${move}px` }}
+        >
           <h3>{author}</h3>
-          <div>Hamburger</div>
+          <Burger onClick={buttonHandler} isOpen={toggle} />
         </nav>
+        <div
+          className="nav-menu"
+          style={toggle ? { top: '45px' } : { top: '-380px' }}
+        >
+          <p className="nav-menu--item">{home}</p>
+          <p className="nav-menu--item">{about}</p>
+          <p className="nav-menu--item">{portfolio}</p>
+          <p className="nav-menu--item">{contact}</p>
+          <div className="nav-menu--icons">{mobileMenuIcons()}</div>
+        </div>
         <div className="mobile-home-content">
           <h2 className="content-name">{componentName}</h2>
           <div className="hero-content">

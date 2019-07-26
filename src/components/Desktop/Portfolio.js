@@ -10,8 +10,8 @@ const Portfolio = ({ button, currentPage, goToPage, breakPoint }) => {
   const { author, component } = portfolioTexts;
   const componentName = component.toUpperCase();
 
-  const switchPage = (number = 0) => {
-    return goToPage(number);
+  const switchPage = () => {
+    return goToPage(0);
   };
 
   const breakpoint = breakPoint();
@@ -135,7 +135,7 @@ const Portfolio = ({ button, currentPage, goToPage, breakPoint }) => {
             <div className="hamburger-menu--stripes" />
           </div>
           <div
-            onClick={() => switchPage(0)}
+            onClick={switchPage}
             onKeyPress={switchPage}
             className="home-button"
             role="button"
