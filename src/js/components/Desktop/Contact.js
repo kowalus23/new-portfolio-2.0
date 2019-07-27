@@ -29,7 +29,6 @@ const Contact = ({ button, currentPage, goToPage }) => {
                 <h1 className="form-wrapper--text">Zadaj pytanie!?</h1>
                 <form
                   method="POST"
-                  action="/"
                   data-netlify="true"
                   name="contact"
                   data-netlify-honeypot="bot-field"
@@ -37,7 +36,7 @@ const Contact = ({ button, currentPage, goToPage }) => {
                   autoComplete="new-password"
                 >
                   <input type="hidden" name="bot-field" />
-                  <input type="hidden" name="form-name" value="contact" />
+                  <input type="hidden" name="contact" value="contact" />
                   <label htmlFor="name">
                     Imię/Nazwisko
                     <input name="name" type="text" placeholder="John Doe" />
