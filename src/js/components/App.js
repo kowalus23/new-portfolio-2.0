@@ -15,17 +15,23 @@ class App extends React.Component {
 
     this.state = {
       currentPage: 1,
-      windowWidth: window.innerWidth,
+      windowWidth: 1920,
       toggle: false,
       close: { transform: 'translateX(350px)' },
       open: { transform: 'translateX(0)', visibility: 'visible' },
     };
+
     this._pageScroller = null;
     this._isMounted = false;
   }
 
   componentDidMount() {
     this._isMounted = true;
+
+    const updateWidth = window.innerWidth;
+    this.setState({
+      windowWidth: updateWidth,
+    });
 
     window.onresize = () => {
       if (this._isMounted) {
