@@ -12,38 +12,30 @@ const MobileContact = ({ reference }) => {
         <div className="mobile-contact-content--wrapper">
           <div className="form-wrapper">
             <form
-              name="contact"
-              method="post"
+              method="POST"
+              action="/"
               data-netlify="true"
+              name="contact"
               data-netlify-honeypot="bot-field"
             >
-              <input type="hidden" name="bot-field"/>
-              <input type="hidden" name="form-name" value="contact"/>
+              <input type="hidden" name="bot-field" />
+              <input type="hidden" name="form-name" value="contact" />
               <label htmlFor="name">
                 Imię/Nazwisko
-                <input
-                  name="name"
-                  id="name"
-                  type="text"
-                  placeholder="John Doe"
-                  autoComplete="off"
-                />
+                <input name="name" type="text" placeholder="John Doe" />
               </label>
               <label htmlFor="email">
                 Email
                 <input
                   name="email"
-                  id="email"
                   type="email"
                   placeholder="yourmail@gmail.com"
-                  autoComplete="off"
                 />
               </label>
               <label htmlFor="content">
                 Treść
                 <textarea
-                  id="content"
-                  name="content"
+                  name="message"
                   placeholder="Zapytaj o cokolwiek chcesz..."
                 />
               </label>
