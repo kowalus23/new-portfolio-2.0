@@ -840,6 +840,7 @@ a {
   color: $text-color;
   transition: background-color ease-in-out 100ms;
   cursor: pointer;
+  outline: none;
 
   &.button-portfolio {
     margin-top: 1em;
