@@ -11,6 +11,35 @@ const Contact = ({ button, currentPage, goToPage }) => {
     return goToPage(number);
   };
 
+  const [state, setState] = React.useState({});
+
+  const handleChange = e => {
+    setState({ [e.target.name]: e.target.value });
+  };
+
+  function encode(data) {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+      .join('&');
+  }
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    const form = e.target;
+    /* eslint-disable */
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({
+        'form-name': form.getAttribute('name'),
+        ...state,
+      }),
+    }).catch(error => {
+      /*eslint no-console: ["error", { allow: ["warn", "error"] }] */
+      console.error(error);
+    });
+  };
+
   return (
     <div className="contact-container">
       <div className="content">
@@ -28,37 +57,31 @@ const Contact = ({ button, currentPage, goToPage }) => {
               <div className="form-wrapper">
                 <h1 className="form-wrapper--text">Zadaj pytanie!?</h1>
                 <form
-                  method="POST"
-                  data-netlify="true"
                   name="contact"
+                  method="post"
+                  action="/thanks/"
+                  data-netlify="true"
                   data-netlify-honeypot="bot-field"
-                  className="custom-form"
-                  autoComplete="new-password"
+                  onSubmit={handleSubmit}
                 >
-                  <input type="hidden" name="bot-field" />
-                  <input type="hidden" name="contact" value="contact" />
-                  <label htmlFor="name">
-                    Imię/Nazwisko
-                    <input name="name" type="text" placeholder="John Doe" />
-                  </label>
-                  <label htmlFor="email">
-                    Email
-                    <input
-                      name="email"
-                      type="email"
-                      placeholder="yourmail@gmail.com"
-                    />
-                  </label>
-                  <label htmlFor="content">
-                    Treść
-                    <textarea
-                      name="message"
-                      placeholder="Zapytaj o cokolwiek chcesz..."
-                    />
-                  </label>
-                  <button className="form-button" type="submit">
-                    Wyślij
-                  </button>
+                  {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
+                  <input type="hidden" name="form-name" value="contact" />
+                  <p hidden>
+                    Don’t fill this out:{' '}
+                    <input name="bot-field" onChange={handleChange} />
+                  </p>
+                  <p>
+                    <input type="text" name="name" onChange={handleChange} />
+                  </p>
+                  <p>
+                    <input type="email" name="email" onChange={handleChange} />
+                  </p>
+                  <p>
+                    <textarea name="message" onChange={handleChange} />
+                  </p>
+                  <p>
+                    <button type="submit">Send</button>
+                  </p>
                 </form>
               </div>
             </div>
