@@ -335,10 +335,18 @@ h1, h2, h3, p {
                 height: 100px;
                 background-color: white;
                 margin: 10px 0;
+
+                & + div {
+                  display: flex;
+                  flex-wrap: wrap;
+                  text-align: center;
+                }
               }
 
-              &--technologies {
+              &-technologies {
                 font-size: 16px;
+                width: 50%;
+                padding: 4px 0;
               }
             }
 
@@ -358,7 +366,7 @@ h1, h2, h3, p {
 
               &-description {
                 padding: 0 15px;
-                font-size: 14px;
+                font-size: 15px;
               }
 
               &-technologies {

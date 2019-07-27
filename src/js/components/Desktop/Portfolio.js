@@ -20,7 +20,7 @@ const Portfolio = ({ button, currentPage, goToPage, breakPoint }) => {
     if (position <= 0 && position >= -400 && breakpoint <= 1600) {
       return setPosition(move * 0.9);
     } else if (position <= 0 && position >= -700 && breakpoint <= 600) {
-      return setPosition((move) * 0.85);
+      return setPosition(move * 0.85);
     } else {
       return setPosition(0);
     }
@@ -76,13 +76,15 @@ const Portfolio = ({ button, currentPage, goToPage, breakPoint }) => {
                 >
                   github
                 </a>
-                <a
-                  href={`${content.github}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  live view
-                </a>
+                {content.live === null ? null : (
+                  <a
+                    href={`${content.live}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    live view
+                  </a>
+                )}
               </div>
             </div>
           </div>
