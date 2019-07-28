@@ -14,18 +14,16 @@
 }
 
 body {
-  overflow: hidden;
-
   *, *::after, *::before {
     box-sizing: border-box;
   }
 }
 
 .thank-you-page {
-  @include flexCentered;
   height: 100vh;
   width: 100%;
   overflow: hidden;
+  @include flexCentered;
 
   &--container {
     position: relative;
@@ -118,12 +116,12 @@ body {
     top: -47px;
     left: -13px;
 
-    @media (max-width: 1000px) {
+    @media (max-width: 1015px) {
       font-size: 10em;
       top: -36px;
     }
 
-    @media (max-width: 700px) {
+    @media (max-width: 720px) {
       font-size: 6em;
       top: -20px;
       left: -6px;
@@ -137,22 +135,21 @@ body {
 
   &--sent {
     @include contentTextProps;
-    bottom: -59px;
-    right: -4px;
+    bottom: 0;
+    right: 0;
+    line-height: 0.8;
+    overflow: hidden;
+    padding: 0;
 
-    @media (max-width: 1000px) {
+    @media (max-width: 1015px) {
       font-size: 10em;
-      bottom: -46px;
     }
 
-    @media (max-width: 700px) {
+    @media (max-width: 720px) {
       font-size: 6em;
-      bottom: -26px;
     }
     @media (max-width: 460px) {
       font-size: 4em;
-      bottom: -20px;
-      right: 0;
     }
   }
 }
