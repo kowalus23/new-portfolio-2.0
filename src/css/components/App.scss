@@ -543,20 +543,15 @@ h1, h2, h3, p {
             width: 100%;
             border: 1px solid $border-color;
             border-radius: 3px;
-
-            &::placeholder {
-              font-size: 16px;
-              opacity: 0.5;
-            }
+            margin-top: 8px;
+            font-size: 14px;
+            color: $text-color;
+            outline: none;
+            padding: 12px;
           }
 
           input {
             height: 40px;
-            border-color: $border-color;
-            padding: 12px;
-            font-size: 16px;
-            color: $text-color;
-            outline: none;
 
             &:focus {
               box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.15);
@@ -565,13 +560,8 @@ h1, h2, h3, p {
           }
 
           textarea {
-            border-color: $border-color;
             resize: none;
             height: 145px;
-            padding: 12px;
-            font-size: 14px;
-            color: $text-color;
-            outline: none;
 
             &:focus {
               box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.15);
@@ -876,7 +866,7 @@ a {
   right: 0;
   transition: all 200ms ease-in-out;
   cursor: pointer;
-  outline:none;
+  outline: none;
 
   &:hover, &:focus {
     border-radius: 0;
@@ -945,4 +935,20 @@ a {
   height: 100%;
   transform: rotate(180deg);
   z-index: -1;
+}
+
+input::placeholder, textarea::placeholder {
+  opacity: 0.5;
+}
+
+@media (max-width: 600px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="number"],
+  select.focus,
+  textarea,
+  select:focus,
+  textarea {
+    font-size: 16px;
+  }
 }
