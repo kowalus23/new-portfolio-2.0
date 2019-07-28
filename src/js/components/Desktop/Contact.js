@@ -2,6 +2,7 @@ import React from 'react';
 import HomeButton from '../../../assets/home.svg';
 import { homeButton, socialIcons } from '../../additional-variables';
 import { contactTexts } from '../../component-texts';
+import ContactTwo from '../../../pages/contact';
 
 const Contact = ({ button, currentPage, goToPage }) => {
   const { author, component } = contactTexts;
@@ -24,6 +25,7 @@ const Contact = ({ button, currentPage, goToPage }) => {
               <p className="counter">03</p>
               <div className="icons">{socialIcons()}</div>
             </div>
+            <ContactTwo />
             <div className="form-before-element">
               <div className="form-wrapper">
                 <h1 className="form-wrapper--text">Zadaj pytanie!?</h1>
