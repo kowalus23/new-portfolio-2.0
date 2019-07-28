@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import '../css/about.scss';
 import { aboutTexts } from '../js/component-texts';
+import CV from '../assets/Patryk-Kowalski-CV-2019.pdf';
 
 const About = () => {
   const { know, used, interested, download } = aboutTexts;
@@ -45,11 +46,7 @@ const About = () => {
                 </div>
               </div>
             </div>
-            <a
-              className="button"
-              href="../assets/Patryk-Kowalski-CV-2019.pdf"
-              download
-            >
+            <a className="button" href={CV} download>
               {download}
             </a>
             <Link className="home" to="/">
