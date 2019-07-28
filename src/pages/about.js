@@ -45,7 +45,11 @@ const About = () => {
                 </div>
               </div>
             </div>
-            <a className="button" href="../assets/home.svg" download>
+            <a
+              className="button"
+              href="../assets/Patryk-Kowalski-CV-2019.pdf"
+              download
+            >
               {download}
             </a>
             <Link className="home" to="/">

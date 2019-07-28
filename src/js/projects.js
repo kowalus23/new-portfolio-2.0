@@ -67,7 +67,7 @@ export const projectsInfo = [
       description:
         'Zdecydowanie najbardziej sentymentalny projekt, pierwszy, który stowrzyłem, pisany był w JS, a potem przeniesiony do React, jszcze nie znając Reacta, miałem problemy w sterowaniu i wiele innych, ostatecznie ostatnio go naprawiłem i delikatnie poprawiłem.',
       github: 'https://github.com/kowalus23/Website-Project',
-      live: 'https://kowalus23.github.io/website-project',
+      live: null,
       technologies: ['HTML', 'Sass', 'JS', 'React'],
     },
   },
