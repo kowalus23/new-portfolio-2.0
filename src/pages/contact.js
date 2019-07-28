@@ -7,7 +7,7 @@ function encode(data) {
     .join('&');
 }
 
-const ContactTwo = () => {
+const ContactForm = () => {
   const [name, setName] = useState({});
   const [email, setEmail] = useState({});
   const [message, setMessage] = useState({});
@@ -45,58 +45,54 @@ const ContactTwo = () => {
 
   return (
     <>
-      <div className="form-before-element">
-        <div className="form-wrapper">
-          <h1 className="form-wrapper--text">Zadaj pytanie!?</h1>
-          <form
-            method="POST"
-            data-netlify="true"
-            name="contact"
-            data-netlify-honeypot="bot-field"
-            className="custom-form"
-            onSubmit={handleSubmit}
-          >
-            <input type="hidden" name="bot-field" />
-            <input
-              type="hidden"
-              name="form-name"
-              value="contact"
-              onChange={handleOnChange}
-            />
-            <label htmlFor="name">
-              Imię/Nazwisko
-              <input
-                name="name"
-                type="text"
-                placeholder="John Doe"
-                onChange={handleOnChange}
-              />
-            </label>
-            <label htmlFor="email">
-              Email
-              <input
-                name="email"
-                type="email"
-                placeholder="yourmail@gmail.com"
-                onChange={handleOnChange}
-              />
-            </label>
-            <label htmlFor="content">
-              Treść
-              <textarea
-                name="message"
-                placeholder="Zapytaj o cokolwiek chcesz..."
-                onChange={handleOnChange}
-              />
-            </label>
-            <button className="form-button" type="submit">
-              Wyślij
-            </button>
-          </form>
-        </div>
-      </div>
+      <form
+        method="POST"
+        data-netlify="true"
+        name="contact"
+        action="/thankyou/"
+        data-netlify-honeypot="bot-field"
+        className="custom-form"
+        onSubmit={handleSubmit}
+      >
+        <input type="hidden" name="bot-field" />
+        <input
+          type="hidden"
+          name="form-name"
+          value="contact"
+          onChange={handleOnChange}
+        />
+        <label htmlFor="name">
+          Imię/Nazwisko
+          <input
+            name="name"
+            type="text"
+            placeholder="John Doe"
+            onChange={handleOnChange}
+          />
+        </label>
+        <label htmlFor="email">
+          Email
+          <input
+            name="email"
+            type="email"
+            placeholder="yourmail@gmail.com"
+            onChange={handleOnChange}
+          />
+        </label>
+        <label htmlFor="content">
+          Treść
+          <textarea
+            name="message"
+            placeholder="Zapytaj o cokolwiek chcesz..."
+            onChange={handleOnChange}
+          />
+        </label>
+        <button className="form-button" type="submit">
+          Wyślij
+        </button>
+      </form>
     </>
   );
 };
 
-export default ContactTwo;
+export default ContactForm;

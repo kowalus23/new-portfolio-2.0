@@ -342,7 +342,8 @@ nav {
         justify-content: space-between;
         align-items: center;
         padding: 10px;
-        background-color: $third-main-color;
+        background-color: $second-main-color;
+        border-top: 1px solid $border-color;
 
         &--text {
           color: $text-color;

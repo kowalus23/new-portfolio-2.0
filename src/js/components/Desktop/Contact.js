@@ -2,14 +2,14 @@ import React from 'react';
 import HomeButton from '../../../assets/home.svg';
 import { homeButton, socialIcons } from '../../additional-variables';
 import { contactTexts } from '../../component-texts';
-import ContactTwo from '../../../pages/contact';
+import ContactForm from '../../../pages/contact';
 
 const Contact = ({ button, currentPage, goToPage }) => {
   const { author, component } = contactTexts;
   const componentName = component.toUpperCase();
 
-  const switchPage = (number = 0) => {
-    return goToPage(number);
+  const goBackHome = () => {
+    return goToPage(0);
   };
 
   return (
@@ -25,7 +25,12 @@ const Contact = ({ button, currentPage, goToPage }) => {
               <p className="counter">03</p>
               <div className="icons">{socialIcons()}</div>
             </div>
-            <ContactTwo />
+            <div className="form-before-element">
+              <div className="form-wrapper">
+                <h1 className="form-wrapper--text">Zadaj pytanie!?</h1>
+                <ContactForm />
+              </div>
+            </div>
             <div>icons</div>
           </div>
           <div
@@ -38,8 +43,8 @@ const Contact = ({ button, currentPage, goToPage }) => {
             <div className="hamburger-menu--stripes" />
           </div>
           <div
-            onClick={() => switchPage(0)}
-            onKeyPress={switchPage}
+            onClick={goBackHome}
+            onKeyPress={goBackHome}
             className="home-button"
             role="button"
             tabIndex="0"

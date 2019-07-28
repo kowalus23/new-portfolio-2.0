@@ -8,8 +8,8 @@ const Home = ({ button, goToPage, currentPage }) => {
   const { author, component, about, welcome, hi, buttonName } = homeTexts;
   const componentName = component.toUpperCase();
 
-  const switchPage = (number = 1) => {
-    return goToPage(number);
+  const goToPortfolio = () => {
+    return goToPage(1);
   };
 
   return (
@@ -34,7 +34,7 @@ const Home = ({ button, goToPage, currentPage }) => {
               <button
                 className="btn button-portfolio"
                 type="button"
-                onClick={() => switchPage(1)}
+                onClick={goToPortfolio}
               >
                 {buttonName}
               </button>

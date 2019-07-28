@@ -154,3 +154,23 @@ export const aboutTexts = {
     },
   ],
 };
+
+export const mobileAboutTexts = {
+  mainText: [
+    {
+      id: 1,
+      content:
+        'Mam na imię Patryk, programuje od niecałych dwóch lat. Gdybym wiedział, że programowanie jest tak absorbujące i są to poniekąd wirtualne klocki lego, to zapewne zacząłbym wcześniej!',
+    },
+    {
+      id: 2,
+      content:
+        ' Przez rok pracowałem dla świetnego pracodawcy User.com, wcześniej (Userengage). Moim głównym zadaniem było napisać cały front user.com, zaorać ponad 100 stron i stworzyć od zera z nowym designem. Firma ponad to stawia na nowe technologie, ja dotknąłem między innymi Vue, Python(Django), Webpack, a na pewno miałem dużo HTML/CSS(Sass), JS(jQuery)...',
+    },
+    {
+      id: 3,
+      content:
+        'Poza tym jestem głodny wyzwań, rozwoju, żeby szlifować umiejętności Front-end Deva i nie tylko! :) po więcej szczegółów zapraszam pod przycisk pniżej',
+    },
+  ],
+};

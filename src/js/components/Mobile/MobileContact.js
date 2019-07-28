@@ -1,5 +1,6 @@
 import React from 'react';
 import { contactTexts } from '../../component-texts';
+import ContactForm from '../../../pages/contact';
 
 const MobileContact = ({ reference }) => {
   const { component } = contactTexts;
@@ -11,37 +12,7 @@ const MobileContact = ({ reference }) => {
         <h2 className="content-name">{componentName}</h2>
         <div className="mobile-contact-content--wrapper">
           <div className="form-wrapper">
-            <form
-              method="POST"
-              data-netlify="true"
-              name="contact"
-              data-netlify-honeypot="bot-field"
-            >
-              <input type="hidden" name="bot-field" />
-              <input type="hidden" name="contact" value="contact" />
-              <label htmlFor="name">
-                Imię/Nazwisko
-                <input name="name" type="text" placeholder="John Doe" />
-              </label>
-              <label htmlFor="email">
-                Email
-                <input
-                  name="email"
-                  type="email"
-                  placeholder="yourmail@gmail.com"
-                />
-              </label>
-              <label htmlFor="content">
-                Treść
-                <textarea
-                  name="message"
-                  placeholder="Zapytaj o cokolwiek chcesz..."
-                />
-              </label>
-              <button className="form-button" type="submit">
-                Wyślij
-              </button>
-            </form>
+            <ContactForm />
           </div>
           <div className="copyright">
             <p className="copyright--text">copyright</p>
