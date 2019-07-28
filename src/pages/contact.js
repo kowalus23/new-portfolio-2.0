@@ -35,28 +35,56 @@ const ContactTwo = () => {
 
   return (
     <>
-      <h1>Contact</h1>
-      <form
-        name="contact"
-        method="post"
-        action="/"
-        data-netlify="true"
-        data-netlify-honeypot="bot-field"
-        onSubmit={handleSubmit}
-      >
-        {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
-        <input type="hidden" name="form-name" value="contact" />
-
-        <input type="hidden" name="bot-field" onChange={handleChange} />
-
-        <input type="text" name="name" onChange={handleChange} />
-
-        <input type="email" name="email" onChange={handleChange} />
-
-        <textarea name="message" onChange={handleChange} />
-
-        <button type="submit">Send</button>
-      </form>
+      <div className="form-before-element">
+        <div className="form-wrapper">
+          <h1 className="form-wrapper--text">Zadaj pytanie!?</h1>
+          <form
+            method="POST"
+            data-netlify="true"
+            name="contact"
+            data-netlify-honeypot="bot-field"
+            className="custom-form"
+            onSubmit={handleSubmit}
+          >
+            <input type="hidden" name="bot-field" />
+            <input
+              type="hidden"
+              name="contact"
+              value="contact"
+              onChange={handleChange}
+            />
+            <label htmlFor="name">
+              Imię/Nazwisko
+              <input
+                name="name"
+                type="text"
+                placeholder="John Doe"
+                onChange={handleChange}
+              />
+            </label>
+            <label htmlFor="email">
+              Email
+              <input
+                name="email"
+                type="email"
+                placeholder="yourmail@gmail.com"
+                onChange={handleChange}
+              />
+            </label>
+            <label htmlFor="content">
+              Treść
+              <textarea
+                name="message"
+                placeholder="Zapytaj o cokolwiek chcesz..."
+                onChange={handleChange}
+              />
+            </label>
+            <button className="form-button" type="submit">
+              Wyślij
+            </button>
+          </form>
+        </div>
+      </div>
     </>
   );
 };
