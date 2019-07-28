@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { navigate } from 'gatsby';
 
 function encode(data) {
@@ -8,10 +8,18 @@ function encode(data) {
 }
 
 const ContactTwo = () => {
-  const [state, setState] = React.useState({});
+  const [name, setName] = useState({});
+  const [email, setEmail] = useState({});
+  const [message, setMessage] = useState({});
 
-  const handleChange = e => {
-    setState({ [e.target.name]: e.target.value });
+  const handleOnChange = ({ target }) => {
+    if (target.getAttribute('name') === 'name') {
+      setName(target.value);
+    } else if (target.getAttribute('name') === 'email') {
+      setEmail(target.value);
+    } else if (target.getAttribute('name') === 'message') {
+      setMessage(target.value);
+    }
   };
 
   const handleSubmit = e => {
@@ -23,7 +31,9 @@ const ContactTwo = () => {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
         'form-name': form.getAttribute('name'),
-        ...state,
+        name,
+        email,
+        message,
       }),
     })
       .then(() => navigate(form.getAttribute('action')))
@@ -49,9 +59,9 @@ const ContactTwo = () => {
             <input type="hidden" name="bot-field" />
             <input
               type="hidden"
-              name="contact"
+              name="form-name"
               value="contact"
-              onChange={handleChange}
+              onChange={handleOnChange}
             />
             <label htmlFor="name">
               Imię/Nazwisko
@@ -59,7 +69,7 @@ const ContactTwo = () => {
                 name="name"
                 type="text"
                 placeholder="John Doe"
-                onChange={handleChange}
+                onChange={handleOnChange}
               />
             </label>
             <label htmlFor="email">
@@ -68,7 +78,7 @@ const ContactTwo = () => {
                 name="email"
                 type="email"
                 placeholder="yourmail@gmail.com"
-                onChange={handleChange}
+                onChange={handleOnChange}
               />
             </label>
             <label htmlFor="content">
@@ -76,7 +86,7 @@ const ContactTwo = () => {
               <textarea
                 name="message"
                 placeholder="Zapytaj o cokolwiek chcesz..."
-                onChange={handleChange}
+                onChange={handleOnChange}
               />
             </label>
             <button className="form-button" type="submit">
