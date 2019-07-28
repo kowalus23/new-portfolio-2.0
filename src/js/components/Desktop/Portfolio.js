@@ -52,12 +52,14 @@ const Portfolio = ({ button, currentPage, goToPage, breakPoint }) => {
     });
     return (
       <div className="portfolio-card" key={id}>
-        <div key={id} className="portfolio-card--inner">
+        <div className="portfolio-card--inner">
           <div className="portfolio-card--inner__front">
             <h3 className="portfolio-card--inner__front-title">
               {content.title}
             </h3>
-            <div className="portfolio-card--inner__front-image" />
+            <div className="portfolio-card--inner__front-image">
+              <img src={content.image} alt={content.title} />
+            </div>
             <div>{technologies}</div>
           </div>
           <div className="portfolio-card--inner__back">
