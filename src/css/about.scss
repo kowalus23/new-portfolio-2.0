@@ -213,7 +213,6 @@ ul {
   .about-page {
     .about-container {
       width: 900px;
-      height: 850px;
       background: linear-gradient(to left, $first-main-color 72.7%, $second-main-color 25%);
 
       .about-content {
@@ -262,7 +261,6 @@ ul {
   .about-page {
     .about-container {
       width: 600px;
-      height: max-content;
       background: linear-gradient(to bottom, $first-main-color  50%, $second-main-color 70%, $second-main-color 0%);
 
       .content--name {
