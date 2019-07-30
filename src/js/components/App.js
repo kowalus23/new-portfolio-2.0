@@ -101,10 +101,11 @@ class App extends React.Component {
       hide,
       isLoading,
     } = this.state;
+
     if (windowWidth > 600) {
       return isLoading ? (
         <div className="app-content">
-          <h1>LOADING</h1>{' '}
+          <div className="loader" />
         </div>
       ) : (
         <div className="app-content">
