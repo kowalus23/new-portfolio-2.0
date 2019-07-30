@@ -37,13 +37,14 @@
     &__content-name {
       position: absolute;
       left: -13px;
-      top: -104px;
+      top: -70px;
       color: $content-name-color;
       font-size: 30em;
+      text-shadow: 1px 1px 1px lighten($border-color, 8%);
 
       @media (max-width: 900px) {
         font-size: 20em;
-        top: -68px;
+        top: -40px;
         left: -10px;
       }
 

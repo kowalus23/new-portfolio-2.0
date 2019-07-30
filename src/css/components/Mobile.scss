@@ -90,7 +90,7 @@ nav {
       @include contentName;
 
       font-size: 8em;
-      top: -15px;
+      top: -8px;
       left: -8px;
       font-weight: 700;
 
@@ -153,6 +153,7 @@ nav {
 
       &__text {
         padding: 20px;
+        line-height: 1.35;
       }
     }
 
@@ -232,8 +233,9 @@ nav {
                     color: $text-color;
                     margin: 10px;
                     overflow: hidden;
+                    line-height: 1.2;
                     display: -webkit-box;
-                    -webkit-line-clamp: 6;
+                    -webkit-line-clamp: 7;
                     -webkit-box-orient: vertical;
                   }
 

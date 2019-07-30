@@ -23,6 +23,12 @@ h1, h2, h3, p {
   margin: 0;
 }
 
+@mixin contentName {
+  color: $content-name-color;
+  text-shadow: 1px 1px 1px lighten($border-color, 8%);
+  cursor: default;
+}
+
 @mixin sideContent {
   .side-content {
     display: flex;
@@ -109,7 +115,7 @@ h1, h2, h3, p {
     height: 100%;
 
     .content--name {
-      color: $content-name-color;
+      @include contentName;
       font-size: 20em;
       left: -18px;
       top: -40px;
@@ -117,7 +123,7 @@ h1, h2, h3, p {
       @media (max-width: 900px) {
         font-size: 13em;
         left: -11px;
-        top: -43px;
+        top: -30px;
       }
     }
 
@@ -190,16 +196,15 @@ h1, h2, h3, p {
     }
 
     .content--name {
-      color: $content-name-color;
+      @include contentName;
       font-size: 16em;
       left: -14px;
       top: -32px;
-      cursor: default;
 
       @media (max-width: 900px) {
         font-size: 7em;
         left: -6px;
-        top: -22px;
+        top: -14px;
       }
     }
 
@@ -287,7 +292,7 @@ h1, h2, h3, p {
 
         .portfolio-card {
           width: calc(290px - 60px);
-          margin: 25px;
+          margin: 20px 25px;
           height: 300px;
           background-color: transparent;
 
@@ -375,6 +380,7 @@ h1, h2, h3, p {
               &-description {
                 padding: 0 15px;
                 font-size: 14px;
+                line-height: 1.35;
               }
 
               &-technologies {
@@ -444,16 +450,15 @@ h1, h2, h3, p {
     }
 
     .content--name {
-      color: $content-name-color;
+      @include contentName;
       font-size: 16em;
       left: -16px;
       top: -34px;
-      cursor: default;
 
       @media (max-width: 900px) {
         font-size: 8em;
         left: -6px;
-        top: -29px;
+        top: -16px;
       }
     }
 
@@ -534,7 +539,7 @@ h1, h2, h3, p {
         &--text {
           position: absolute;
           color: $text-color;
-          top: -52px;
+          top: -48px;
           left: 0;
           font-size: 56px;
         }
@@ -582,8 +587,7 @@ h1, h2, h3, p {
           }
 
           .form-button {
-            width: 200px;
-            height: 46px;
+            padding: 0.4em 3em;
             margin: auto;
             background-color: $first-main-color;
             border-radius: 3px;
@@ -620,6 +624,10 @@ h1, h2, h3, p {
       background-color: $first-main-color;
       width: 100%;
       padding: 20px;
+
+      .menu-title {
+        font-size: 2em;
+      }
 
       .hamburger-menu {
         cursor: pointer;
