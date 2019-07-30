@@ -309,7 +309,6 @@ h1, h2, h3, p {
             border-radius: 3px;
             perspective: 1000px;
 
-
             @mixin __front__back {
               position: absolute;
               width: 100%;
@@ -416,7 +415,6 @@ h1, h2, h3, p {
             }
           }
         }
-
       }
     }
   }
@@ -949,6 +947,7 @@ input::placeholder, textarea::placeholder {
   opacity: 0.5;
 }
 
+// IOS - Safari fix for inputs zoom
 @media (max-width: 600px) {
   input[type="text"],
   input[type="email"],
