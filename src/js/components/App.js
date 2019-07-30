@@ -18,6 +18,7 @@ class App extends React.Component {
       currentPage: 1,
       windowWidth: 1920,
       toggle: false,
+      hide: null,
       close: { transform: 'translateX(350px)' },
       open: { transform: 'translateX(0)', visibility: 'visible' },
     };
@@ -52,6 +53,16 @@ class App extends React.Component {
     });
   };
 
+  hideHandler = () => {
+    this.setState({
+      hide: {
+        top: '-190px',
+        animationFillMode: 'backwards',
+        visibility: 'hidden',
+      },
+    });
+  };
+
   pageOnChange = number => {
     setTimeout(() => {
       this.setState({ currentPage: number });
@@ -76,15 +87,24 @@ class App extends React.Component {
   };
 
   render() {
-    const { toggle, open, close, windowWidth, currentPage } = this.state;
+    const { toggle, open, close, windowWidth, currentPage, hide } = this.state;
     if (windowWidth > 600) {
       return (
         <div className="app-content">
-          <div className="helper-info">
+          <div className="helper-info" style={hide}>
             <h1 className="helper-info--text">
               You need to focus or hover main component to make scroll, keys or
               touch work
             </h1>
+            <div
+              onClick={this.hideHandler}
+              role="button"
+              onKeyPress={this.hideHandler}
+              tabIndex={-2}
+              className="hide"
+            >
+              Close
+            </div>
           </div>
           <Menu
             button={this.buttonHandler}
