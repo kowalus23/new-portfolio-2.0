@@ -111,8 +111,8 @@ h1, h2, h3, p {
     .content--name {
       color: $content-name-color;
       font-size: 20em;
-      left: -20px;
-      top: -68px;
+      left: -18px;
+      top: -40px;
 
       @media (max-width: 900px) {
         font-size: 13em;
@@ -159,6 +159,7 @@ h1, h2, h3, p {
   .portfolio-container {
     background-color: $first-main-color;
     height: 100%;
+    overflow: hidden;
 
     .content {
       @media (max-width: 1600px) {
@@ -191,8 +192,8 @@ h1, h2, h3, p {
     .content--name {
       color: $content-name-color;
       font-size: 16em;
-      left: -16px;
-      top: -54px;
+      left: -14px;
+      top: -32px;
       cursor: default;
 
       @media (max-width: 900px) {
@@ -424,6 +425,7 @@ h1, h2, h3, p {
     padding-bottom: 40px;
     background: linear-gradient(to bottom, $second-main-color 95%, $first-main-color 25%);
     height: 100%;
+    overflow: hidden;
 
     @include sideContent;
 
@@ -445,7 +447,7 @@ h1, h2, h3, p {
       color: $content-name-color;
       font-size: 16em;
       left: -16px;
-      top: -54px;
+      top: -34px;
       cursor: default;
 
       @media (max-width: 900px) {

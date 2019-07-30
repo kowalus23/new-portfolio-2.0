@@ -6,6 +6,7 @@ import Menu from './Desktop/Menu';
 import Portfolio from './Desktop/Portfolio';
 import Contact from './Desktop/Contact';
 
+import '../../css/reset.scss';
 import '../../css/components/App.scss';
 import MobileHome from './Mobile/MobileHome';
 
