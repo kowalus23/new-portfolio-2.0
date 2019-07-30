@@ -113,23 +113,23 @@ body {
 
   &--message {
     @include contentTextProps;
-    top: -76px;
+    top: -16px;
     left: -13px;
 
     @media (max-width: 1015px) {
       font-size: 10em;
-      top: -52px;
+      top: -12px;
     }
 
     @media (max-width: 720px) {
       font-size: 6em;
-      top: -30px;
+      top: -10px;
       left: -6px;
     }
 
     @media (max-width: 460px) {
       font-size: 4em;
-      top: -18px;
+      top: -2px;
     }
   }
 
