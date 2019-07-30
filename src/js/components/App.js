@@ -18,6 +18,7 @@ class App extends React.Component {
       currentPage: 1,
       windowWidth: 1920,
       toggle: false,
+      isLoading: true,
       hide: null,
       close: { transform: 'translateX(350px)' },
       open: { transform: 'translateX(0)', visibility: 'visible' },
@@ -28,6 +29,10 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    this.setState({
+      isLoading: false,
+    });
+
     this._isMounted = true;
 
     const updateWidth = window.innerWidth;
@@ -87,9 +92,21 @@ class App extends React.Component {
   };
 
   render() {
-    const { toggle, open, close, windowWidth, currentPage, hide } = this.state;
+    const {
+      toggle,
+      open,
+      close,
+      windowWidth,
+      currentPage,
+      hide,
+      isLoading,
+    } = this.state;
     if (windowWidth > 600) {
-      return (
+      return isLoading ? (
+        <div className="app-content">
+          <h1>LOADING</h1>{' '}
+        </div>
+      ) : (
         <div className="app-content">
           <div className="helper-info" style={hide}>
             <h1 className="helper-info--text">

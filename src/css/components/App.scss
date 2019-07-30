@@ -74,7 +74,7 @@ h1, h2, h3, p {
   .helper-info {
     visibility: hidden;
     position: absolute;
-          background-color: $second-main-color;
+    background-color: $second-main-color;
     width: calc(100% - 40px);
     margin: 20px;
     top: -190px;
@@ -162,16 +162,11 @@ h1, h2, h3, p {
     top: 0;
     z-index: 10;
     box-shadow: -6px 0 20px rgba(0, 0, 0, 0.25);
-  }
 
-  .component-wrapper-shadow {
-    box-shadow: 0 0 40px rgba(97, 97, 97, 0.5);
-    position: relative;
-    border-radius: 10px;
-
-    & > div {
+    & + div > div {
       transition: width 300ms ease-in-out;
       border-radius: 10px;
+      box-shadow: 0 0 40px rgba(97, 97, 97, .5);
     }
   }
 
