@@ -80,18 +80,18 @@ class App extends React.Component {
     if (windowWidth > 600) {
       return (
         <div className="app-content">
+          <div className="helper-info">
+            <h1 className="helper-info--text">
+              You need to focus or hover main component to make scroll, keys or
+              touch work
+            </h1>
+          </div>
           <Menu
             button={this.buttonHandler}
             goToPage={this.goToPage}
             style={toggle ? open : close}
           />
           <div className="component-wrapper-shadow">
-            <div className="helper-info">
-              <h1 className="helper-info--text">
-                You need to focus or hover main component to make scroll, keys
-                or touch work
-              </h1>
-            </div>
             <ReactPageScroller
               ref={c => (this._pageScroller = c)}
               pageOnChange={this.pageOnChange}

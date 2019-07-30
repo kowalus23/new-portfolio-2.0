@@ -44,5 +44,27 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: `gatsby-plugin-favicon`,
+      options: {
+        logo: './src/images/favicon@2x.png',
+        background: '#fff',
+        theme_color: '#fff',
+        display: 'standalone',
+        orientation: 'any',
+        start_url: '/',
+
+        icons: {
+          android: true,
+          appleIcon: true,
+          appleStartup: true,
+          coast: false,
+          favicons: true,
+          firefox: true,
+          yandex: false,
+          windows: false,
+        },
+      },
+    },
   ],
 };
