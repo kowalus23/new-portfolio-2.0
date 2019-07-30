@@ -57,7 +57,7 @@ class App extends React.Component {
     this.setState({
       hide: {
         top: '-190px',
-        animationFillMode: 'backwards',
+        animation: 'none',
         visibility: 'hidden',
       },
     });

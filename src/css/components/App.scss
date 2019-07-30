@@ -74,26 +74,56 @@ h1, h2, h3, p {
   .helper-info {
     visibility: hidden;
     position: absolute;
+          background-color: $second-main-color;
     width: calc(100% - 40px);
     margin: 20px;
     top: -190px;
     left: 0;
-    opacity: 0.9;
-    background-color: $second-main-color;
+    opacity: 0.95;
     border-radius: 4px;
     box-shadow: 0 0 16px rgba(0, 0, 0, 0.20);
     z-index: 15;
-    animation: hideMe 2s ease-in-out;
-    animation-fill-mode: forwards;
+    animation: hideMe 8s alternate;
 
     @keyframes hideMe {
-      from {
+      0% {
         visibility: hidden;
         top: -190px;
       }
-      to {
+      10% {
         visibility: visible;
         top: 0;
+      }
+
+      90% {
+        visibility: visible;
+        top: 0;
+      }
+      100% {
+        visibility: hidden;
+        top: -190px;
+      }
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      z-index: -1;
+      background-color: $first-main-color;
+      animation: fillBackground 7.2s linear forwards;
+
+      @keyframes fillBackground {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
       }
     }
 
