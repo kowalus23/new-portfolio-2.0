@@ -2,7 +2,7 @@ import React from 'react';
 import { portfolioTexts } from '../../component-texts';
 import { projectsInfo } from '../../projects';
 
-const MobilePortfolio = ({reference}) => {
+const MobilePortfolio = ({ reference }) => {
   const { component } = portfolioTexts;
   const componentName = component.toUpperCase();
 
@@ -17,7 +17,7 @@ const MobilePortfolio = ({reference}) => {
               className="card--wrapper--buttons__button"
               target="_blank"
               rel="noopener noreferrer"
-              href={content.github}
+              href={content.live}
             >
               live view
             </a>
