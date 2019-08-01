@@ -2,7 +2,7 @@ import React from 'react';
 import { portfolioTexts } from '../../component-texts';
 import { projectsInfo } from '../../projects';
 
-const MobilePortfolio = ({reference}) => {
+const MobilePortfolio = ({ reference }) => {
   const { component } = portfolioTexts;
   const componentName = component.toUpperCase();
 
@@ -13,14 +13,16 @@ const MobilePortfolio = ({reference}) => {
         <div className="card--wrapper">
           <p className="card--wrapper--description">{content.description}</p>
           <div className="card--wrapper--buttons">
-            <a
-              className="card--wrapper--buttons__button"
-              target="_blank"
-              rel="noopener noreferrer"
-              href={content.github}
-            >
-              live view
-            </a>
+            {content.live === null ? null : (
+              <a
+                className="card--wrapper--buttons__button"
+                href={`${content.live}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                live view
+              </a>
+            )}
             <a
               className="card--wrapper--buttons__button"
               target="_blank"
