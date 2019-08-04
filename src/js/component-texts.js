@@ -62,7 +62,7 @@ export const aboutTexts = {
     },
     {
       id: 9,
-      name: 'Bootstrap',
+      name: 'Bootstrap 4',
     },
     {
       id: 10,

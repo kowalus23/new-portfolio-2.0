@@ -6,6 +6,7 @@ import photoSearch from '../images/photo-search.png';
 import weather from '../images/weather-forecase-browser.png';
 import websiteProject from '../images/website-project.png';
 import blogPosts from '../images/blog-posts.png';
+import chat from '../images/chat.png';
 
 export const projectsInfo = [
   {
@@ -105,7 +106,7 @@ export const projectsInfo = [
         'Prosty chat, dzięki któremu możemy rozmawiać z innymi użytkownikami, na różnych kanałach czy w różnych pokojach, później można dodać lepszą autoryzacje + przypisać osoby do konkretnych pokojów.',
       github: 'https://github.com/kowalus23/simple-chat',
       live: null,
-      image: blogPosts,
+      image: chat,
       technologies: ['HTML', 'CSS', 'JS', 'Socket.io', 'Node.js'],
     },
   },
