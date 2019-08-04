@@ -100,6 +100,18 @@ export const projectsInfo = [
   {
     id: 7,
     content: {
+      title: 'Simple Chat',
+      description:
+        'Prosty chat, dzięki któremu możemy rozmawiać z innymi użytkownikami, na różnych kanałach czy w różnych pokojach, później można dodać lepszą autoryzacje + przypisać osoby do konkretnych pokojów.',
+      github: 'https://github.com/kowalus23/simple-chat',
+      live: null,
+      image: blogPosts,
+      technologies: ['HTML', 'CSS', 'JS', 'Socket.io', 'Node.js'],
+    },
+  },
+  {
+    id: 8,
+    content: {
       title: 'Blog posts',
       description:
         'Tym razem mamy do czynienia z typową listą z informacjami, aka post, możemy dodawać, usuwać, bazuje to na fake-owym db od heroku, max do 10 obiektów. Jeden stworzyłem lokalny, żeby sprawdzić jak sprawdza się service worker... lecz brakuje mu cache-owania api',
@@ -110,7 +122,7 @@ export const projectsInfo = [
     },
   },
   {
-    id: 8,
+    id: 9,
     content: {
       title: 'Photo search',
       description:
