@@ -741,13 +741,13 @@ h1, h2, h3, p {
     &__middle {
       width: 100%;
       height: 50%;
-      padding: 20px;
+      padding: 20px 0;
 
       .pager {
         width: 100%;
         height: 100%;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         padding: 0;
         margin: 0;
         list-style: none;
@@ -755,6 +755,7 @@ h1, h2, h3, p {
 
         li {
           width: 100%;
+          padding: 5px 0;
 
           a {
             width: 100%;

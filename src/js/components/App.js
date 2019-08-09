@@ -117,7 +117,8 @@ class App extends React.Component {
             <ReactPageScroller
               ref={c => (this._pageScroller = c)}
               pageOnChange={this.pageOnChange}
-              animationTimer={600}
+              animationTimer={500}
+              transitionTimingFunction="ease-in-out"
               containerWidth={`${this.breakPoint()}px`}
               containerHeight="800px"
             >

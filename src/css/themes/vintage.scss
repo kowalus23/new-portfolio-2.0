@@ -7,7 +7,7 @@ $text-color: #2B2B29;
 $content-name-color: #E6E2DD;
 $button-name-color: $content-name-color;
 $border-color: #aaaaaa;
-$icons-color: #8FB1CE;
+$icons-color: lighten($second-main-color, 10%);
 
 
 @mixin contentName {
@@ -162,7 +162,7 @@ body {
 
             &__front {
               @include __front__back;
-              background: linear-gradient(0deg, $first-main-color 65%, $second-main-color 50%, $second-main-color 60%);
+              background: linear-gradient(0deg, $first-main-color 65%, lighten($second-main-color, 10%) 50%, lighten($second-main-color, 10%) 60%);
               box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
 
               &-title {
@@ -187,7 +187,7 @@ body {
 
                 .portfolio-buttons {
                   color: $first-main-color;
-                  background-color: $second-main-color;
+                  background-color: lighten($second-main-color, 10%);
 
                   a {
                     color: inherit;
@@ -205,10 +205,15 @@ body {
         }
       }
     }
+
+    .home-button {
+      background-color: $first-main-color;
+      box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+    }
   }
 
   .contact-container {
-    background: linear-gradient(to bottom, $second-main-color 95%, $first-main-color 25%);
+    background: linear-gradient(to bottom, $first-main-color 95%, lighten($second-main-color, 50%) 25%);
 
     @include sideContent;
 
@@ -218,6 +223,7 @@ body {
 
     .home-button {
       background-color: $first-main-color;
+      box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
     }
 
     .contact-content {
@@ -225,18 +231,18 @@ body {
 
         &:after {
           box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.15);
-          background-color: $first-main-color;
+          background-color: lighten($first-main-color, 5%);
         }
       }
 
       .form-wrapper {
-        background: linear-gradient(42deg, $second-main-color 50%, $first-main-color 50%, $first-main-color 61%);
+        background: linear-gradient(45deg, lighten($second-main-color, 50%) 50%, $first-main-color 50%, $first-main-color 61%);
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 
         &:before {
           transition: background-color ease-in-out 300ms;
           box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.15);
-          background-color: $second-main-color;
+          background-color: lighten($second-main-color, 50%);
         }
 
         &--text {
@@ -277,53 +283,60 @@ body {
       }
     }
   }
-}
 
-.menu-desktop {
-  &--content {
-    &__top {
-      background-color: $first-main-color;
+  .menu-desktop {
+    background-color: $first-main-color;
 
-      .hamburger-menu {
-        &--cross {
-          background-color: $text-color;
+    &--content {
+      &__top {
+        background-color: $second-main-color;
 
-          &:after {
-            background-color: $text-color;
-          }
+        .menu-title {
+          color: $first-main-color;
         }
-      }
-    }
 
-    &__middle {
-      .pager {
-        li {
-          a {
-            background-color: transparent;
-            color: $text-color;
+        .hamburger-menu {
+          &--cross {
+            background-color: $first-main-color;
 
-            &:hover, &:focus {
+            &:after {
               background-color: $first-main-color;
             }
           }
         }
       }
-    }
 
-    &__bottom {
-      background-color: $first-main-color;
+      &__middle {
+        .pager {
+          li {
+            a {
+              background-color: transparent;
+              color: $text-color;
+              outline: none;
 
-      a {
-        svg {
-          path {
-            fill: $icons-color;
+              &:hover, &:focus {
+                background-color: lighten($second-main-color, 50%);
+              }
+            }
           }
         }
+      }
 
-        &:hover {
+      &__bottom {
+        background-color: $first-main-color;
+
+        a {
           svg {
             path {
-              fill: darken($icons-color, 15%);
+              fill: $icons-color;
+            }
+          }
+
+          &:hover {
+            svg {
+              path {
+                fill: darken($icons-color, 15%);
+              }
             }
           }
         }
@@ -357,6 +370,7 @@ body {
 
       &:before {
         background-color: lighten($second-main-color, 100%);
+        border-radius: 4px;
       }
     }
   }
