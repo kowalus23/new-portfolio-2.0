@@ -12,8 +12,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  background-color: $third-main-color;
-
   *, *::after, *::before {
     box-sizing: border-box;
   }
@@ -73,6 +71,7 @@ h1, h2, h3, p {
 }
 
 .app-content {
+  background-color: $third-main-color;
   overflow: hidden;
   position: relative;
   display: flex;
