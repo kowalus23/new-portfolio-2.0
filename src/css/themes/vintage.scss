@@ -78,7 +78,7 @@ $icons-color: lighten($second-main-color, 10%);
 
   .component-wrapper-shadow {
     box-shadow: 0 0 40px rgba(27, 27, 27, 0.5);
-
+    border-radius: 10px;
   }
 
   .home-container {
@@ -343,36 +343,52 @@ $icons-color: lighten($second-main-color, 10%);
       }
     }
   }
-}
 
-.content {
-  .author {
-    color: $text-color;
-  }
+  .home-container {
+    .content {
+      .row {
+        .about {
+          color: $text-color;
 
-  .hamburger-menu {
-    .hamburger-menu--stripes {
-      background-color: $text-color;
-
-      &:before {
-        background-color: $text-color;
+          &:before {
+            background-color: lighten($first-main-color, 100%);
+            border-radius: 4px;
+          }
+        }
       }
 
-      &:after {
-        background-color: $text-color;
+      .author {
+        color: $text-color;
+      }
+
+      .hamburger-menu {
+        .hamburger-menu--stripes {
+          background-color: $text-color;
+
+          &:before {
+            background-color: $text-color;
+          }
+
+          &:after {
+            background-color: $text-color;
+          }
+        }
       }
     }
   }
 
-  .row {
-    .about {
-      color: $text-color;
-
-      &:before {
-        background-color: lighten($second-main-color, 100%);
-        border-radius: 4px;
-      }
-    }
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+    -webkit-text-fill-color: $text-color;
+    -webkit-box-shadow: 0 0 0 1000px $first-main-color inset;
+    transition: background-color 5000s ease-in-out 0s;
   }
 }
 
