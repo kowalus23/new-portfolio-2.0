@@ -32,8 +32,7 @@ class App extends React.Component {
   }
 
   componentWillMount() {
-    typeof window !== 'undefined' &&
-      window.localStorage.getItem('currentTheme') &&
+    window.localStorage.getItem('currentTheme') &&
       this.setState({
         currentTheme: JSON.parse(window.localStorage.getItem('currentTheme')),
       });
@@ -59,11 +58,10 @@ class App extends React.Component {
   }
 
   componentWillUpdate(nextProps, nextState) {
-    typeof window !== 'undefined' &&
-      window.localStorage.setItem(
-        'currentTheme',
-        JSON.stringify(nextState.currentTheme)
-      );
+    window.localStorage.setItem(
+      'currentTheme',
+      JSON.stringify(nextState.currentTheme)
+    );
   }
 
   componentWillUnmount() {
