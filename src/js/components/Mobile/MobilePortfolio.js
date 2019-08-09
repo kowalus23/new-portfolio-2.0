@@ -5,7 +5,6 @@ import { projectsInfo } from '../../projects';
 const MobilePortfolio = ({ reference }) => {
   const { component } = portfolioTexts;
   const componentName = component.toUpperCase();
-
   const cards = projectsInfo.map(({ id, content }) => {
     return (
       <td className="card" key={id}>

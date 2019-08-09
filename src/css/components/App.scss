@@ -52,6 +52,16 @@ h1, h2, h3, p {
         width: 4px;
         height: 100px;
       }
+
+      .icons {
+        a {
+          svg {
+            path {
+              fill: $second-main-color;
+            }
+          }
+        }
+      }
     }
 
     .icons {
@@ -74,7 +84,7 @@ h1, h2, h3, p {
   .helper-info {
     visibility: hidden;
     position: absolute;
-          background-color: $second-main-color;
+    background-color: $second-main-color;
     width: calc(100% - 40px);
     margin: 20px;
     top: -190px;
@@ -750,7 +760,7 @@ h1, h2, h3, p {
             width: 100%;
             display: block;
             background-color: transparent;
-            color: black;
+            color: $text-color;
             padding: 20px 0;
             border: none;
             font-size: 36px;

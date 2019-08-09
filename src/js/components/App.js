@@ -7,7 +7,9 @@ import Portfolio from './Desktop/Portfolio';
 import Contact from './Desktop/Contact';
 
 import '../../css/reset.scss';
+import '../../css/themes/vintage.scss';
 import '../../css/components/App.scss';
+
 import MobileHome from './Mobile/MobileHome';
 
 class App extends React.Component {
@@ -90,7 +92,7 @@ class App extends React.Component {
     const { toggle, open, close, windowWidth, currentPage, hide } = this.state;
     if (windowWidth > 600) {
       return (
-        <div className="app-content">
+        <div className="app-content theme-vintage">
           <div className="helper-info" style={hide}>
             <h1 className="helper-info--text">
               You need to focus or hover main component to make scroll, keys or
