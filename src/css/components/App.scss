@@ -100,11 +100,18 @@ h1, h2, h3, p {
       opacity: 0;
       transition: opacity 200ms ease-in;
 
+      & > div {
+        &:hover {
+          background-color: lighten($text-color, 60%);
+        }
+      }
+
       .default-theme {
         position: relative;
         margin-right: 3px;
         width: 100%;
         cursor: pointer;
+        outline: none;
 
         &:after {
           content: '';
@@ -118,8 +125,8 @@ h1, h2, h3, p {
         p {
           font-size: 14px;
           position: absolute;
-          bottom: 2px;
-          left: 6px;
+          bottom: 3px;
+          left: 4px;
         }
       }
 
@@ -128,6 +135,7 @@ h1, h2, h3, p {
         margin-left: 3px;
         width: 100%;
         cursor: pointer;
+        outline: none;
 
         &:after {
           content: '';
@@ -141,8 +149,8 @@ h1, h2, h3, p {
         p {
           font-size: 14px;
           position: absolute;
-          bottom: 2px;
-          left: 6px;
+          bottom: 3px;
+          left: 4px;
         }
       }
     }
