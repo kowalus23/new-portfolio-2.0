@@ -7,7 +7,9 @@ import Portfolio from './Desktop/Portfolio';
 import Contact from './Desktop/Contact';
 
 import '../../css/reset.scss';
+import '../../css/themes/vintage.scss';
 import '../../css/components/App.scss';
+
 import MobileHome from './Mobile/MobileHome';
 
 class App extends React.Component {
@@ -20,6 +22,7 @@ class App extends React.Component {
       toggle: false,
       isLoading: true,
       hide: null,
+      currentTheme: '',
       close: { transform: 'translateX(350px)' },
       open: { transform: 'translateX(0)', visibility: 'visible' },
     };
@@ -27,6 +30,13 @@ class App extends React.Component {
     this._pageScroller = null;
     this._isMounted = false;
   }
+
+  // componentWillMount() {
+  //   window.localStorage.getItem('currentTheme') &&
+  //   this.setState({
+  //     currentTheme: JSON.parse(window.localStorage.getItem('currentTheme')),
+  //   });
+  // }
 
   componentDidMount() {
     this.setState({
@@ -46,6 +56,13 @@ class App extends React.Component {
       }
     };
   }
+
+  // componentWillUpdate(nextProps, nextState) {
+  //   window.localStorage.setItem(
+  //     'currentTheme',
+  //     JSON.stringify(nextState.currentTheme),
+  //   );
+  // }
 
   componentWillUnmount() {
     this._isMounted = false;
@@ -78,6 +95,12 @@ class App extends React.Component {
     return this._pageScroller.goToPage(eventKey);
   };
 
+  changeTheme = theme => {
+    this.setState({
+      currentTheme: theme,
+    });
+  };
+
   breakPoint = () => {
     const { windowWidth } = this.state;
     if (windowWidth >= 1600) {
@@ -100,15 +123,41 @@ class App extends React.Component {
       currentPage,
       hide,
       isLoading,
+      currentTheme,
     } = this.state;
 
     if (windowWidth > 600) {
       return isLoading ? (
-        <div className="app-content">
+        <div className={`app-content ${currentTheme}`}>
           <div className="loader" />
         </div>
       ) : (
-        <div className="app-content">
+        <div className={`app-content ${currentTheme}`}>
+          <div className="themes-button">
+            <div className="themes-list">
+              <div
+                role="button"
+                tabIndex={-2}
+                onKeyPress={() => this.changeTheme('')}
+                onClick={() => this.changeTheme('')}
+                className="default-theme"
+              >
+                <p>default</p>
+              </div>
+              <div
+                role="button"
+                tabIndex={-2}
+                onKeyPress={() => this.changeTheme('theme-vintage')}
+                onClick={() => this.changeTheme('theme-vintage')}
+                className="vintage-theme"
+              >
+                <p>vintage</p>
+              </div>
+            </div>
+            <div className="themes-button--title">
+              <small>Themes</small>
+            </div>
+          </div>
           <div className="helper-info" style={hide}>
             <h1 className="helper-info--text">
               You need to focus or hover main component to make scroll, keys or
@@ -133,7 +182,8 @@ class App extends React.Component {
             <ReactPageScroller
               ref={c => (this._pageScroller = c)}
               pageOnChange={this.pageOnChange}
-              animationTimer={600}
+              animationTimer={500}
+              transitionTimingFunction="ease-in-out"
               containerWidth={`${this.breakPoint()}px`}
               containerHeight="800px"
             >

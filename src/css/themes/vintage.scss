@@ -1,0 +1,394 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,400,700&display=swap&subset=latin-ext');
+
+$first-main-color: #E6E2DD;
+$second-main-color: #373A36;
+$third-main-color: #D48166;
+$text-color: #2B2B29;
+$content-name-color: #E6E2DD;
+$button-name-color: $content-name-color;
+$border-color: #aaaaaa;
+$icons-color: lighten($second-main-color, 10%);
+
+
+@mixin contentName {
+  color: lighten($content-name-color, 10%);
+}
+
+@mixin sideContent {
+  .side-content {
+    .page-bar {
+      border: 1px solid $border-color;
+      background-color: white;
+
+      &:before {
+        background-color: $second-main-color;
+      }
+    }
+
+    .icons {
+      a {
+        svg {
+          path {
+            fill: lighten($second-main-color, 10%);
+          }
+        }
+
+        &:hover svg path {
+          fill: $second-main-color;
+        }
+      }
+    }
+  }
+}
+
+.app-content.theme-vintage {
+  background-color: $third-main-color;
+
+  .themes-button {
+    background-color: $first-main-color;
+  }
+
+  .helper-info {
+    background-color: $second-main-color;
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.20);
+
+    &:after {
+      background-color: $first-main-color;
+    }
+
+    &--text {
+      color: $text-color;
+      text-shadow: -1px -1px 1px $first-main-color;
+      border-bottom: 1px solid $border-color;
+    }
+
+    .hide {
+      background-color: $first-main-color;
+
+      &:hover {
+        background-color: lighten($first-main-color, 5%);
+      }
+    }
+  }
+
+  .menu-desktop {
+    background-color: $second-main-color;
+    box-shadow: -6px 0 20px rgba(0, 0, 0, 0.25);
+  }
+
+  .component-wrapper-shadow {
+    box-shadow: 0 0 40px rgba(27, 27, 27, 0.5);
+
+  }
+
+  .home-container {
+    background: $first-main-color;
+
+    @include sideContent;
+
+    .content--name {
+      @include contentName;
+    }
+
+    .hero-content {
+      h1 {
+        color: $text-color;
+      }
+
+      .btn {
+        background-color: $second-main-color;
+        border: 1px solid $border-color;
+        color: $first-main-color;
+
+        &:hover, &:focus {
+          background-color: lighten($second-main-color, 5%);
+          box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.25);
+        }
+      }
+    }
+
+    .home-logo {
+      svg g {
+        &:first-child {
+          & > ellipse {
+            fill: white;
+          }
+        }
+
+        &:nth-child(2) {
+          & > ellipse {
+            fill: $first-main-color;
+          }
+        }
+
+        &:last-child {
+          & > ellipse {
+            fill: $second-main-color;
+          }
+        }
+      }
+    }
+  }
+
+  .portfolio-container {
+    background-color: $first-main-color;
+
+    @include sideContent;
+
+    .content--name {
+      @include contentName;
+    }
+
+    .col-100 {
+      .card-mover-left {
+
+        border-left: 4px solid $text-color;
+        border-bottom: 4px solid $text-color;
+      }
+
+      .card-mover-right {
+        border-right: 4px solid $text-color;
+        border-top: 4px solid $text-color;
+      }
+
+      .card-wrapper {
+        .portfolio-card {
+          background-color: transparent;
+
+          .portfolio-card--inner {
+            @mixin __front__back {
+              color: $text-color;
+            }
+
+            &__front {
+              @include __front__back;
+              background: linear-gradient(0deg, $first-main-color 65%, lighten($second-main-color, 10%) 50%, lighten($second-main-color, 10%) 60%);
+              box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
+
+              &-title {
+                color: $first-main-color;
+              }
+
+              &-image {
+                background-color: white;
+
+                img {
+                  border: 1px solid darken($border-color, 10%);
+                }
+              }
+            }
+
+            &__back {
+              @include __front__back;
+              background-color: $first-main-color;
+              box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+              .flex-helper {
+
+                .portfolio-buttons {
+                  color: $first-main-color;
+                  background-color: lighten($second-main-color, 10%);
+
+                  a {
+                    color: inherit;
+                    transition: all 200ms ease-in-out;
+
+                    &:hover {
+                      color: $second-main-color;
+                      background-color: lighten($first-main-color, 10%);
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .home-button {
+      background-color: $first-main-color;
+      box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  .contact-container {
+    background: linear-gradient(to bottom, $first-main-color 95%, lighten($second-main-color, 50%) 25%);
+
+    @include sideContent;
+
+    .content--name {
+      @include contentName;
+    }
+
+    .home-button {
+      background-color: $first-main-color;
+      box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+    }
+
+    .contact-content {
+      .form-before-element {
+
+        &:after {
+          box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.15);
+          background-color: lighten($first-main-color, 5%);
+        }
+      }
+
+      .form-wrapper {
+        background: linear-gradient(45deg, lighten($second-main-color, 50%) 50%, $first-main-color 50%, $first-main-color 61%);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+
+        &:before {
+          transition: background-color ease-in-out 300ms;
+          box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.15);
+          background-color: lighten($second-main-color, 50%);
+        }
+
+        &--text {
+          color: $text-color;
+        }
+
+        .custom-form {
+          input, textarea {
+            border: 1px solid $border-color;
+            color: $text-color;
+          }
+
+          input {
+            &:focus {
+              box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.15);
+              border: 1px solid darken($border-color, 20%)
+            }
+          }
+
+          textarea {
+            &:focus {
+              box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.15);
+              border: 1px solid darken($border-color, 20%)
+            }
+          }
+
+          .form-button {
+            background-color: $first-main-color;
+            color: $text-color;
+            border: 1px solid $border-color;
+
+            &:hover, &:focus {
+              background-color: lighten($first-main-color, 3%);
+              box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .menu-desktop {
+    background-color: $first-main-color;
+
+    &--content {
+      &__top {
+        background-color: $second-main-color;
+
+        .menu-title {
+          color: $first-main-color;
+        }
+
+        .hamburger-menu {
+          &--cross {
+            background-color: $first-main-color;
+
+            &:after {
+              background-color: $first-main-color;
+            }
+          }
+        }
+      }
+
+      &__middle {
+        .pager {
+          li {
+            a {
+              background-color: transparent;
+              color: $text-color;
+              outline: none;
+
+              &:hover, &:focus {
+                background-color: lighten($second-main-color, 50%);
+              }
+            }
+          }
+        }
+      }
+
+      &__bottom {
+        background-color: $first-main-color;
+
+        a {
+          svg {
+            path {
+              fill: $icons-color;
+            }
+          }
+
+          &:hover {
+            svg {
+              path {
+                fill: darken($icons-color, 15%);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.content {
+  .author {
+    color: $text-color;
+  }
+
+  .hamburger-menu {
+    .hamburger-menu--stripes {
+      background-color: $text-color;
+
+      &:before {
+        background-color: $text-color;
+      }
+
+      &:after {
+        background-color: $text-color;
+      }
+    }
+  }
+
+  .row {
+    .about {
+      color: $text-color;
+
+      &:before {
+        background-color: lighten($second-main-color, 100%);
+        border-radius: 4px;
+      }
+    }
+  }
+}
+
+// buttons
+.btn {
+  background-color: $second-main-color;
+  border: 1px solid $border-color;
+  color: $text-color;
+
+  &:hover, &:focus {
+    background-color: lighten($second-main-color, 5%);
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.home-button {
+  background-color: $second-main-color;
+  border: 1px solid $border-color;
+}

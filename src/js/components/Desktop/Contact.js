@@ -27,7 +27,7 @@ const Contact = ({ button, currentPage, goToPage }) => {
             </div>
             <div className="form-before-element">
               <div className="form-wrapper">
-                <h1 className="form-wrapper--text">Zadaj pytanie!?</h1>
+                <h1 className="form-wrapper--text">Zadaj pytanie(?)</h1>
                 <ContactForm />
               </div>
             </div>
