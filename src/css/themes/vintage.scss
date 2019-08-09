@@ -29,12 +29,12 @@ $icons-color: lighten($second-main-color, 10%);
       a {
         svg {
           path {
-            fill: lighten($second-main-color, 10%);
+            fill: $third-main-color;
           }
         }
 
         &:hover svg path {
-          fill: $second-main-color;
+          fill: darken($third-main-color, 10%);
         }
       }
     }
@@ -328,14 +328,14 @@ $icons-color: lighten($second-main-color, 10%);
         a {
           svg {
             path {
-              fill: $icons-color;
+              fill: $third-main-color;
             }
           }
 
           &:hover {
             svg {
               path {
-                fill: darken($icons-color, 15%);
+                fill: darken($third-main-color, 10%);
               }
             }
           }
@@ -344,38 +344,37 @@ $icons-color: lighten($second-main-color, 10%);
     }
   }
 
-  .home-container {
-    .content {
-      .row {
-        .about {
-          color: $text-color;
+  .content {
+    .row {
+      .about {
+        color: $text-color;
 
-          &:before {
-            background-color: lighten($first-main-color, 100%);
-            border-radius: 4px;
-          }
+        &:before {
+          background-color: lighten($first-main-color, 100%);
+          border-radius: 4px;
         }
       }
+    }
 
-      .author {
-        color: $text-color;
-      }
+    .author {
+      color: $text-color;
+    }
 
-      .hamburger-menu {
-        .hamburger-menu--stripes {
+    .hamburger-menu {
+      .hamburger-menu--stripes {
+        background-color: $text-color;
+
+        &:before {
+          background-color: $third-main-color;
+        }
+
+        &:after {
           background-color: $text-color;
-
-          &:before {
-            background-color: $text-color;
-          }
-
-          &:after {
-            background-color: $text-color;
-          }
         }
       }
     }
   }
+
 
   input:-webkit-autofill,
   input:-webkit-autofill:hover,
