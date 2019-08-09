@@ -31,17 +31,8 @@ class App extends React.Component {
     this._isMounted = false;
   }
 
-  componentWillMount() {
-    typeof window !== 'undefined' &&
-      window.localStorage.getItem('currentTheme') &&
-      this.setState({
-        currentTheme: JSON.parse(window.localStorage.getItem('currentTheme')),
-      });
-  }
-
   componentDidMount() {
-    typeof window !== 'undefined' &&
-      window.localStorage.getItem('currentTheme') &&
+    window.localStorage.getItem('currentTheme') &&
       this.setState({
         currentTheme: JSON.parse(window.localStorage.getItem('currentTheme')),
       });
