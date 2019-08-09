@@ -1102,7 +1102,7 @@ input::placeholder, textarea::placeholder {
 
 // Loading spinner
 .loader {
-  color: $text-color;
+  color: lighten($text-color, 25%);
   font-size: 25px;
   margin: 100px auto;
   width: 1em;
