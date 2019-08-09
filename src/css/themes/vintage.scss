@@ -6,23 +6,22 @@ $third-main-color: #D48166;
 $text-color: #2B2B29;
 $content-name-color: #E6E2DD;
 $button-name-color: $content-name-color;
-$border-color: #D9D9D9;
+$border-color: #aaaaaa;
 $icons-color: #8FB1CE;
 
 
 @mixin contentName {
   color: lighten($content-name-color, 10%);
-  text-shadow: 1px 1px 1px lighten($border-color, 8%);
 }
 
 @mixin sideContent {
   .side-content {
     .page-bar {
       border: 1px solid $border-color;
-      background-color: $content-name-color;
+      background-color: white;
 
       &:before {
-        background-color: $text-color;
+        background-color: $second-main-color;
       }
     }
 
@@ -30,8 +29,12 @@ $icons-color: #8FB1CE;
       a {
         svg {
           path {
-            fill: $second-main-color;
+            fill: lighten($second-main-color, 10%);
           }
+        }
+
+        &:hover svg path {
+          fill: $second-main-color;
         }
       }
     }
@@ -49,13 +52,13 @@ body {
     background-color: $second-main-color;
     box-shadow: 0 0 16px rgba(0, 0, 0, 0.20);
 
-
     &:after {
       background-color: $first-main-color;
     }
 
     &--text {
       color: $text-color;
+      text-shadow: -1px -1px 1px $first-main-color;
       border-bottom: 1px solid $border-color;
     }
 
@@ -74,11 +77,12 @@ body {
   }
 
   .component-wrapper-shadow {
-    box-shadow: 0 0 40px rgba(97, 97, 97, 0.5);
+    box-shadow: 0 0 40px rgba(27, 27, 27, 0.5);
+
   }
 
   .home-container {
-    background: linear-gradient(to right, $first-main-color 75%, $second-main-color 25%);
+    background: $first-main-color;
 
     @include sideContent;
 
@@ -90,25 +94,36 @@ body {
       h1 {
         color: $text-color;
       }
+
+      .btn {
+        background-color: $second-main-color;
+        border: 1px solid $border-color;
+        color: $first-main-color;
+
+        &:hover, &:focus {
+          background-color: lighten($second-main-color, 5%);
+          box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.25);
+        }
+      }
     }
 
     .home-logo {
       svg g {
         &:first-child {
           & > ellipse {
-            fill: blue;
+            fill: white;
           }
         }
 
         &:nth-child(2) {
           & > ellipse {
-            fill: red;
+            fill: $first-main-color;
           }
         }
 
         &:last-child {
           & > ellipse {
-            fill: green;
+            fill: $second-main-color;
           }
         }
       }
@@ -147,34 +162,39 @@ body {
 
             &__front {
               @include __front__back;
-              background: linear-gradient(0deg, $second-main-color 60%, $first-main-color 50%, $first-main-color 60%);
+              background: linear-gradient(0deg, $first-main-color 65%, $second-main-color 50%, $second-main-color 60%);
               box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
+
+              &-title {
+                color: $first-main-color;
+              }
 
               &-image {
                 background-color: white;
 
                 img {
-                  border: 1px solid $border-color;
+                  border: 1px solid darken($border-color, 10%);
                 }
               }
             }
 
             &__back {
               @include __front__back;
-              background-color: $second-main-color;
+              background-color: $first-main-color;
               box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 
               .flex-helper {
 
                 .portfolio-buttons {
-                  color: $text-color;
-                  background-color: $first-main-color;
+                  color: $first-main-color;
+                  background-color: $second-main-color;
 
                   a {
                     color: inherit;
-                    transition: background-color 200ms ease-in-out;
+                    transition: all 200ms ease-in-out;
 
                     &:hover {
+                      color: $second-main-color;
                       background-color: lighten($first-main-color, 10%);
                     }
                   }
@@ -331,11 +351,13 @@ body {
     }
   }
 
-  .about {
-    color: $text-color;
+  .row {
+    .about {
+      color: $text-color;
 
-    &:before {
-      background-color: $first-main-color;
+      &:before {
+        background-color: lighten($second-main-color, 100%);
+      }
     }
   }
 }
