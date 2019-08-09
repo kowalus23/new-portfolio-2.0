@@ -31,12 +31,13 @@ class App extends React.Component {
     this._isMounted = false;
   }
 
-  // componentWillMount() {
-  //   window.localStorage.getItem('currentTheme') &&
-  //   this.setState({
-  //     currentTheme: JSON.parse(window.localStorage.getItem('currentTheme')),
-  //   });
-  // }
+  componentWillMount() {
+    typeof window !== 'undefined' &&
+      window.localStorage.getItem('currentTheme') &&
+      this.setState({
+        currentTheme: JSON.parse(window.localStorage.getItem('currentTheme')),
+      });
+  }
 
   componentDidMount() {
     this.setState({
@@ -57,12 +58,13 @@ class App extends React.Component {
     };
   }
 
-  // componentWillUpdate(nextProps, nextState) {
-  //   window.localStorage.setItem(
-  //     'currentTheme',
-  //     JSON.stringify(nextState.currentTheme),
-  //   );
-  // }
+  componentWillUpdate(nextProps, nextState) {
+    typeof window !== 'undefined' &&
+      window.localStorage.setItem(
+        'currentTheme',
+        JSON.stringify(nextState.currentTheme)
+      );
+  }
 
   componentWillUnmount() {
     this._isMounted = false;

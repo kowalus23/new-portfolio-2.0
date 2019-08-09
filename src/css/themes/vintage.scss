@@ -49,16 +49,16 @@ $icons-color: lighten($second-main-color, 10%);
   }
 
   .helper-info {
-    background-color: $second-main-color;
+    background-color: $first-main-color;
     box-shadow: 0 0 16px rgba(0, 0, 0, 0.20);
 
     &:after {
-      background-color: $first-main-color;
+      background-color: $third-main-color;
     }
 
     &--text {
       color: $text-color;
-      text-shadow: -1px -1px 1px $first-main-color;
+      //text-shadow: -1px -1px 1px $first-main-color;
       border-bottom: 1px solid $border-color;
     }
 
