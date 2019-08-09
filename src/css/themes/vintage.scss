@@ -48,6 +48,10 @@ body {
 .app-content.theme-vintage {
   background-color: $third-main-color;
 
+  .themes-button {
+    background-color: $first-main-color;
+  }
+
   .helper-info {
     background-color: $second-main-color;
     box-shadow: 0 0 16px rgba(0, 0, 0, 0.20);

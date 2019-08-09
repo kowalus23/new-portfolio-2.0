@@ -21,12 +21,20 @@ class App extends React.Component {
       windowWidth: 1920,
       toggle: false,
       hide: null,
+      currentTheme: '',
       close: { transform: 'translateX(350px)' },
       open: { transform: 'translateX(0)', visibility: 'visible' },
     };
 
     this._pageScroller = null;
     this._isMounted = false;
+  }
+
+  componentWillMount() {
+    window.localStorage.getItem('currentTheme') &&
+      this.setState({
+        currentTheme: JSON.parse(window.localStorage.getItem('currentTheme')),
+      });
   }
 
   componentDidMount() {
@@ -42,6 +50,13 @@ class App extends React.Component {
         this.setState({ windowWidth: window.innerWidth });
       }
     };
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    window.localStorage.setItem(
+      'currentTheme',
+      JSON.stringify(nextState.currentTheme)
+    );
   }
 
   componentWillUnmount() {
@@ -75,6 +90,12 @@ class App extends React.Component {
     return this._pageScroller.goToPage(eventKey);
   };
 
+  changeTheme = theme => {
+    this.setState({
+      currentTheme: theme,
+    });
+  };
+
   breakPoint = () => {
     const { windowWidth } = this.state;
     if (windowWidth >= 1600) {
@@ -89,10 +110,43 @@ class App extends React.Component {
   };
 
   render() {
-    const { toggle, open, close, windowWidth, currentPage, hide } = this.state;
+    const {
+      toggle,
+      open,
+      close,
+      windowWidth,
+      currentPage,
+      hide,
+      currentTheme,
+    } = this.state;
     if (windowWidth > 600) {
       return (
-        <div className="app-content theme-vintage">
+        <div className={`app-content ${currentTheme}`}>
+          <div className="themes-button">
+            <div className="themes-list">
+              <div
+                role="button"
+                tabIndex={-2}
+                onKeyPress={() => this.changeTheme('')}
+                onClick={() => this.changeTheme('')}
+                className="default-theme"
+              >
+                <p>default</p>
+              </div>
+              <div
+                role="button"
+                tabIndex={-2}
+                onKeyPress={() => this.changeTheme('theme-vintage')}
+                onClick={() => this.changeTheme('theme-vintage')}
+                className="vintage-theme"
+              >
+                <p>vintage</p>
+              </div>
+            </div>
+            <div className="themes-button--title">
+              <small>Themes</small>
+            </div>
+          </div>
           <div className="helper-info" style={hide}>
             <h1 className="helper-info--text">
               You need to focus or hover main component to make scroll, keys or

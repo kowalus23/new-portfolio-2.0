@@ -81,6 +81,96 @@ h1, h2, h3, p {
   height: 100vh;
   flex-direction: column;
 
+  .themes-button {
+    display: flex;
+    flex-direction: column;
+    width: 120px;
+    height: 50px;
+    position: fixed;
+    background-color: $first-main-color;
+    left: -50px;
+    top: -20px;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+    border-bottom-right-radius: 3px;
+    transition: all 200ms ease-in-out;
+
+    .themes-list {
+      display: flex;
+      height: 100%;
+      padding: 4px;
+      opacity: 0;
+      transition: opacity 200ms ease-in;
+
+      .default-theme {
+        position: relative;
+        margin-right: 3px;
+        width: 100%;
+        cursor: pointer;
+
+        &:after {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 50%;
+          border: 1px solid lighten(#373A36, 25%);
+          background: linear-gradient(to right, #EAF1FB 0%, #EAF1FB 33%, #FDF4EC 33%, #FDF4EC 66%, #BDCADA 66%, #BDCADA 100%);
+        }
+
+        p {
+          font-size: 14px;
+          position: absolute;
+          bottom: 2px;
+          left: 6px;
+        }
+      }
+
+      .vintage-theme {
+        position: relative;
+        margin-left: 3px;
+        width: 100%;
+        cursor: pointer;
+
+        &:after {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 50%;
+          border: 1px solid lighten(#373A36, 25%);
+          background: linear-gradient(to right, #E6E2DD 0%, #E6E2DD 33%, #373A36 33%, #373A36 66%, #D48166 66%, #D48166 100%);
+        }
+
+        p {
+          font-size: 14px;
+          position: absolute;
+          bottom: 2px;
+          left: 6px;
+        }
+      }
+    }
+
+    &--title {
+      small {
+        position: absolute;
+        right: 6px;
+        bottom: 6px;
+        transition: all 200ms ease-in-out;
+      }
+    }
+
+    &:hover {
+      left: 0;
+      top: 0;
+
+      small {
+        display: none;
+      }
+
+      .themes-list {
+        opacity: 1;
+      }
+    }
+  }
+
   .helper-info {
     visibility: hidden;
     position: absolute;
@@ -153,6 +243,7 @@ h1, h2, h3, p {
       text-align: center;
       transition: background-color ease-in-out 100ms;
       cursor: pointer;
+      outline: none;
 
       &:hover {
         background-color: lighten($first-main-color, 5%);
