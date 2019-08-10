@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'gatsby';
+import '../css/themes/vintage/about-vintage.scss';
 import '../css/about.scss';
 import { aboutTexts } from '../js/component-texts';
 import CV from '../assets/Patryk-Kowalski-CV-2019.pdf';
 
 const About = () => {
+  const [theme, setTheme] = useState('');
+
+  useEffect(() => {
+    window.localStorage.getItem('currentTheme') &&
+      setTheme(JSON.parse(window.localStorage.getItem('currentTheme')));
+  });
+
   const { know, used, interested, download } = aboutTexts;
   const known = aboutTexts.known.map(({ id, name }) => {
     return <li key={id}>{name}</li>;
@@ -25,7 +33,7 @@ const About = () => {
   });
 
   return (
-    <div className="about-page">
+    <div className={`about-page ${theme}`}>
       <div className="about-container">
         <h1 className="content--name">ABOUT</h1>
         <div className="about-content">

@@ -1,0 +1,55 @@
+$first-main-color: #E6E2DD;
+$second-main-color: #373A36;
+$third-main-color: #D48166;
+$text-color: #2B2B29;
+$content-name-color: #E6E2DD;
+$button-name-color: $content-name-color;
+$border-color: #aaaaaa;
+$icons-color: lighten($second-main-color, 10%);
+
+@mixin contentTextProps {
+  color: $first-main-color;
+}
+
+
+.thank-you-page.theme-vintage {
+  background-color: $third-main-color;
+
+  .thank-you-page--container {
+    background-color: $first-main-color;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
+
+    &__content {
+
+      h2 {
+        color: $text-color;
+      }
+
+      h1 {
+        color: $text-color;
+      }
+    }
+
+    &__button {
+      color: $first-main-color;
+      background-color: $second-main-color;
+      border: 1px solid $border-color;
+
+      &:hover, &:focus {
+        color: $second-main-color;
+        background-color: lighten($first-main-color, 5%);
+        box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
+      }
+    }
+
+    &:before {
+      background-color: $first-main-color;
+      box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.15);
+    }
+
+    &:after {
+      background-color: $first-main-color;
+      box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.15);
+    }
+  }
+}

@@ -16,6 +16,7 @@
   .about-container {
     transition: all ease 300ms;
     position: relative;
+    border-radius: 10px;
     width: 1600px;
     height: 800px;
     background: linear-gradient(to right, $second-main-color 21.5%, $first-main-color 21.5%);
@@ -125,44 +126,45 @@
       }
     }
   }
-}
 
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  @include flexWrap;
-
-
-  li {
-    width: 50%;
+  ul {
+    list-style: none;
+    padding: 0;
     margin: 0;
-    padding: 5px;
+    @include flexWrap;
+
+
+    li {
+      width: 50%;
+      margin: 0;
+      padding: 5px;
+    }
+  }
+
+  .button {
+    text-decoration: none;
+    color: $text-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 265px;
+    height: 60px;
+    margin: 0 0 40px;
+    font-size: 24px;
+    background-color: $first-main-color;
+    border: 1px solid $border-color;
+    border-radius: 3px;
+    transition: background-color 100ms ease-in-out;
+    cursor: pointer;
+    outline: none;
+
+    &:hover, &:focus {
+      background-color: lighten($first-main-color, 5%);
+      box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
+    }
   }
 }
 
-.button {
-  text-decoration: none;
-  color: $text-color;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 265px;
-  height: 60px;
-  margin: 0 0 40px;
-  font-size: 24px;
-  background-color: $first-main-color;
-  border: 1px solid $border-color;
-  border-radius: 3px;
-  transition: background-color 100ms ease-in-out;
-  cursor: pointer;
-  outline: none;
-
-  &:hover, &:focus {
-    background-color: lighten($first-main-color, 5%);
-    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
-  }
-}
 
 // RWD
 

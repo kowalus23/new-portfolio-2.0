@@ -7,7 +7,7 @@ import Portfolio from './Desktop/Portfolio';
 import Contact from './Desktop/Contact';
 
 import '../../css/reset.scss';
-import '../../css/themes/vintage.scss';
+import '../../css/themes/vintage/vintage.scss';
 import '../../css/components/App.scss';
 
 import MobileHome from './Mobile/MobileHome';
