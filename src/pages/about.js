@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'gatsby';
+import '../css/themes/default/about-default.scss';
 import '../css/themes/vintage/about-vintage.scss';
 import '../css/about.scss';
 import { aboutTexts } from '../js/component-texts';
 import CV from '../assets/Patryk-Kowalski-CV-2019.pdf';
 
 const About = () => {
-  const [theme, setTheme] = useState('');
+  const [theme, setTheme] = useState('theme-default');
 
   useEffect(() => {
     window.localStorage.getItem('currentTheme') &&
       setTheme(JSON.parse(window.localStorage.getItem('currentTheme')));
-  });
+  }, [theme]);
 
   const { know, used, interested, download } = aboutTexts;
   const known = aboutTexts.known.map(({ id, name }) => {

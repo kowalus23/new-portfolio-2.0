@@ -22,8 +22,6 @@ h1, h2, h3, p {
 }
 
 @mixin contentName {
-  color: $content-name-color;
-  text-shadow: 1px 1px 1px lighten($border-color, 8%);
   cursor: default;
 }
 
@@ -40,13 +38,10 @@ h1, h2, h3, p {
       margin: 15px 0;
       height: 300px;
       width: 6px;
-      border: 1px solid $border-color;
-      background-color: $content-name-color;
 
       &:before {
         position: absolute;
         content: '';
-        background-color: $text-color;
         width: 4px;
         height: 100px;
       }
@@ -55,7 +50,6 @@ h1, h2, h3, p {
         a {
           svg {
             path {
-              fill: $second-main-color;
             }
           }
         }
@@ -71,7 +65,6 @@ h1, h2, h3, p {
 }
 
 .app-content {
-  background-color: $third-main-color;
   overflow: hidden;
   position: relative;
   display: flex;
@@ -87,10 +80,8 @@ h1, h2, h3, p {
     height: 50px;
     position: fixed;
     z-index: 20;
-    background-color: $first-main-color;
     left: -50px;
     top: -20px;
-    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
     border-bottom-right-radius: 3px;
     transition: all 200ms ease-in-out;
 
@@ -182,14 +173,12 @@ h1, h2, h3, p {
   .helper-info {
     visibility: hidden;
     position: absolute;
-    background-color: $second-main-color;
     width: calc(100% - 40px);
     margin: 20px;
     top: -190px;
     left: 0;
     opacity: 0.95;
     border-radius: 4px;
-    box-shadow: 0 0 16px rgba(0, 0, 0, 0.20);
     z-index: 15;
     animation: hideMe 8s alternate;
 
@@ -221,7 +210,6 @@ h1, h2, h3, p {
       height: 100%;
       border-radius: inherit;
       z-index: -1;
-      background-color: $first-main-color;
       animation: fillBackground 7.2s linear forwards;
 
       @keyframes fillBackground {
@@ -240,11 +228,9 @@ h1, h2, h3, p {
       font-size: 2em;
       text-align: center;
       padding: 40px;
-      border-bottom: 1px solid $border-color;
     }
 
     .hide {
-      background-color: $first-main-color;
       padding: 10px;
       border-bottom-right-radius: 4px;
       border-bottom-left-radius: 4px;
@@ -252,10 +238,6 @@ h1, h2, h3, p {
       transition: background-color ease-in-out 100ms;
       cursor: pointer;
       outline: none;
-
-      &:hover {
-        background-color: lighten($first-main-color, 5%);
-      }
     }
   }
 
@@ -265,22 +247,18 @@ h1, h2, h3, p {
     height: 100vh;
     width: 350px;
     transform: translateX(350px);
-    background-color: $second-main-color;
     position: absolute;
     right: 0;
     top: 0;
     z-index: 10;
-    box-shadow: -6px 0 20px rgba(0, 0, 0, 0.25);
 
     & + div > div {
       transition: width 300ms ease-in-out;
       border-radius: 10px;
-      box-shadow: 0 0 40px rgba(97, 97, 97, .5);
     }
   }
 
   .home-container {
-    background: linear-gradient(to right, $first-main-color 75%, $second-main-color 25%);
     height: 100%;
 
     .content--name {
@@ -312,7 +290,6 @@ h1, h2, h3, p {
 
       h1 {
         font-size: 3.2em;
-        color: $text-color;
 
         span {
           font-size: 1.3em;
@@ -332,7 +309,6 @@ h1, h2, h3, p {
   }
 
   .portfolio-container {
-    background-color: $first-main-color;
     height: 100%;
     overflow: hidden;
 
@@ -404,18 +380,11 @@ h1, h2, h3, p {
         top: 50%;
         width: 30px;
         height: 30px;
-        border-left: 4px solid $text-color;
-        border-bottom: 4px solid $text-color;
         cursor: pointer;
         animation: arrowPulse alternate 500ms infinite;
         outline: transparent;
         @media (max-width: 1600px) {
           display: unset;
-        }
-
-        &:focus {
-          border-color: lighten($text-color, 30%);
-          box-shadow: -3px 3px 2px rgba(0, 0, 0, 0.25);
         }
       }
 
@@ -425,19 +394,12 @@ h1, h2, h3, p {
         position: absolute;
         width: 30px;
         height: 30px;
-        border-right: 4px solid $text-color;
-        border-top: 4px solid $text-color;
         right: -50px;
         cursor: pointer;
         top: 50%;
         animation: arrowPulse alternate 500ms infinite;
         @media (max-width: 1600px) {
           display: unset;
-        }
-
-        &:focus {
-          border-color: lighten($text-color, 30%);
-          box-shadow: 3px -3px 2px rgba(0, 0, 0, 0.25);
         }
       }
 
@@ -502,12 +464,10 @@ h1, h2, h3, p {
               height: 100%;
               backface-visibility: hidden;
               border-radius: 3px;
-              color: $text-color;
             }
 
             &__front {
               @include __front__back;
-              background: linear-gradient(0deg, $second-main-color 60%, $first-main-color 50%, $first-main-color 60%);
               padding: 20px;
               box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
 
@@ -527,7 +487,6 @@ h1, h2, h3, p {
                   width: 100%;
                   height: 100%;
                   border-radius: 3px;
-                  border: 1px solid $border-color;
                 }
 
                 & + div {
@@ -546,8 +505,6 @@ h1, h2, h3, p {
 
             &__back {
               @include __front__back;
-
-              background-color: $second-main-color;
               transform: rotate3d(-1, 1, 0, 180deg);
               box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
               transition: visibility 500ms ease-in-out;
@@ -582,7 +539,6 @@ h1, h2, h3, p {
                   width: 100%;
                   height: 30px;
                   color: $text-color;
-                  background-color: $first-main-color;
                   border-bottom-left-radius: 3px;
                   border-bottom-right-radius: 3px;
 
@@ -595,10 +551,6 @@ h1, h2, h3, p {
                     border-radius: 4px;
                     width: 50%;
                     transition: background-color 200ms ease-in-out;
-
-                    &:hover {
-                      background-color: lighten($first-main-color, 10%);
-                    }
                   }
                 }
               }
@@ -612,7 +564,6 @@ h1, h2, h3, p {
   .contact-container {
     position: relative;
     padding-bottom: 40px;
-    background: linear-gradient(to bottom, $second-main-color 95%, $first-main-color 25%);
     height: 100%;
     overflow: hidden;
 
@@ -671,8 +622,6 @@ h1, h2, h3, p {
           width: 140px;
           height: 140px;
           border-radius: 50%;
-          box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.15);
-          background-color: $first-main-color;
           position: absolute;
           left: -70px;
           bottom: -70px;
@@ -689,9 +638,7 @@ h1, h2, h3, p {
       }
 
       .form-wrapper {
-        background: linear-gradient(42deg, $second-main-color 50%, $first-main-color 50%, $first-main-color 61%);
         position: relative;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
         height: 450px;
         width: 500px;
         display: flex;
@@ -706,13 +653,10 @@ h1, h2, h3, p {
 
         &:before {
           transition: background-color ease-in-out 300ms;
-
           content: '';
           width: 120px;
           height: 120px;
           border-radius: 50%;
-          box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.15);
-          background-color: $second-main-color;
           position: absolute;
           right: -50px;
           top: -50px;
@@ -737,32 +681,20 @@ h1, h2, h3, p {
           input, textarea {
             display: block;
             width: 100%;
-            border: 1px solid $border-color;
             border-radius: 3px;
             margin-top: 8px;
             font-size: 14px;
-            color: $text-color;
             outline: none;
             padding: 12px;
           }
 
           input {
             height: 40px;
-
-            &:focus {
-              box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.15);
-              border: 1px solid darken($border-color, 20%)
-            }
           }
 
           textarea {
             resize: none;
             height: 145px;
-
-            &:focus {
-              box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.15);
-              border: 1px solid darken($border-color, 20%)
-            }
           }
 
           label {
@@ -772,37 +704,15 @@ h1, h2, h3, p {
           .form-button {
             padding: 0.4em 3em;
             margin: auto;
-            background-color: $first-main-color;
             border-radius: 3px;
-            color: $text-color;
             font-size: 20px;
-            border: 1px solid $border-color;
             transition: background-color 100ms ease-in-out;
             cursor: pointer;
             outline: none;
-
-            &:hover, &:focus {
-              background-color: lighten($first-main-color, 3%);
-              box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
-            }
           }
         }
       }
     }
-  }
-
-  input:-webkit-autofill,
-  input:-webkit-autofill:hover,
-  input:-webkit-autofill:focus,
-  textarea:-webkit-autofill,
-  textarea:-webkit-autofill:hover,
-  textarea:-webkit-autofill:focus,
-  select:-webkit-autofill,
-  select:-webkit-autofill:hover,
-  select:-webkit-autofill:focus {
-    -webkit-text-fill-color: $text-color;
-    -webkit-box-shadow: 0 0 0 1000px $first-main-color inset;
-    transition: background-color 5000s ease-in-out 0s;
   }
 
   .content {
@@ -823,7 +733,6 @@ h1, h2, h3, p {
 
         text-decoration: none;
         font-weight: 700;
-        color: $text-color;
         outline: none;
 
         &:before {
@@ -834,7 +743,6 @@ h1, h2, h3, p {
           cursor: default;
           bottom: -12px;
           content: '';
-          background-color: $first-main-color;
           position: absolute;
           z-index: -1;
         }
@@ -875,7 +783,6 @@ h1, h2, h3, p {
       position: absolute;
       font-weight: 700;
       font-size: 1.2em;
-      color: $text-color;
     }
 
     .hamburger-menu {
@@ -893,7 +800,6 @@ h1, h2, h3, p {
         right: 0;
         width: 34px;
         height: 3px;
-        background-color: $text-color;
 
         &:before {
           transition: right 300ms ease-in-out;
@@ -903,7 +809,6 @@ h1, h2, h3, p {
           top: 8px;
           width: 22px;
           height: 3px;
-          background-color: $text-color;
         }
 
         &:after {
@@ -914,7 +819,6 @@ h1, h2, h3, p {
           top: 16px;
           width: 14px;
           height: 3px;
-          background-color: $text-color;
         }
       }
 
@@ -944,7 +848,6 @@ h1, h2, h3, p {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background-color: $first-main-color;
         width: 100%;
         padding: 20px;
 
@@ -965,7 +868,6 @@ h1, h2, h3, p {
             width: 35px;
             height: 5px;
             transform: rotate(45deg);
-            background-color: $text-color;
 
             &:after {
               position: absolute;
@@ -973,7 +875,6 @@ h1, h2, h3, p {
               top: 0;
               width: 35px;
               height: 5px;
-              background-color: $text-color;
               transform: rotate(90deg);
             }
           }
@@ -1015,10 +916,6 @@ h1, h2, h3, p {
               font-weight: 700;
               text-decoration: none;
               text-align: center;
-
-              &:hover, &:focus {
-                background-color: $first-main-color;
-              }
             }
           }
         }
@@ -1029,18 +926,13 @@ h1, h2, h3, p {
         padding: 20px;
         display: flex;
         justify-content: space-around;
-        background-color: $first-main-color;
       }
     }
   }
-
-
 }
-
 
 // icons hover
 a {
-
   &:hover {
     svg path {
       fill: darken($icons-color, 10%);

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'gatsby';
+import '../css/themes/default/thankyou-default.scss';
 import '../css/themes/vintage/thankyou-vintage.scss';
 import '../css/thankyou.scss';
 
 const ThankYou = () => {
-  const [theme, setTheme] = useState('');
+  const [theme, setTheme] = useState('theme-default');
 
   useEffect(() => {
     window.localStorage.getItem('currentTheme') &&

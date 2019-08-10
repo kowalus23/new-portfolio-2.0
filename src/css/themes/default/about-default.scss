@@ -1,0 +1,92 @@
+$first-main-color: #EAF1FB;
+$second-main-color: #FDF4EC;
+$third-main-color: #BDCADA;
+$text-color: #2B2B29;
+$content-name-color: #FFFFFF;
+$button-name-color: $content-name-color;
+$border-color: #D9D9D9;
+$icons-color: #8FB1CE;
+
+@mixin flexWrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.about-page.theme-default {
+  background-color: $third-main-color;
+
+  .about-container {
+    background: linear-gradient(to right, $second-main-color 21.5%, $first-main-color 21.5%);
+    box-shadow: 0 0 80px rgba(97, 97, 97, 0.65);
+
+    .content--name {
+      color: lighten($second-main-color, 75%);
+    }
+
+    .home {
+      color: $text-color;
+      &:after {
+        background-color: $first-main-color;
+      }
+    }
+  }
+
+  .button {
+    color: $text-color;
+    background-color: $first-main-color;
+    border: 1px solid $border-color;
+
+    &:hover, &:focus {
+      background-color: lighten($first-main-color, 5%);
+      box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
+    }
+  }
+}
+
+
+// RWD
+
+@media (max-width: 1600px) {
+  .about-page.theme-default {
+    .about-container {
+      background: linear-gradient(to right, $second-main-color 31.4%, $first-main-color 31.4%);
+    }
+  }
+}
+
+
+@media (max-width: 1200px) {
+  .about-page.theme-default {
+    .about-container {
+      background: linear-gradient(to left, $first-main-color 72.7%, $second-main-color 25%);
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .about-page.theme-default {
+    .about-container {
+      background: linear-gradient(to bottom, $first-main-color 50%, $second-main-color 70%, $second-main-color 0%);
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .about-page.theme-default {
+    .about-container {
+      .about-content {
+        .col-20 {
+          .home {
+            background-color: $first-main-color;
+            border: 1px solid $border-color;
+
+            &:hover, &:focus {
+              background-color: lighten($first-main-color, 5%);
+              box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,22 +1,22 @@
-$first-main-color: #E6E2DD;
-$second-main-color: #373A36;
-$third-main-color: #D48166;
+$first-main-color: #EAF1FB;
+$second-main-color: #FDF4EC;
+$third-main-color: #BDCADA;
 $text-color: #2B2B29;
-$content-name-color: #E6E2DD;
+$content-name-color: #FFFFFF;
 $button-name-color: $content-name-color;
-$border-color: #aaaaaa;
-$icons-color: lighten($second-main-color, 10%);
+$border-color: #D9D9D9;
+$icons-color: #8FB1CE;
 
 @mixin contentTextProps {
   color: $first-main-color;
 }
 
 
-.thank-you-page.theme-vintage {
+.thank-you-page.theme-default {
   background-color: $third-main-color;
 
   .thank-you-page--container {
-    background-color: $first-main-color;
+    background-color: $second-main-color;
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
 
     &__content {
@@ -31,12 +31,11 @@ $icons-color: lighten($second-main-color, 10%);
     }
 
     &__button {
-      color: $first-main-color;
-      background-color: $second-main-color;
+      color: $text-color;
+      background-color: $first-main-color;
       border: 1px solid $border-color;
 
       &:hover, &:focus {
-        color: $second-main-color;
         background-color: lighten($first-main-color, 5%);
         box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
       }

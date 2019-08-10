@@ -1,0 +1,352 @@
+$first-main-color: #EAF1FB;
+$second-main-color: #FDF4EC;
+$third-main-color: #BDCADA;
+$text-color: #2B2B29;
+$content-name-color: #FFFFFF;
+$button-name-color: $content-name-color;
+$border-color: #D9D9D9;
+$icons-color: #8FB1CE;
+
+@mixin contentName {
+  color: $content-name-color;
+  text-shadow: 1px 1px 1px lighten($border-color, 8%);
+}
+
+@mixin sideContent {
+  .side-content {
+    .page-bar {
+      border: 1px solid $border-color;
+      background-color: $content-name-color;
+
+      &:before {
+        background-color: $text-color;
+      }
+
+      .icons {
+        a {
+          svg {
+            path {
+              fill: $second-main-color;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.app-content.theme-default {
+  background-color: $third-main-color;
+
+  .themes-button {
+    background-color: $second-main-color;
+
+    .themes-list {
+      & > div {
+        &:hover {
+          background-color: lighten($second-main-color, 25%);
+        }
+      }
+    }
+  }
+
+  .helper-info {
+    background-color: $second-main-color;
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.20);
+
+    &:after {
+      background-color: $first-main-color;
+    }
+
+    &--text {
+      color: $text-color;
+      border-bottom: 1px solid $border-color;
+    }
+
+    .hide {
+      background-color: $first-main-color;
+      transition: background-color ease-in-out 100ms;
+
+      &:hover {
+        background-color: lighten($first-main-color, 5%);
+      }
+    }
+  }
+
+  .menu-desktop {
+    background-color: $second-main-color;
+    box-shadow: -6px 0 20px rgba(0, 0, 0, 0.25);
+
+    & + div > div {
+      box-shadow: 0 0 40px rgba(97, 97, 97, .5);
+    }
+  }
+
+  .home-container {
+    background: linear-gradient(to right, $first-main-color 75%, $second-main-color 25%);
+
+    .content--name {
+      @include contentName;
+    }
+
+    @include sideContent;
+
+    .hero-content {
+      h1 {
+        color: $text-color;
+      }
+    }
+  }
+
+  .portfolio-container {
+    background-color: $first-main-color;
+
+    .content--name {
+      @include contentName;
+    }
+
+    @include sideContent;
+
+    .col-100 {
+
+      .card-mover-left {
+        border-left: 4px solid $text-color;
+        border-bottom: 4px solid $text-color;
+
+        &:focus {
+          border-color: lighten($text-color, 30%);
+          box-shadow: -3px 3px 2px rgba(0, 0, 0, 0.25);
+        }
+      }
+
+      .card-mover-right {
+        border-right: 4px solid $text-color;
+        border-top: 4px solid $text-color;
+
+        &:focus {
+          border-color: lighten($text-color, 30%);
+          box-shadow: 3px -3px 2px rgba(0, 0, 0, 0.25);
+        }
+      }
+
+      .card-wrapper {
+        .portfolio-card {
+          .portfolio-card--inner {
+            @mixin __front__back {
+              color: $text-color;
+            }
+
+            &__front {
+              @include __front__back;
+              background: linear-gradient(0deg, $second-main-color 60%, $first-main-color 50%, $first-main-color 60%);
+              box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
+
+              &-image {
+                img {
+                  border: 1px solid $border-color;
+                }
+              }
+            }
+
+            &__back {
+              @include __front__back;
+
+              background-color: $second-main-color;
+              box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+              .flex-helper {
+                .portfolio-buttons {
+                  color: $text-color;
+                  background-color: $first-main-color;
+
+                  a {
+                    &:hover {
+                      background-color: lighten($first-main-color, 10%);
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .contact-container {
+    background: linear-gradient(to bottom, $second-main-color 95%, $first-main-color 25%);
+    @include sideContent;
+
+    .content--name {
+      @include contentName;
+    }
+
+    .home-button {
+      background-color: $first-main-color;
+    }
+
+    .contact-content {
+      .form-before-element {
+        &:after {
+          box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.15);
+          background-color: $first-main-color;
+        }
+      }
+
+      .form-wrapper {
+        background: linear-gradient(42deg, $second-main-color 50%, $first-main-color 50%, $first-main-color 61%);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+
+        &:before {
+          box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.15);
+          background-color: $second-main-color;
+        }
+
+        &--text {
+          color: $text-color;
+        }
+
+        .custom-form {
+
+          input, textarea {
+            border: 1px solid $border-color;
+            color: $text-color;
+          }
+
+          input {
+            &:focus {
+              box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.15);
+              border: 1px solid darken($border-color, 20%)
+            }
+          }
+
+          textarea {
+            &:focus {
+              box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.15);
+              border: 1px solid darken($border-color, 20%)
+            }
+          }
+
+          .form-button {
+            background-color: $first-main-color;
+            color: $text-color;
+            border: 1px solid $border-color;
+
+            &:hover, &:focus {
+              background-color: lighten($first-main-color, 3%);
+              box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+    -webkit-text-fill-color: $text-color;
+    -webkit-box-shadow: 0 0 0 1000px $first-main-color inset;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
+  .content {
+    .row {
+      .about {
+        color: $text-color;
+
+        &:before {
+          background-color: $first-main-color;
+        }
+      }
+    }
+
+    .author {
+      color: $text-color;
+    }
+
+    .hamburger-menu {
+      .hamburger-menu--stripes {
+        background-color: $text-color;
+
+        &:before {
+          background-color: $text-color;
+        }
+
+        &:after {
+          background-color: $text-color;
+        }
+      }
+    }
+  }
+
+  .menu-desktop {
+    &--content {
+      &__top {
+        background-color: $first-main-color;
+
+        .hamburger-menu {
+          &--cross {
+            background-color: $text-color;
+
+            &:after {
+              background-color: $text-color;
+            }
+          }
+        }
+      }
+
+      &__middle {
+        .pager {
+          li {
+            a {
+              color: $text-color;
+
+              &:hover, &:focus {
+                background-color: $first-main-color;
+              }
+            }
+          }
+        }
+      }
+
+      &__bottom {
+        background-color: $first-main-color;
+      }
+    }
+  }
+}
+
+
+// icons hover
+a {
+
+  &:hover {
+    svg path {
+      fill: darken($icons-color, 10%);
+    }
+  }
+}
+
+// buttons
+.btn {
+  background-color: $second-main-color;
+  border: 1px solid $border-color;
+  color: $text-color;
+
+  &:hover, &:focus {
+    background-color: lighten($second-main-color, 5%);
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.home-button {
+  background-color: $second-main-color;
+  border: 1px solid $border-color;
+}

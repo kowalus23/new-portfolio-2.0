@@ -1,12 +1,9 @@
-@import './variables';
-
 @mixin flexWrap {
   display: flex;
   flex-wrap: wrap;
 }
 
 .about-page {
-  background-color: $third-main-color;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,19 +16,17 @@
     border-radius: 10px;
     width: 1600px;
     height: 800px;
-    background: linear-gradient(to right, $second-main-color 21.5%, $first-main-color 21.5%);
     box-shadow: 0 0 80px rgba(97, 97, 97, 0.65);
     overflow: hidden;
     z-index: 0;
     padding: 40px;
 
     .content--name {
+      color: white;
       position: absolute;
       top: -35px;
       left: 0;
-      color: $content-name-color;
       font-size: 16em;
-      text-shadow: 1px 1px 1px lighten($border-color, 8%);
       z-index: -1;
     }
 
@@ -97,7 +92,6 @@
     .home {
       font-weight: 700;
       text-decoration: none;
-      color: $text-color;
       padding: 4px;
       position: absolute;
       left: calc(40px - 4px);
@@ -112,7 +106,6 @@
         right: -22px;
         bottom: -11px;
         position: absolute;
-        background-color: $first-main-color;
         transition: all ease-in-out 200ms;
       }
 
@@ -143,7 +136,6 @@
 
   .button {
     text-decoration: none;
-    color: $text-color;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -151,15 +143,12 @@
     height: 60px;
     margin: 0 0 40px;
     font-size: 24px;
-    background-color: $first-main-color;
-    border: 1px solid $border-color;
     border-radius: 3px;
     transition: background-color 100ms ease-in-out;
     cursor: pointer;
     outline: none;
 
     &:hover, &:focus {
-      background-color: lighten($first-main-color, 5%);
       box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
     }
   }
@@ -176,7 +165,6 @@
     .about-container {
       width: 1200px;
       height: max-content;
-      background: linear-gradient(to right, $second-main-color 31.4%, $first-main-color 31.4%);
 
       .about-content {
         .col-20 {
@@ -217,7 +205,6 @@
   .about-page {
     .about-container {
       width: 900px;
-      background: linear-gradient(to left, $first-main-color 72.7%, $second-main-color 25%);
 
       .about-content {
         .col-20 {
@@ -265,7 +252,6 @@
   .about-page {
     .about-container {
       width: 600px;
-      background: linear-gradient(to bottom, $first-main-color 50%, $second-main-color 70%, $second-main-color 0%);
 
       .content--name {
         top: -24px;
@@ -372,13 +358,10 @@
             left: 0;
             bottom: 0;
             padding: 10px;
-            background-color: $first-main-color;
             border-radius: 3px;
-            border: 1px solid $border-color;
             text-align: center;
 
             &:hover, &:focus {
-              background-color: lighten($first-main-color, 5%);
               box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
             }
 

@@ -7,6 +7,7 @@ import Portfolio from './Desktop/Portfolio';
 import Contact from './Desktop/Contact';
 
 import '../../css/reset.scss';
+import '../../css/themes/default/default.scss';
 import '../../css/themes/vintage/vintage.scss';
 import '../../css/components/App.scss';
 
@@ -22,7 +23,7 @@ class App extends React.Component {
       toggle: false,
       isLoading: true,
       hide: null,
-      currentTheme: '',
+      currentTheme: 'theme-default',
       close: { transform: 'translateX(350px)' },
       open: { transform: 'translateX(0)', visibility: 'visible' },
     };
@@ -136,8 +137,8 @@ class App extends React.Component {
               <div
                 role="button"
                 tabIndex={-2}
-                onKeyPress={() => this.changeTheme('')}
-                onClick={() => this.changeTheme('')}
+                onKeyPress={() => this.changeTheme('theme-default')}
+                onClick={() => this.changeTheme('theme-default')}
                 className="default-theme"
               >
                 <p>default</p>
