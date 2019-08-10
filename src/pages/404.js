@@ -11,7 +11,7 @@ const NotFoundPage = () => {
         <h1 className="page-404--container__content-name">404</h1>
         <div className="content">
           <div className="row">
-            <p className="author">Patryk Doe</p>
+            <p className="author">Patryk K..Doe</p>
             <div className="col-60">
               <div className="side-content">
                 <p className="counter">Err</p>

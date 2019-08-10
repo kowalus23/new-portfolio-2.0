@@ -44,7 +44,7 @@ $icons-color: #8FB1CE;
     .themes-list {
       & > div {
         &:hover {
-          background-color: lighten($second-main-color, 25%);
+          background-color: $first-main-color;
         }
       }
     }

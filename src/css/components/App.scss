@@ -159,6 +159,7 @@ h1, h2, h3, p {
     &:hover {
       left: 0;
       top: 0;
+      box-shadow: 2px 2px 4px rgba(0,0,0,0.25);
 
       small {
         display: none;
@@ -1013,7 +1014,7 @@ input::placeholder, textarea::placeholder {
 
 // Loading spinner
 .loader {
-  color: lighten($text-color, 30%);
+  color: $first-main-color;
   font-size: 25px;
   margin: 100px auto;
   z-index: 5;

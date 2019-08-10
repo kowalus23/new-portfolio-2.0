@@ -33,20 +33,16 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    this._isMounted = true;
     window.localStorage.getItem('currentTheme') &&
       this.setState({
         currentTheme: JSON.parse(window.localStorage.getItem('currentTheme')),
       });
 
-    this.setState({
-      isLoading: false,
-    });
-
-    this._isMounted = true;
-
     const updateWidth = window.innerWidth;
     this.setState({
       windowWidth: updateWidth,
+      isLoading: false,
     });
 
     window.onresize = () => {
@@ -77,9 +73,8 @@ class App extends React.Component {
   hideHandler = () => {
     this.setState({
       hide: {
-        top: '-190px',
+        display: 'none',
         animation: 'none',
-        visibility: 'hidden',
       },
     });
   };
@@ -135,20 +130,20 @@ class App extends React.Component {
           <div className="themes-button">
             <div className="themes-list">
               <div
+                className="default-theme"
                 role="button"
                 tabIndex={-2}
                 onKeyPress={() => this.changeTheme('theme-default')}
                 onClick={() => this.changeTheme('theme-default')}
-                className="default-theme"
               >
                 <p>default</p>
               </div>
               <div
+                className="vintage-theme"
                 role="button"
                 tabIndex={-2}
                 onKeyPress={() => this.changeTheme('theme-vintage')}
                 onClick={() => this.changeTheme('theme-vintage')}
-                className="vintage-theme"
               >
                 <p>vintage</p>
               </div>
@@ -163,11 +158,11 @@ class App extends React.Component {
               touch work
             </h1>
             <div
+              className="hide"
               onClick={this.hideHandler}
               role="button"
               onKeyPress={this.hideHandler}
               tabIndex={-2}
-              className="hide"
             >
               Close
             </div>
