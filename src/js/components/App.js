@@ -127,7 +127,6 @@ class App extends React.Component {
         </div>
       ) : (
         <div className={`app-content ${currentTheme}`}>
-          <div className="loader" />
           <div className="themes-button">
             <div className="themes-list">
               <div
