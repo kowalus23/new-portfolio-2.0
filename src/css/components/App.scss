@@ -25,25 +25,34 @@ h1, h2, h3, p {
   cursor: default;
 }
 
+@mixin flexible($display, $content, $items, $direction, $wrap) {
+  display: $display;
+  justify-content: $content;
+  align-items: $items;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+}
+
+@mixin widthHeight($width, $height) {
+  width: $width;
+  height: $height;
+}
+
 @mixin sideContent {
   .side-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @include flexible(flex, null, center, column, null);
     position: absolute;
     left: 0;
     bottom: 0;
 
     .page-bar {
       margin: 15px 0;
-      height: 300px;
-      width: 6px;
+      @include widthHeight(6px, 300px);
 
       &:before {
         position: absolute;
         content: '';
-        width: 4px;
-        height: 100px;
+        @include widthHeight(4px, 100px);
       }
 
       .icons {
@@ -58,26 +67,20 @@ h1, h2, h3, p {
 
     .icons {
       margin-top: 20px;
-      display: flex;
-      flex-direction: column;
+      @include flexible(flex, null, null, column, null);
     }
   }
 }
 
 .app-content {
+  @include flexible(flex, center, center, column, null);
+  @include widthHeight(null, 100vh);
   overflow: hidden;
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  flex-direction: column;
 
   .themes-button {
-    display: flex;
-    flex-direction: column;
-    width: 120px;
-    height: 50px;
+    @include flexible(flex, null, null, column, null);
+    @include widthHeight(120px, 50px);
     position: fixed;
     z-index: 20;
     left: -50px;
@@ -86,8 +89,8 @@ h1, h2, h3, p {
     transition: all 200ms ease-in-out;
 
     .themes-list {
-      display: flex;
-      height: 100%;
+      @include flexible(flex, null, null, null, null);
+      @include widthHeight(null, 100%);
       padding: 4px;
       opacity: 0;
       transition: opacity 200ms ease-in;
@@ -99,17 +102,16 @@ h1, h2, h3, p {
       }
 
       .default-theme {
+        @include widthHeight(100%, null);
         position: relative;
         margin-right: 3px;
-        width: 100%;
         cursor: pointer;
         outline: none;
 
         &:after {
           content: '';
           position: absolute;
-          width: 100%;
-          height: 50%;
+          @include widthHeight(100%, 50%);
           border: 1px solid lighten(#373A36, 25%);
           background: linear-gradient(to right, #EAF1FB 0%, #EAF1FB 33%, #FDF4EC 33%, #FDF4EC 66%, #BDCADA 66%, #BDCADA 100%);
         }
@@ -125,15 +127,14 @@ h1, h2, h3, p {
       .vintage-theme {
         position: relative;
         margin-left: 3px;
-        width: 100%;
+        @include widthHeight(100%, null);
         cursor: pointer;
         outline: none;
 
         &:after {
           content: '';
           position: absolute;
-          width: 100%;
-          height: 50%;
+          @include widthHeight(100%, 50%);
           border: 1px solid lighten(#373A36, 25%);
           background: linear-gradient(to right, #E6E2DD 0%, #E6E2DD 33%, #373A36 33%, #373A36 66%, #D48166 66%, #D48166 100%);
         }
@@ -159,7 +160,7 @@ h1, h2, h3, p {
     &:hover {
       left: 0;
       top: 0;
-      box-shadow: 2px 2px 4px rgba(0,0,0,0.25);
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
 
       small {
         display: none;
@@ -174,7 +175,7 @@ h1, h2, h3, p {
   .helper-info {
     visibility: hidden;
     position: absolute;
-    width: calc(100% - 40px);
+    @include widthHeight(calc(100% - 40px), null);
     margin: 20px;
     top: -190px;
     left: 0;
@@ -205,10 +206,9 @@ h1, h2, h3, p {
     &:after {
       content: '';
       position: absolute;
+      @include widthHeight(0, 100%);
       left: 0;
       top: 0;
-      width: 0;
-      height: 100%;
       border-radius: inherit;
       z-index: -1;
       animation: fillBackground 7.2s linear forwards;
@@ -245,8 +245,7 @@ h1, h2, h3, p {
   .menu-desktop {
     visibility: hidden;
     transition: all 300ms ease-in-out;
-    height: 100vh;
-    width: 350px;
+    @include widthHeight(350px, 100vh);
     transform: translateX(350px);
     position: absolute;
     right: 0;
@@ -260,7 +259,7 @@ h1, h2, h3, p {
   }
 
   .home-container {
-    height: 100%;
+    @include widthHeight(null, 100%);
 
     .content--name {
       @include contentName;
@@ -369,18 +368,16 @@ h1, h2, h3, p {
     }
 
     .col-100 {
-      width: 100%;
-      height: 100%;
+      @include widthHeight(100%, 100%);
       padding: 40px;
       overflow: hidden;
 
       .card-mover-left {
+        @include widthHeight(30px, 30px);
         display: none;
         position: absolute;
         left: -40px;
         top: 50%;
-        width: 30px;
-        height: 30px;
         cursor: pointer;
         animation: arrowPulse alternate 500ms infinite;
         outline: transparent;
@@ -390,11 +387,10 @@ h1, h2, h3, p {
       }
 
       .card-mover-right {
+        @include widthHeight(30px, 30px);
         display: none;
         outline: transparent;
         position: absolute;
-        width: 30px;
-        height: 30px;
         right: -50px;
         cursor: pointer;
         top: 50%;
@@ -418,9 +414,8 @@ h1, h2, h3, p {
       }
 
       .card-wrapper {
-        width: 1520px;
-        display: flex;
-        flex-wrap: wrap;
+        @include widthHeight(1520px, null);
+        @include flexible(flex, null, null, null, wrap);
         position: relative;
         transition: left 300ms ease-in-out;
         @media (min-width: 1600px) {
@@ -435,9 +430,8 @@ h1, h2, h3, p {
         }
 
         .portfolio-card {
-          width: calc(290px - 60px);
+          @include widthHeight(calc(290px - 60px), 300px);
           margin: 20px 25px;
-          height: 300px;
           background-color: transparent;
 
           &:hover {
@@ -452,8 +446,7 @@ h1, h2, h3, p {
 
           .portfolio-card--inner {
             position: relative;
-            width: 100%;
-            height: 100%;
+            @include widthHeight(100%, 100%);
             transition: transform ease 500ms;
             transform-style: preserve-3d;
             border-radius: 3px;
@@ -461,8 +454,7 @@ h1, h2, h3, p {
 
             @mixin __front__back {
               position: absolute;
-              width: 100%;
-              height: 100%;
+              @include widthHeight(100%, 100%);
               backface-visibility: hidden;
               border-radius: 3px;
             }
@@ -478,28 +470,25 @@ h1, h2, h3, p {
               }
 
               &-image {
-                width: 100%;
-                height: 100px;
+                @include widthHeight(100%, 100px);
                 background-color: white;
                 margin: 10px 0;
                 border-radius: 3px;
 
                 img {
-                  width: 100%;
-                  height: 100%;
+                  @include widthHeight(100%, 100%);
                   border-radius: 3px;
                 }
 
                 & + div {
-                  display: flex;
-                  flex-wrap: wrap;
+                  @include flexible(flex, null, null, null, wrap);
                   text-align: center;
                 }
               }
 
               &-technologies {
+                @include widthHeight(50%, null);
                 font-size: 16px;
-                width: 50%;
                 padding: 4px 0;
               }
             }
@@ -528,29 +517,24 @@ h1, h2, h3, p {
               }
 
               .flex-helper {
-                height: calc(100% - (46px));
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
+                @include widthHeight(null, calc(100% - (46px)));
+                @include flexible(flex, space-between, null, column, null);
 
                 .portfolio-buttons {
-                  display: flex;
-                  justify-content: space-between;
-                  align-items: center;
-                  width: 100%;
-                  height: 30px;
+                  @include flexible(flex, space-between, center, null, null);
+                  @include widthHeight(100%, 30px);
                   color: $text-color;
                   border-bottom-left-radius: 3px;
                   border-bottom-right-radius: 3px;
 
                   a {
+                    @include widthHeight(50%, null);
                     text-align: center;
                     text-decoration: none;
                     color: inherit;
                     padding: 5px 15px;
                     margin: 2px;
                     border-radius: 4px;
-                    width: 50%;
                     transition: background-color 200ms ease-in-out;
                   }
                 }
@@ -563,9 +547,9 @@ h1, h2, h3, p {
   }
 
   .contact-container {
+    @include widthHeight(null, 100%);
     position: relative;
     padding-bottom: 40px;
-    height: 100%;
     overflow: hidden;
 
     @include sideContent;
@@ -608,20 +592,15 @@ h1, h2, h3, p {
     }
 
     .contact-content {
-      height: 100%;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
+      @include widthHeight(100%, 100%);
+      @include flexible(flex, center, center, column, null);
 
       .form-before-element {
         position: absolute;
 
         &:after {
           content: '';
-          width: 140px;
-          height: 140px;
+          @include widthHeight(140px, 140px);
           border-radius: 50%;
           position: absolute;
           left: -70px;
@@ -629,8 +608,7 @@ h1, h2, h3, p {
           z-index: 0;
 
           @media (max-width: 900px) {
-            width: 60px;
-            height: 60px;
+            @include widthHeight(60px, 60px);
             right: -30px;
             left: unset;
             bottom: -30px;
@@ -640,11 +618,8 @@ h1, h2, h3, p {
 
       .form-wrapper {
         position: relative;
-        height: 450px;
-        width: 500px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include widthHeight(500px, 450px);
+        @include flexible(flex, center, center, null, null);
         border-radius: 3px;
         z-index: 5;
 
@@ -655,8 +630,7 @@ h1, h2, h3, p {
         &:before {
           transition: background-color ease-in-out 300ms;
           content: '';
-          width: 120px;
-          height: 120px;
+          @include widthHeight(120px, 120px);
           border-radius: 50%;
           position: absolute;
           right: -50px;
@@ -674,14 +648,12 @@ h1, h2, h3, p {
 
         .custom-form {
           padding: 20px;
-          width: 100%;
-          height: 100%;
-          display: flex;
-          flex-direction: column;
+          @include widthHeight(100%, 100%);
+          @include flexible(flex, null, null, column, null);
 
           input, textarea {
             display: block;
-            width: 100%;
+            @include widthHeight(100%, null);
             border-radius: 3px;
             margin-top: 8px;
             font-size: 14px;
@@ -690,12 +662,12 @@ h1, h2, h3, p {
           }
 
           input {
-            height: 40px;
+            @include widthHeight(null, 40px);
           }
 
           textarea {
+            @include widthHeight(null, 145px);
             resize: none;
-            height: 145px;
           }
 
           label {
@@ -717,13 +689,14 @@ h1, h2, h3, p {
   }
 
   .content {
+    @include widthHeight(null, 100%);
     padding: 40px;
-    height: 100%;
     position: relative;
 
     .row {
-      display: flex;
-      height: 100%;
+      @include flexible(flex, null, null, null, null);
+      @include widthHeight(null, 100%);
+
       position: relative;
 
       .about {
@@ -738,8 +711,7 @@ h1, h2, h3, p {
 
         &:before {
           transition: all ease-in-out 200ms;
-          width: 60px;
-          height: 30px;
+          @include widthHeight(60px, 30px);
           left: -25px;
           cursor: default;
           bottom: -12px;
@@ -750,8 +722,7 @@ h1, h2, h3, p {
 
         &:hover, &:focus {
           &:before {
-            width: 70px;
-            height: 40px;
+            @include widthHeight(70px, 40px);
             left: -10px;
             bottom: -11px;
           }
@@ -759,19 +730,13 @@ h1, h2, h3, p {
       }
 
       .col-60 {
-        width: 60%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include widthHeight(60%, 100%);
+        @include flexible(flex, center, center, null, null);
       }
 
       .col-40 {
-        width: 40%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include widthHeight(40%, 100%);
+        @include flexible(flex, center, center, null, null);
       }
     }
 
@@ -787,39 +752,35 @@ h1, h2, h3, p {
     }
 
     .hamburger-menu {
+      @include widthHeight(34px, 20px);
       position: absolute;
       right: 0;
       top: 0;
-      height: 20px;
-      width: 34px;
       cursor: pointer;
       outline: none;
 
       .hamburger-menu--stripes {
+        @include widthHeight(34px, 3px);
         position: relative;
         top: 0;
         right: 0;
-        width: 34px;
-        height: 3px;
 
         &:before {
+          @include widthHeight(22px, 3px);
           transition: right 300ms ease-in-out;
           position: absolute;
           content: '';
           right: 0;
           top: 8px;
-          width: 22px;
-          height: 3px;
         }
 
         &:after {
+          @include widthHeight(14px, 3px);
           transition: right 300ms ease-in-out;
           position: absolute;
           content: '';
           right: 0;
           top: 16px;
-          width: 14px;
-          height: 3px;
         }
       }
 
@@ -839,17 +800,12 @@ h1, h2, h3, p {
 
   .menu-desktop {
     &--content {
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
+      @include widthHeight(null, 100%);
+      @include flexible(flex, space-between, center, column, null);
 
       &__top {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
+        @include flexible(flex, space-between, center, null, null);
+        @include widthHeight(100%, null);
         padding: 20px;
 
         .menu-title {
@@ -857,25 +813,22 @@ h1, h2, h3, p {
         }
 
         .hamburger-menu {
+          @include widthHeight(35px, 35px);
           cursor: pointer;
-          width: 35px;
-          height: 35px;
           transition: transform ease-in-out 300ms;
           transform: rotate(0);
 
           &--cross {
+            @include widthHeight(35px, 5px);
             position: relative;
             top: 14px;
-            width: 35px;
-            height: 5px;
             transform: rotate(45deg);
 
             &:after {
-              position: absolute;
               content: '';
+              @include widthHeight(35px, 5px);
+              position: absolute;
               top: 0;
-              width: 35px;
-              height: 5px;
               transform: rotate(90deg);
             }
           }
@@ -887,26 +840,22 @@ h1, h2, h3, p {
       }
 
       &__middle {
-        width: 100%;
-        height: 50%;
+        @include widthHeight(100%, 50%);
         padding: 20px 0;
 
         .pager {
-          width: 100%;
-          height: 100%;
-          display: flex;
-          justify-content: space-around;
+          @include widthHeight(100%, 100%);
+          @include flexible(flex, space-around, null, column, null);
           padding: 0;
           margin: 0;
           list-style: none;
-          flex-direction: column;
 
           li {
-            width: 100%;
+            @include widthHeight(100%, null);
             padding: 5px 0;
 
             a {
-              width: 100%;
+              @include widthHeight(100%, null);
               display: block;
               background-color: transparent;
               color: $text-color;
@@ -923,10 +872,9 @@ h1, h2, h3, p {
       }
 
       &__bottom {
-        width: 100%;
+        @include widthHeight(100%, null);
         padding: 20px;
-        display: flex;
-        justify-content: space-around;
+        @include flexible(flex, space-around, null, null, null);
       }
     }
   }
@@ -964,11 +912,8 @@ a {
 }
 
 .home-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
+  @include flexible(flex, center, center, null, null);
+  @include widthHeight(40px, 40px);
   background-color: $second-main-color;
   border-radius: 50%;
   border: 1px solid $border-color;
@@ -986,11 +931,10 @@ a {
 }
 
 .wrapper svg {
+  @include widthHeight(400px, 100%);
   position: absolute;
   top: 0;
   right: 0;
-  width: 400px;
-  height: 100%;
   transform: rotate(180deg);
   z-index: -1;
 }
@@ -1014,12 +958,11 @@ input::placeholder, textarea::placeholder {
 
 // Loading spinner
 .loader {
-  color: $first-main-color;
+  @include widthHeight(1em, 1em);
+  color: darken($first-main-color, 10%);
   font-size: 25px;
   margin: 100px auto;
   z-index: 5;
-  width: 1em;
-  height: 1em;
   border-radius: 50%;
   position: relative;
   text-indent: -9999em;

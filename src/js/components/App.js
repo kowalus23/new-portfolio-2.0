@@ -122,11 +122,12 @@ class App extends React.Component {
 
     if (windowWidth > 600) {
       return isLoading ? (
-        <div className={`app-content ${currentTheme}`}>
+        <div className="app-content">
           <div className="loader" />
         </div>
       ) : (
         <div className={`app-content ${currentTheme}`}>
+          <div className="loader" />
           <div className="themes-button">
             <div className="themes-list">
               <div
