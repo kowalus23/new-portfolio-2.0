@@ -160,7 +160,7 @@
 @media (max-width: 1600px) {
   .about-page {
     padding: 5% 0;
-    height: 100%;
+    height: 100vh;
 
     .about-container {
       width: 1200px;
@@ -250,6 +250,8 @@
 
 @media (max-width: 900px) {
   .about-page {
+    height: 100%;
+
     .about-container {
       width: 600px;
 
