@@ -18,7 +18,7 @@ Besides... in the future, i'm going to add some:
     Navigate into your project directory and start it up.
 
     ```sh
-    cd my-default-starter/
+    cd project_name/
     npm install
     gatsby develop
     ```
